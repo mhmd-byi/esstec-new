@@ -1,17 +1,14 @@
 import moment from "moment-timezone";
 
 export const convertTimezoneOffsetToGMT = (timezoneOffset) => {
-    // Determine the sign, hours, and minutes from the timezoneOffset
     const sign = timezoneOffset > 0 ? '-' : '+';
     const absoluteOffset = Math.abs(timezoneOffset);
     const hours = Math.floor(absoluteOffset / 60);
     const minutes = absoluteOffset % 60;
 
-    // Pad the hours and minutes with leading zeros if necessary
     const paddedHours = hours.toString().padStart(2, '0');
     const paddedMinutes = minutes.toString().padStart(2, '0');
 
-    // Construct the GMT string
     return `GMT${sign}${paddedHours}:${paddedMinutes}`;
 }
 
