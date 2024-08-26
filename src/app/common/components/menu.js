@@ -1,6 +1,6 @@
 export const Menu = () => {
   return (
-    <div className="uppercase">
+    <div className="uppercase text-secondary">
       <p className="flex flex-col">
         <span className="font-medium">&#47;&#47; About</span>
         <span>philosophy &#47;</span>

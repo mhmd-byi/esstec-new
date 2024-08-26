@@ -24,8 +24,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col px-40 pt-16 bg-primary">
       <div className="flex flex-row justify-between font-medium">
-        <div>
-          <p className="text-secondary">YOUR TIME</p>
+        <div className="text-secondary uppercase">
+          <p>YOUR TIME</p>
           <p>{userTime}</p>
         </div>
         <div>
@@ -38,8 +38,8 @@ export default function Home() {
             .
           </p>
         </div>
-        <div className="text-right">
-          <p className="text-secondary uppercase">Our time</p>
+        <div className="text-right text-secondary uppercase">
+          <p>Our time</p>
           <p>{gmtPlus4Time}</p>
         </div>
       </div>
