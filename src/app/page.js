@@ -12,6 +12,7 @@ import { Footer } from "./common/components/footer";
 export default function Home() {
   const [userTime, setUserTime] = useState(calculateCurrentTime());
   const [gmtPlus4Time, setGmtPlus4Time] = useState(getCurrentTimeInGMTPlus4());
+  const [logoPath, setLogoPath] = useState(esstecLogo);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -43,11 +44,11 @@ export default function Home() {
           <p>{gmtPlus4Time}</p>
         </div>
       </div>
-      <div className="text-right mt-16">
+      <div className="text-right mt-16 z-50">
         <Menu />
       </div>
       <div className="-mt-10">
-        <Image src={esstecLogo} width="w-full" height="h-full" />
+        <Image src={logoPath} width="w-full" height="h-full" />
       </div>
       <div className="mt-10 mb-5">
         <Footer />
