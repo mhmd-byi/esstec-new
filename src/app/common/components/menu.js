@@ -3,7 +3,7 @@ export const Menu = () => {
     <div className="uppercase text-secondary">
       <p className="flex flex-col">
         <span className="font-medium">&#47;&#47; About</span>
-        <span><a className="hover:line-through cursor-pointer">philosophy &#47;</a></span>
+        <span className="hover:line-through cursor-pointer">philosophy &#47;</span>
         <span><a className="hover:line-through cursor-pointer">clients &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer">team &#47;</a></span>
       </p>

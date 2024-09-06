@@ -8,11 +8,22 @@ import Image from "next/image";
 import esstecLogo from "@/assets/images/esstec-logo.svg";
 import { Menu } from "./common/components/menu";
 import { Footer } from "./common/components/footer";
+import DrawingComponent, { useDraw } from "./common/components/draw";
 
 export default function Home() {
   const [userTime, setUserTime] = useState(calculateCurrentTime());
   const [gmtPlus4Time, setGmtPlus4Time] = useState(getCurrentTimeInGMTPlus4());
-  const [logoPath, setLogoPath] = useState(esstecLogo);
+  const [draw, setDraw] = useState(false);
+  const handleDrawClick = () => {
+    if (!draw) {
+      setDraw(true);
+    } else {
+      setDraw(false);
+      setTimeout(() => {
+        setDraw(true);
+      }, 100);
+    }
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -46,9 +57,10 @@ export default function Home() {
       </div>
       <div className="text-right mt-16 z-50">
         <Menu />
+        <DrawingComponent draw={draw} handleDrawClick={handleDrawClick} />
       </div>
       <div className="-mt-10">
-        <Image src={logoPath} width="w-full" height="h-full" />
+        <Image src={esstecLogo} width="w-full" height="h-full" />
       </div>
       <div className="mt-10 mb-5">
         <Footer />
