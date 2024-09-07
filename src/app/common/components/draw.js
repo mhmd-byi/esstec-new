@@ -1,32 +1,38 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 function DrawingComponent({ draw, handleDrawClick }) {
-  const pathRef = useRef(null);
+  const rectRef = useRef(null);
 
   useEffect(() => {
-    if (draw && pathRef.current) {
-      const length = pathRef.current.getTotalLength();
-      pathRef.current.style.strokeDasharray = length;
-      pathRef.current.style.strokeDashoffset = length;
+    if (draw && rectRef.current) {
+      // Calculate the total perimeter of the rectangle
+      const perimeter = 2 * (parseInt(rectRef.current.getAttribute('width')) + parseInt(rectRef.current.getAttribute('height')));
+      rectRef.current.style.strokeDasharray = perimeter;
+      rectRef.current.style.strokeDashoffset = perimeter;
 
       requestAnimationFrame(() => {
-        pathRef.current.style.transition = 'stroke-dashoffset 2s ease-out, fill 0.5s ease-in-out 2s';
-        pathRef.current.style.strokeDashoffset = '0';
-        pathRef.current.style.fill = '#F3BB44';
+        rectRef.current.style.transition = 'stroke-dashoffset 5s ease-out, fill 0.5s ease-in-out 4.5s';
+        rectRef.current.style.strokeDashoffset = '0';
+        rectRef.current.style.fill = '#F3BB44';
       });
     }
   }, [draw]);
 
   return (
     <div className='absolute inset-0 flex justify-center items-center'>
-      <svg viewBox="0 0 1000 400" style={{ zIndex: 99 }}>
+      <svg viewBox="0 0 1100 410" style={{ zIndex: 99 }}>
         {draw && (
-          <path
-            ref={pathRef}
-            d="M 270 370 Q 270 350 270 320 L 270 100 Q 270 80 270 70 L 758 70 L 758 350 L 758 370"
+          <rect
+            ref={rectRef}
+            x="97"
+            y="50"
+            width="736" // Width of the rectangle
+            height="355" // Height of the rectangle
+            rx="20" // Rounded corner radius
+            ry="20" // Rounded corner radius
             fill="transparent"
             stroke="#222222"
-            strokeWidth="9"
+            strokeWidth="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
