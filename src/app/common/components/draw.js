@@ -1,7 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import { ClientComponent } from './client';
+import { PhilosophyComponent } from './philosophy';
 
-function DrawingComponent({ draw, handleDrawClick }) {
+function DrawingComponent({ draw, activeMenu }) {
   const rectRef = useRef(null);
+  const [animationComplete, setAnimationComplete] = useState(false);
 
   useEffect(() => {
     if (draw && rectRef.current) {
@@ -14,34 +17,43 @@ function DrawingComponent({ draw, handleDrawClick }) {
         rectRef.current.style.transition = 'stroke-dashoffset 5s ease-out, fill 0.5s ease-in-out 4.5s';
         rectRef.current.style.strokeDashoffset = '0';
         rectRef.current.style.fill = '#F3BB44';
+
+        setTimeout(() => {
+          setAnimationComplete(true); // Set the state to true after the animation
+        }, 5000);
       });
     }
   }, [draw]);
 
   return (
-    <div className='absolute inset-0 flex justify-center items-center'>
-      <svg viewBox="0 0 1100 410" style={{ zIndex: 99 }}>
-        {draw && (
-          <rect
-            ref={rectRef}
-            x="97"
-            y="50"
-            width="736" // Width of the rectangle
-            height="355" // Height of the rectangle
-            rx="20" // Rounded corner radius
-            ry="20" // Rounded corner radius
-            fill="transparent"
-            stroke="#222222"
-            strokeWidth="10"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        )}
-      </svg>
-      <button onClick={handleDrawClick} style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 20 }}>
-        {draw ? 'Redraw' : 'Draw'}
-      </button>
-    </div>
+    <>
+      <div className='absolute inset-0 flex justify-center items-center'>
+        <svg viewBox="0 0 1100 410">
+          {draw && (
+            <rect
+              ref={rectRef}
+              x="97"
+              y="50"
+              width="736" // Width of the rectangle
+              height="355" // Height of the rectangle
+              rx="20" // Rounded corner radius
+              ry="20" // Rounded corner radius
+              fill="transparent"
+              stroke="#222222"
+              strokeWidth="10"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          )}
+        </svg>
+      </div>
+      {(draw && animationComplete && activeMenu === 'clients') && (<div className='px-20'>
+        <ClientComponent />
+      </div>)}
+      {(draw && animationComplete && activeMenu === 'philosophy') && (<div className='absolute inset-0 top-56 right-[50vw] mt-10'>
+        <PhilosophyComponent />
+      </div>)}
+    </>
   );
 }
 

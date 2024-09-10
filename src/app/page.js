@@ -14,15 +14,17 @@ export default function Home() {
   const [userTime, setUserTime] = useState(calculateCurrentTime());
   const [gmtPlus4Time, setGmtPlus4Time] = useState(getCurrentTimeInGMTPlus4());
   const [draw, setDraw] = useState(false);
+  const [activeMenu, setActiveMenu] = useState('');
   const handleDrawClick = () => {
     if (!draw) {
       setDraw(true);
-    } else {
-      setDraw(false);
-      setTimeout(() => {
-        setDraw(true);
-      }, 100);
-    }
+    } 
+    // else {
+    //   setDraw(false);
+    //   setTimeout(() => {
+    //     setDraw(true);
+    //   }, 100);
+    // }
   };
 
   useEffect(() => {
@@ -34,14 +36,14 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
   return (
-    <main className="flex min-h-screen flex-col px-40 pt-16 bg-primary">
+    <main className="flex min-h-screen flex-col px-40 pt-16 bg-bg-primary">
       <div className="flex flex-row justify-between font-medium">
-        <div className="text-secondary uppercase">
+        <div className="text-text-primary uppercase">
           <p>YOUR TIME</p>
           <p>{userTime}</p>
         </div>
         <div>
-          <p className="text-secondary uppercase">
+          <p className="text-text-primary uppercase">
             a creative studio WORKING WITH BRANDS TO stand out in the GLOBAL
             market.{" "}
             <a href="mailto:info@esstec.ae" className="underline">
@@ -50,15 +52,15 @@ export default function Home() {
             .
           </p>
         </div>
-        <div className="text-right text-secondary uppercase">
+        <div className="text-right text-text-primary uppercase">
           <p>Our time</p>
           <p>{gmtPlus4Time}</p>
         </div>
       </div>
       <div className="text-right mt-16 z-50">
-        <Menu />
-        <DrawingComponent draw={draw} handleDrawClick={handleDrawClick} />
+        <Menu handleDrawClick={handleDrawClick} setActiveMenu={setActiveMenu} />
       </div>
+      <DrawingComponent draw={draw} activeMenu={activeMenu} />
       <div className="-mt-10">
         <Image src={esstecLogo} width="w-full" height="h-full" />
       </div>

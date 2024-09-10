@@ -1,10 +1,21 @@
-export const Menu = () => {
+export const Menu = ({ handleDrawClick, setActiveMenu }) => {
   return (
-    <div className="uppercase text-secondary">
+    <div className="relative uppercase text-secondary z-50">
       <p className="flex flex-col">
         <span className="font-medium">&#47;&#47; About</span>
-        <span className="hover:line-through cursor-pointer">philosophy &#47;</span>
-        <span><a className="hover:line-through cursor-pointer">clients &#47;</a></span>
+        <span><a 
+          className="hover:line-through cursor-pointer" 
+          onClick={() => {
+            handleDrawClick()
+            setActiveMenu('philosophy')
+          }}
+        >
+          philosophy &#47;
+        </a></span>
+        <span><a className="hover:line-through cursor-pointer" onClick={() => {
+          handleDrawClick()
+          setActiveMenu('clients')
+        }}>clients &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer">team &#47;</a></span>
       </p>
       <p className="flex flex-col">
