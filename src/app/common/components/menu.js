@@ -1,6 +1,6 @@
 export const Menu = ({ handleDrawClick, setActiveMenu }) => {
   return (
-    <div className="relative uppercase text-secondary z-50">
+    <div className="relative uppercase text-text-secondary z-50">
       <p className="flex flex-col">
         <span className="font-medium">&#47;&#47; About</span>
         <span><a 
