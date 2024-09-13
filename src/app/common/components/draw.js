@@ -35,7 +35,8 @@ function DrawingComponent({ draw, activeMenu }) {
             <rect
               ref={rectRef}
               x="108"
-              y="90"
+              y="-445.5"
+              // y="90"
               width="719" // Width of the rectangle
               height="355.5" // Height of the rectangle
               rx="25" // Rounded corner radius
@@ -45,6 +46,7 @@ function DrawingComponent({ draw, activeMenu }) {
               strokeWidth="10"
               strokeLinecap="round"
               strokeLinejoin="round"
+              transform="scale(1,-1)"
             />
           )}
         </svg>
