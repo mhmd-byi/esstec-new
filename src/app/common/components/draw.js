@@ -28,13 +28,13 @@ function DrawingComponent({ draw, activeMenu }) {
   return (
     <>
       <div className='absolute inset-0 flex justify-center items-center'>
-        <svg viewBox="0 0 1100 410">
+        <svg viewBox="0 0 1100 450">
           {draw && (
             <rect
               ref={rectRef}
               x="97"
-              y="50"
-              width="736" // Width of the rectangle
+              y="90"
+              width="716" // Width of the rectangle
               height="355" // Height of the rectangle
               rx="20" // Rounded corner radius
               ry="20" // Rounded corner radius
