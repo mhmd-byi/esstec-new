@@ -32,7 +32,7 @@ function DrawingComponent({ draw, activeMenu }) {
           {draw && (
             <rect
               ref={rectRef}
-              x="102"
+              x="108"
               y="90"
               width="724" // Width of the rectangle
               height="355" // Height of the rectangle
