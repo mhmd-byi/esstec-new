@@ -9,7 +9,9 @@ function DrawingComponent({ draw, activeMenu }) {
   useEffect(() => {
     if (draw && rectRef.current) {
       // Calculate the total perimeter of the rectangle
-      const perimeter = 2 * (parseInt(rectRef.current.getAttribute('width')) + parseInt(rectRef.current.getAttribute('height')));
+      const height = parseInt(rectRef.current.getAttribute('height'));
+      const width = parseInt(rectRef.current.getAttribute('width'));
+      const perimeter = 2 * (width + height);
       rectRef.current.style.strokeDasharray = perimeter;
       rectRef.current.style.strokeDashoffset = perimeter;
 

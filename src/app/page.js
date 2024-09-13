@@ -18,13 +18,7 @@ export default function Home() {
   const handleDrawClick = () => {
     if (!draw) {
       setDraw(true);
-    } 
-    // else {
-    //   setDraw(false);
-    //   setTimeout(() => {
-    //     setDraw(true);
-    //   }, 100);
-    // }
+    }
   };
 
   useEffect(() => {
