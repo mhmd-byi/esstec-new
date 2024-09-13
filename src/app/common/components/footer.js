@@ -1,6 +1,6 @@
 export const Footer = () => {
   return (
-    <div className="flex flex-row justify-between items-center text-text-primary">
+    <div className="flex flex-row justify-between items-center leading-6 text-[15px] text-text-primary">
       <div>
         <p>CRAFTING BRAND STORIES.</p>
         <p>ONE HIT AT A TIME.</p>

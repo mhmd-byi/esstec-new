@@ -31,7 +31,7 @@ export default function Home() {
   }, []);
   return (
     <main className="flex min-h-screen flex-col px-40 pt-16 bg-bg-primary">
-      <div className="flex flex-row justify-between font-medium">
+      <div className="flex flex-row justify-between font-medium leading-6 text-[15px]">
         <div className="text-text-primary uppercase">
           <p>YOUR TIME</p>
           <p>{userTime}</p>
