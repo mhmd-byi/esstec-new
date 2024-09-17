@@ -1,6 +1,6 @@
 export const Menu = ({ handleDrawClick, setActiveMenu }) => {
   return (
-    <div className="relative uppercase text-text-primary text-xs leading-6 z-50">
+    <div className="relative uppercase text-text-primary text-xs leading-6 z-40">
       <p className="flex flex-col">
         <span className="font-medium">&#47;&#47; About</span>
         <span><a 
@@ -25,7 +25,10 @@ export const Menu = ({ handleDrawClick, setActiveMenu }) => {
       </p>
       <p className="flex flex-col">
         <span className="font-medium">&#47;&#47; project showcase</span>
-        <span><a className="hover:line-through cursor-pointer">ewaa abu dhabi &#47;</a></span>
+        <span><a className="hover:line-through cursor-pointer" onClick={() => {
+          handleDrawClick()
+          setActiveMenu('projects')
+        }}>ewaa abu dhabi &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer">raw coffee company &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer">scope investments &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer">arabian knights &#47;</a></span>

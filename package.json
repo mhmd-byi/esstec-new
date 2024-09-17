@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@material-tailwind/react": "^2.1.10",
     "moment-timezone": "^0.5.45",
     "next": "14.2.6",
     "react": "^18",

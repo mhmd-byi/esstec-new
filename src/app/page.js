@@ -8,7 +8,7 @@ import Image from "next/image";
 import esstecLogo from "@/assets/images/esstec-logo.svg";
 import { Menu } from "./common/components/menu";
 import { Footer } from "./common/components/footer";
-import DrawingComponent, { useDraw } from "./common/components/draw";
+import DrawingComponent from "./common/components/draw";
 
 export default function Home() {
   const [userTime, setUserTime] = useState(calculateCurrentTime());

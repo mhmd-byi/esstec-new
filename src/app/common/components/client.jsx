@@ -3,7 +3,7 @@ import { clientData } from "./clientsData"
 export const ClientComponent = () => {
     return (
         <div className="absolute top-56 mt-10 w-[1100px] items-center justify-center">
-            <h2 className="text-6xl font-bold text-text-primary uppercase duration-1000 ease-in-out text-center">
+            <h2 className="text-6xl font-bold text-text-primary uppercase duration-1000 ease-in-out text-center max-w-[970px]">
                 clients
             </h2>
             <div className="flex flex-row flex-wrap mt-10">

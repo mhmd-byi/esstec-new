@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { ClientComponent } from './client';
 import { PhilosophyComponent } from './philosophy';
+import { ProjectsComponent } from './projects';
 
 function DrawingComponent({ draw, activeMenu }) {
   const rectRef = useRef(null);
@@ -49,11 +50,14 @@ function DrawingComponent({ draw, activeMenu }) {
           )}
         </svg>
       </div>
+      {(draw && animationComplete && activeMenu === 'philosophy') && (<div className='px-20'>
+        <PhilosophyComponent />
+      </div>)}
       {(draw && animationComplete && activeMenu === 'clients') && (<div className='px-20'>
         <ClientComponent />
       </div>)}
-      {(draw && animationComplete && activeMenu === 'philosophy') && (<div className='absolute inset-0 top-56 right-[50vw] mt-10'>
-        <PhilosophyComponent />
+      {(draw && animationComplete && activeMenu === 'projects') && (<div className='px-20'>
+        <ProjectsComponent />
       </div>)}
     </>
   );
