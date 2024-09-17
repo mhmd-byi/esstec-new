@@ -9,8 +9,8 @@ import website from "@/assets/projectImages/website.png";
 
 export const ProjectsComponent = () => {
   return (
-    <div className="absolute top-48 left-44 ml-px mt-1 w-[1116px] h-[585px] items-center justify-center">
-      <Carousel className="rounded-[35px] z-50">
+    <div className="absolute top-44 left-44 ml-px mt-2 w-[1116px] h-[588px] items-center justify-center">
+      <Carousel className="rounded-[30px] z-50">
         <Image
             alt="brand guide"
             src={brandGuide}
