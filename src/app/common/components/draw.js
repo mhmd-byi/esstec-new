@@ -36,9 +36,9 @@ function DrawingComponent({ draw, activeMenu }) {
             <rect
               ref={rectRef}
               x="108"
-              y="90"
+              y="85"
               width="719" // Width of the rectangle
-              height="380" // Height of the rectangle
+              height="384" // Height of the rectangle
               rx="25" // Rounded corner radius
               ry="25" // Rounded corner radius
               fill="transparent"
