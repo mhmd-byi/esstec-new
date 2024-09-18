@@ -9,7 +9,7 @@ import website from "@/assets/projectImages/website.png";
 
 export const ProjectsComponent = () => {
   return (
-    <div className="absolute top-44 left-44 ml-px mt-2 w-[64vw] h-[68.5vh] items-center justify-center">
+    <div className="absolute top-44 left-44 ml-px mt-2 w-[64vw] h-[68.7vh] items-center justify-center">
       <Carousel className="rounded-[30px] z-50" loop={true} autoplay={true} autoplayDelay={5000}>
         <Image
             alt="brand guide"
