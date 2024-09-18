@@ -9,13 +9,12 @@ import slide5 from "@/assets/projectImages/scope-investments/5-web-development.s
 export const ScopeInvestmentsCarouselComponent = () => {
   return (
     <div className="absolute top-44 left-44 mt-2 w-[64vw] h-[68.7vh] items-center justify-center">
-      <Carousel className="rounded-[30px] z-50" loop={true} autoplay={true} autoplayDelay={5000} navigation={({ setActiveIndex, activeIndex, length }) => (
+      <Carousel className="rounded-[25px] z-50" loop={true} autoplay={true} autoplayDelay={5000} transition={{type: "spring", duration: 1}} navigation={({ length }) => (
         <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
           {new Array(length).fill("").map((_, i) => (
             <span
               key={i}
               className="hidden"
-              onClick={() => setActiveIndex(i)}
             />
           ))}
         </div>
