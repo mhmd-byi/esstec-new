@@ -27,7 +27,7 @@ export const Menu = ({ handleDrawClick, setActiveMenu }) => {
         <span className="font-medium">&#47;&#47; project showcase</span>
         <span><a className="hover:line-through cursor-pointer" onClick={() => {
           handleDrawClick()
-          setActiveMenu('projects')
+          setActiveMenu('ewaa')
         }}>ewaa abu dhabi &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer">raw coffee company &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer">scope investments &#47;</a></span>

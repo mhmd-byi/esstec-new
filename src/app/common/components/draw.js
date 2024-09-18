@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { ClientComponent } from './client';
 import { PhilosophyComponent } from './philosophy';
-import { ProjectsComponent } from './projects';
+import { EwaaCarouselComponent } from "./projects/ewaa";
 
 function DrawingComponent({ draw, activeMenu }) {
   const rectRef = useRef(null);
@@ -57,8 +57,8 @@ function DrawingComponent({ draw, activeMenu }) {
       {(draw && animationComplete && activeMenu === 'clients') && (<div className='px-20'>
         <ClientComponent />
       </div>)}
-      {(draw && animationComplete && activeMenu === 'projects') && (<div className='px-20'>
-        <ProjectsComponent />
+      {(draw && animationComplete && activeMenu === 'ewaa') && (<div className='px-20'>
+        <EwaaCarouselComponent />
       </div>)}
     </>
   );
