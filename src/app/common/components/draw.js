@@ -46,7 +46,7 @@ function DrawingComponent({ draw, activeMenu }) {
               strokeWidth="10"
               strokeLinecap="round"
               strokeLinejoin="round"
-              transform="scale(1 , -1) translate(0, -550.5)" 
+              transform="scale(1 , -1) translate(0, -550.5)"
             />
           )}
         </svg>
