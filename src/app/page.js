@@ -1,10 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import {
-  calculateCurrentTime,
-  getCurrentTimeInGMTPlus4,
-} from "@/helper/helper";
 import Image from "next/image";
+import { calculateCurrentTime, getCurrentTimeInGMTPlus4 } from "@/helper/helper";
 import esstecLogo from "@/assets/images/esstec-logo.svg";
 import { Menu } from "./common/components/menu";
 import { Footer } from "./common/components/footer";
@@ -29,6 +26,7 @@ export default function Home() {
 
     return () => clearInterval(timer);
   }, []);
+  
   return (
     <main className="flex min-h-screen flex-col px-40 pt-16 bg-bg-primary">
       <div className="flex flex-row justify-between font-medium text-xs leading-6">

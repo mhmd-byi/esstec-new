@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Carousel } from "@material-tailwind/react";
-import brandGuide from "@/assets/projectImages/brand-guide.png";
+import brandGuide from "@/assets/projectImages/brand-guide.svg";
 import animieVideo from "@/assets/projectImages/animie-video.png";
 import corporateFilm from "@/assets/projectImages/corporate-film.png";
 import infographics from "@/assets/projectImages/infographics.png";
