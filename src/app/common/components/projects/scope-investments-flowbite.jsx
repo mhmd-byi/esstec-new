@@ -10,7 +10,7 @@ import slide5 from "@/assets/projectImages/scope-investments/5-web-development.s
 export const ScopeInvestmentsFlowbiteCarouselComponent = () => {
   return (
     <div className="absolute top-44 left-44 mt-2 w-[64vw] h-[68.7vh] items-center justify-center">
-      <Carousel className="rounded-[25px] z-50" slideInterval={5000} indicators={false} slide={true}>
+      <Carousel className="rounded-[27.5px] z-50" slideInterval={5000} indicators={false} slide={true}>
         <Image
             alt="brand guide"
             src={slide1}

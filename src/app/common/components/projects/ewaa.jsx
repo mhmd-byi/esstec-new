@@ -11,7 +11,7 @@ import slide7 from "@/assets/projectImages/ewaa/7-corporate-film.svg";
 export const EwaaCarouselComponent = () => {
   return (
     <div className="absolute top-44 left-44 mt-2 w-[64vw] h-[68.7vh] items-center justify-center">
-      <Carousel className="rounded-[25px] z-50" loop={true} autoplay={true} autoplayDelay={5000} transition={{type: "spring", duration: 0.5}} navigation={({ length }) => (
+      <Carousel className="rounded-[27.5px] z-50" loop={true} autoplay={true} autoplayDelay={5000} transition={{type: "spring", duration: 0.5}} navigation={({ length }) => (
         <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
           {new Array(length).fill("").map((_, i) => (
             <span
