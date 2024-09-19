@@ -12,6 +12,15 @@ export const Menu = ({ handleDrawClick, setActiveMenu }) => {
         >
           philosophy &#47;
         </a></span>
+        <span><a 
+          className="hover:line-through cursor-pointer" 
+          onClick={() => {
+            handleDrawClick()
+            setActiveMenu('philosophy')
+          }}
+        >
+          expertise &#47;
+        </a></span>
         <span><a className="hover:line-through cursor-pointer" onClick={() => {
           handleDrawClick()
           setActiveMenu('clients')
@@ -19,16 +28,13 @@ export const Menu = ({ handleDrawClick, setActiveMenu }) => {
         <span><a className="hover:line-through cursor-pointer">team &#47;</a></span>
       </p>
       <p className="flex flex-col">
-        <span className="font-medium">&#47;&#47; creative expertise</span>
-        <span><a className="hover:line-through cursor-pointer">digital &#47;</a></span>
-        <span><a className="hover:line-through cursor-pointer">physical &#47;</a></span>
-      </p>
-      <p className="flex flex-col">
         <span className="font-medium">&#47;&#47; project showcase</span>
         <span><a className="hover:line-through cursor-pointer" onClick={() => {
           handleDrawClick()
           setActiveMenu('ewaa')
         }}>ewaa abu dhabi &#47;</a></span>
+        <span><a className="hover:line-through cursor-pointer">client 2 &#47;</a></span>
+        <span><a className="hover:line-through cursor-pointer">client 3 &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer">raw coffee company &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer" onClick={() => {
           handleDrawClick()
