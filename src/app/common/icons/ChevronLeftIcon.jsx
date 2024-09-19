@@ -5,7 +5,7 @@ export const ChevronLeftIcon = (props) => (
     viewBox="0 0 24 24"
     strokeWidth={2.5}
     stroke="currentColor"
-    className={`size-16 text-text-primary ${props.className}`}
+    className={`size-10 text-text-primary ${props.className}`}
   >
     <path
       strokeLinecap="round"
