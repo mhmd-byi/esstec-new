@@ -49,8 +49,14 @@ export const Menu = ({ handleDrawClick, setActiveMenu }) => {
       </p>
       <p className="flex flex-col">
         <span className="font-medium">&#47;&#47; contact</span>
-        <span><a className="hover:line-through cursor-pointer" href="mailto:info@esstec.ae">email &#47;</a></span>
-        <span><a className="hover:line-through cursor-pointer">phone &#47;</a></span>
+        <span><a className="hover:line-through cursor-pointer" onClick={() => {
+          handleDrawClick()
+          setActiveMenu('email')
+        }}>email &#47;</a></span>
+        <span><a className="hover:line-through cursor-pointer" onClick={() => {
+          handleDrawClick()
+          setActiveMenu('phone')
+        }}>phone &#47;</a></span>
       </p>
     </div>
   );

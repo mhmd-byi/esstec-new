@@ -1,0 +1,15 @@
+export const EmailComponent = () => {
+    return (
+        <div className="absolute top-56 mt-10 w-[1100px] items-center justify-center z-[60]">
+            <h2 className="text-6xl font-bold text-text-primary uppercase duration-1000 ease-in-out text-center max-w-[970px]">
+                Contact
+            </h2>
+            <h3 className="text-4xl font-semibold text-text-primary uppercase duration-1000 ease-in-out text-center max-w-[970px] mt-10">
+                Drop us a line
+            </h3>
+            <p className="text-4xl font-semibold text-text-primary uppercase duration-1000 ease-in-out text-center max-w-[970px] mt-10 cursor-pointer">
+                <a href="mailto:info@esstec.ae">info@esstec.ae</a>
+            </p>
+        </div>
+    )
+}

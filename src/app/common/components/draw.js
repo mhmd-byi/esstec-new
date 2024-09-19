@@ -4,6 +4,8 @@ import { PhilosophyComponent } from './philosophy';
 import { EwaaCarouselComponent } from "./projects/ewaa";
 import { ScopeInvestmentsFlowbiteCarouselComponent } from './projects/scope-investments-flowbite';
 import { MarketIResearchCarouselComponent } from './projects/market-i-research';
+import { EmailComponent } from './email';
+import { PhoneComponent } from './phone';
 
 function DrawingComponent({ draw, activeMenu }) {
   const rectRef = useRef(null);
@@ -67,6 +69,12 @@ function DrawingComponent({ draw, activeMenu }) {
       </div>)}
       {(draw && animationComplete && activeMenu === 'market') && (<div className='px-20'>
         <MarketIResearchCarouselComponent />
+      </div>)}
+      {(draw && animationComplete && activeMenu === 'email') && (<div className='px-20'>
+        <EmailComponent />
+      </div>)}
+      {(draw && animationComplete && activeMenu === 'phone') && (<div className='px-20'>
+        <PhoneComponent />
       </div>)}
     </>
   );
