@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { ClientComponent } from './client';
 import { PhilosophyComponent } from './philosophy';
 import { EwaaCarouselComponent } from "./projects/ewaa";
-import { ScopeInvestmentsFlowbiteCarouselComponent } from './projects/scope-investments-flowbite';
+import { ScopeInvestmentsCarouselComponent } from './projects/scope-investments';
 import { MarketIResearchCarouselComponent } from './projects/market-i-research';
 import { EmailComponent } from './email';
 import { PhoneComponent } from './phone';
@@ -65,7 +65,7 @@ function DrawingComponent({ draw, activeMenu }) {
         <EwaaCarouselComponent />
       </div>)}
       {(draw && animationComplete && activeMenu === 'scope') && (<div className='px-20'>
-        <ScopeInvestmentsFlowbiteCarouselComponent />
+        <ScopeInvestmentsCarouselComponent />
       </div>)}
       {(draw && animationComplete && activeMenu === 'market') && (<div className='px-20'>
         <MarketIResearchCarouselComponent />
