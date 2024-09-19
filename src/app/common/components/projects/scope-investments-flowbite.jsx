@@ -37,12 +37,12 @@ export const ScopeInvestmentsFlowbiteCarouselComponent = () => {
           <ChevronRightIcon className={!displayRightControl && "hidden"} />
         }
       >
-        <Image alt="brand guide" src={slide1} className="h-full w-full" />
-        <Image alt="brand guide" src={slide2} className="h-full w-full" />
-        <Image alt="brand guide" src={slide3} className="h-full w-full" />
-        <Image alt="brand guide" src={slide4} className="h-full w-full" />
-        <Image alt="brand guide" src={slide5} className="h-full w-full" />
-        <Image alt="brand guide" src={slide6} className="h-full w-full" />
+        <Image alt="brand guide" src={slide1} className="h-full w-full rounded-[27.5px]" />
+        <Image alt="brand guide" src={slide2} className="h-full w-full rounded-[27.5px]" />
+        <Image alt="brand guide" src={slide3} className="h-full w-full rounded-[27.5px]" />
+        <Image alt="brand guide" src={slide4} className="h-full w-full rounded-[27.5px]" />
+        <Image alt="brand guide" src={slide5} className="h-full w-full rounded-[27.5px]" />
+        <Image alt="brand guide" src={slide6} className="h-full w-full rounded-[27.5px]" />
       </Carousel>
     </div>
   );
