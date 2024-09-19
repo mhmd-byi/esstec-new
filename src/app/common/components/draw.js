@@ -4,6 +4,7 @@ import { PhilosophyComponent } from './philosophy';
 import { EwaaCarouselComponent } from "./projects/ewaa";
 import { ScopeInvestmentsCarouselComponent } from './projects/scope-investments';
 import { ScopeInvestmentsFlowbiteCarouselComponent } from './projects/scope-investments-flowbite';
+import { MarketIResearchCarouselComponent } from './projects/market-i-research';
 
 function DrawingComponent({ draw, activeMenu }) {
   const rectRef = useRef(null);
@@ -64,6 +65,9 @@ function DrawingComponent({ draw, activeMenu }) {
       </div>)}
       {(draw && animationComplete && activeMenu === 'scope') && (<div className='px-20'>
         <ScopeInvestmentsFlowbiteCarouselComponent />
+      </div>)}
+      {(draw && animationComplete && activeMenu === 'market') && (<div className='px-20'>
+        <MarketIResearchCarouselComponent />
       </div>)}
     </>
   );
