@@ -18,8 +18,8 @@ export const ScopeInvestmentsFlowbiteCarouselComponent = () => {
     <div className="absolute top-44 left-44 mt-2 w-[64vw] h-[68.7vh] items-center justify-center">
       <Carousel
         className="rounded-[27.5px] z-50"
-        slideInterval={5000}
         indicators={false}
+        slide={false}
         onSlideChange={(index) => {
           if (index === 5) {
             setDisplayRightControl(false);
