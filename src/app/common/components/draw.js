@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import { ClientComponent } from './client';
 import { PhilosophyComponent } from './philosophy';
 import { EwaaCarouselComponent } from "./projects/ewaa";
-import { ScopeInvestmentsCarouselComponent } from './projects/scope-investments';
 import { ScopeInvestmentsFlowbiteCarouselComponent } from './projects/scope-investments-flowbite';
 import { MarketIResearchCarouselComponent } from './projects/market-i-research';
 
