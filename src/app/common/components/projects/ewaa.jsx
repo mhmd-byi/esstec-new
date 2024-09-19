@@ -13,39 +13,30 @@ import { ChevronRightIcon } from "../../icons/ChevronRightIcon";
 import { ChevronLeftIcon } from "../../icons/ChevronLeftIcon";
 
 export const EwaaCarouselComponent = () => {
-  const [displayRightControl, setDisplayRightControl] = useState(true);
-  const [displayLeftControl, setDisplayLeftControl] = useState(true);
+  const carouselImageClasses = 'h-full w-full rounded-[27.5px] my-carousel-item';
+  const [activeIndex, setActiveIndex] = useState(0);
+  const slides = [slide1, slide2, slide3, slide4, slide5, slide6, slide7];
   return (
     <div className="absolute top-44 left-44 mt-2 w-[64vw] h-[68.7vh] items-center justify-center">
       <Carousel
         className="rounded-[27.5px] z-50"
         indicators={false}
         slide={false}
-        onSlideChange={(index) => {
-          console.log('this is index', index)
-          if (index === 6) {
-            setDisplayRightControl(false);
-          } else {
-            setDisplayRightControl(true);
-          }
-          if (index === 0) {
-            setDisplayLeftControl(false);
-          } else {
-            setDisplayLeftControl(true);
-          }
-        }}
-        leftControl={<ChevronLeftIcon className={!displayLeftControl && "hidden"} />}
+        draggable={false}
+        onSlideChange={setActiveIndex}
+        leftControl={<ChevronLeftIcon className={(activeIndex === 0) && "hidden"} />}
         rightControl={
-          <ChevronRightIcon className={!displayRightControl && "hidden"} />
+          <ChevronRightIcon className={(activeIndex === slides.length - 1) && "hidden"} />
         }
       >
-        <Image alt="brand guide" src={slide1} className="h-full w-full" />
-        <Image alt="brand guide" src={slide2} className="h-full w-full" />
-        <Image alt="brand guide" src={slide3} className="h-full w-full" />
-        <Image alt="brand guide" src={slide4} className="h-full w-full" />
-        <Image alt="brand guide" src={slide5} className="h-full w-full" />
-        <Image alt="brand guide" src={slide6} className="h-full w-full" />
-        <Image alt="brand guide" src={slide7} className="h-full w-full" />
+        {slides.map((src, index) => (
+          <Image
+            key={index}
+            src={src}
+            alt="brand guide"
+            className={carouselImageClasses}
+          />
+        ))}
       </Carousel>
     </div>
   );
