@@ -6,6 +6,7 @@ import { ScopeInvestmentsCarouselComponent } from './projects/scope-investments'
 import { MarketIResearchCarouselComponent } from './projects/market-i-research';
 import { EmailComponent } from './email';
 import { PhoneComponent } from './phone';
+import { RawCoffeeCarouselComponent } from './projects/raw-coffee';
 
 function DrawingComponent({ draw, activeMenu }) {
   const rectRef = useRef(null);
@@ -75,6 +76,9 @@ function DrawingComponent({ draw, activeMenu }) {
       </div>)}
       {(draw && animationComplete && activeMenu === 'phone') && (<div className='px-20'>
         <PhoneComponent />
+      </div>)}
+      {(draw && animationComplete && activeMenu === 'coffee') && (<div className='px-20'>
+        <RawCoffeeCarouselComponent />
       </div>)}
     </>
   );

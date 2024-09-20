@@ -35,7 +35,10 @@ export const Menu = ({ handleDrawClick, setActiveMenu }) => {
         }}>ewaa abu dhabi &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer">client 2 &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer">client 3 &#47;</a></span>
-        <span><a className="hover:line-through cursor-pointer">raw coffee company &#47;</a></span>
+        <span><a className="hover:line-through cursor-pointer" onClick={() => {
+          handleDrawClick()
+          setActiveMenu('coffee')
+        }}>raw coffee company &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer" onClick={() => {
           handleDrawClick()
           setActiveMenu('scope')
