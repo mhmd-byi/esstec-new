@@ -7,6 +7,7 @@ import { MarketIResearchCarouselComponent } from './projects/market-i-research';
 import { EmailComponent } from './email';
 import { PhoneComponent } from './phone';
 import { RawCoffeeCarouselComponent } from './projects/raw-coffee';
+import { FreshlyMealsCarouselComponent } from './projects/freshly-meals';
 
 function DrawingComponent({ draw, activeMenu }) {
   const rectRef = useRef(null);
@@ -79,6 +80,9 @@ function DrawingComponent({ draw, activeMenu }) {
       </div>)}
       {(draw && animationComplete && activeMenu === 'coffee') && (<div className='px-20'>
         <RawCoffeeCarouselComponent />
+      </div>)}
+      {(draw && animationComplete && activeMenu === 'freshly') && (<div className='px-20'>
+        <FreshlyMealsCarouselComponent />
       </div>)}
     </>
   );
