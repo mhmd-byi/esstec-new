@@ -65,7 +65,7 @@ export const ScopeInvestmentsCarouselComponent = () => {
     prevArrow: <PrevArrow />,
   };
   return (
-    <div className="absolute top-44 left-44 mt-2 w-[64vw] h-[68.7vh] items-center justify-center">
+    <div className="absolute top-48 left-44 mt-2 w-[64vw] h-[68.7vh] items-center justify-center">
       <Slider {...settings} className="rounded-[27.5px] z-50">
         {slides.map((src, index) => (
           <div key={index}>
