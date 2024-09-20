@@ -51,7 +51,10 @@ export const Menu = ({ handleDrawClick, setActiveMenu }) => {
           handleDrawClick()
           setActiveMenu('market')
         }}>market i research &#47;</a></span>
-        <span><a className="hover:line-through cursor-pointer">lvmh fragrances &#47;</a></span>
+        <span><a className="hover:line-through cursor-pointer" onClick={() => {
+          handleDrawClick()
+          setActiveMenu('lvmh')
+        }}>lvmh fragrances &#47;</a></span>
       </p>
       <p className="flex flex-col">
         <span className="font-medium">&#47;&#47; contact</span>
