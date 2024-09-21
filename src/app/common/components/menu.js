@@ -1,8 +1,10 @@
-export const Menu = ({ handleDrawClick, setActiveMenu }) => {
+export const Menu = ({ handleDrawClick, setActiveMenu, setDraw }) => {
   return (
     <div className="relative uppercase text-text-primary text-xs leading-6 z-40">
       <p className="flex flex-col">
-        <span className="font-medium">&#47;&#47; About</span>
+        <span className="font-medium" onClick={() => {
+          setDraw(false)
+        }}>&#47;&#47; About</span>
         <span><a 
           className="hover:line-through cursor-pointer" 
           onClick={() => {
@@ -28,7 +30,9 @@ export const Menu = ({ handleDrawClick, setActiveMenu }) => {
         <span><a className="hover:line-through cursor-pointer">team &#47;</a></span>
       </p>
       <p className="flex flex-col">
-        <span className="font-medium">&#47;&#47; project showcase</span>
+        <span className="font-medium" onClick={() => {
+          setDraw(false)
+        }}>&#47;&#47; project showcase</span>
         <span><a className="hover:line-through cursor-pointer" onClick={() => {
           handleDrawClick()
           setActiveMenu('ewaa')
@@ -57,7 +61,9 @@ export const Menu = ({ handleDrawClick, setActiveMenu }) => {
         }}>lvmh fragrances &#47;</a></span>
       </p>
       <p className="flex flex-col">
-        <span className="font-medium">&#47;&#47; contact</span>
+        <span className="font-medium"onClick={() => {
+          setDraw(false)
+        }}>&#47;&#47; contact</span>
         <span><a className="hover:line-through cursor-pointer" onClick={() => {
           handleDrawClick()
           setActiveMenu('email')

@@ -50,7 +50,7 @@ export default function Home() {
         </div>
       </div>
       <div className="text-right mt-16 z-50">
-        <Menu handleDrawClick={handleDrawClick} setActiveMenu={setActiveMenu} />
+        <Menu handleDrawClick={handleDrawClick} setActiveMenu={setActiveMenu} setDraw={setDraw} />
       </div>
       <DrawingComponent draw={draw} activeMenu={activeMenu} />
       <div className="-mt-10">
