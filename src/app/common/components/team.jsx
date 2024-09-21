@@ -17,7 +17,7 @@ export const TeamComponent = () => {
             </p>
             <p className="text-base font-semibold text-text-primary uppercase duration-1000 ease-in-out text-center max-w-[970px] mt-10">
                 whether you are interested in collaborating, working on a project together, or just stopping by for a chat over coffee,
-                we're here. reach out to us at info@esstec.ae
+                we&apos;re here. reach out to us at info@esstec.ae
             </p>
         </div>
     )
