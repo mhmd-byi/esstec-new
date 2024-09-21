@@ -1,9 +1,10 @@
-export const Menu = ({ handleDrawClick, setActiveMenu, setDraw }) => {
+export const Menu = ({ handleDrawClick, setActiveMenu, setDraw, setAnimationComplete }) => {
   return (
     <div className="relative uppercase text-text-primary text-xs leading-6 z-40">
       <p className="flex flex-col">
         <span className="font-medium cursor-pointer" onClick={() => {
-          setDraw(false)
+          setDraw(false);
+          setAnimationComplete(false);
         }}>&#47;&#47; About</span>
         <span><a 
           className="hover:line-through cursor-pointer" 
@@ -31,7 +32,8 @@ export const Menu = ({ handleDrawClick, setActiveMenu, setDraw }) => {
       </p>
       <p className="flex flex-col">
         <span className="font-medium cursor-pointer" onClick={() => {
-          setDraw(false)
+          setDraw(false);
+          setAnimationComplete(false);
         }}>&#47;&#47; project showcase</span>
         <span><a className="hover:line-through cursor-pointer" onClick={() => {
           handleDrawClick()
@@ -62,7 +64,8 @@ export const Menu = ({ handleDrawClick, setActiveMenu, setDraw }) => {
       </p>
       <p className="flex flex-col">
         <span className="font-medium cursor-pointer" onClick={() => {
-          setDraw(false)
+          setDraw(false);
+          setAnimationComplete(false);
         }}>&#47;&#47; contact</span>
         <span><a className="hover:line-through cursor-pointer" onClick={() => {
           handleDrawClick()

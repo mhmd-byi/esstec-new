@@ -10,9 +10,8 @@ import { RawCoffeeCarouselComponent } from './projects/raw-coffee';
 import { FreshlyMealsCarouselComponent } from './projects/freshly-meals';
 import { LVMHCarouselComponent } from './projects/lvmh';
 
-function DrawingComponent({ draw, activeMenu }) {
+function DrawingComponent({ draw, activeMenu, animationComplete, setAnimationComplete }) {
   const rectRef = useRef(null);
-  const [animationComplete, setAnimationComplete] = useState(false);
 
   useEffect(() => {
     if (draw && rectRef.current) {

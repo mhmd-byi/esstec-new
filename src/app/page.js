@@ -11,6 +11,7 @@ export default function Home() {
   const [userTime, setUserTime] = useState(calculateCurrentTime());
   const [gmtPlus4Time, setGmtPlus4Time] = useState(getCurrentTimeInGMTPlus4());
   const [draw, setDraw] = useState(false);
+  const [animationComplete, setAnimationComplete] = useState(false);
   const [activeMenu, setActiveMenu] = useState('');
   const handleDrawClick = () => {
     if (!draw) {
@@ -50,9 +51,19 @@ export default function Home() {
         </div>
       </div>
       <div className="text-right mt-16 z-50">
-        <Menu handleDrawClick={handleDrawClick} setActiveMenu={setActiveMenu} setDraw={setDraw} />
+        <Menu 
+          handleDrawClick={handleDrawClick} 
+          setActiveMenu={setActiveMenu} 
+          setDraw={setDraw}
+          setAnimationComplete={setAnimationComplete}   
+        />
       </div>
-      <DrawingComponent draw={draw} activeMenu={activeMenu} />
+      <DrawingComponent 
+        draw={draw} 
+        activeMenu={activeMenu} 
+        animationComplete={animationComplete} 
+        setAnimationComplete={setAnimationComplete} 
+      />
       <div className="-mt-10">
         <Image src={esstecLogo} width="w-full" height="h-full" />
       </div>
