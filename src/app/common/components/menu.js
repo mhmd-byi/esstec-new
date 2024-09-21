@@ -28,7 +28,10 @@ export const Menu = ({ handleDrawClick, setActiveMenu, setDraw, setAnimationComp
           handleDrawClick()
           setActiveMenu('clients')
         }}>clients &#47;</a></span>
-        <span><a className="hover:line-through cursor-pointer">team &#47;</a></span>
+        <span><a className="hover:line-through cursor-pointer" onClick={() => {
+          handleDrawClick()
+          setActiveMenu('team')
+        }}>team &#47;</a></span>
       </p>
       <p className="flex flex-col">
         <span className="font-medium cursor-pointer" onClick={() => {
