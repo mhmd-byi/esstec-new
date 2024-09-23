@@ -44,25 +44,25 @@ export const Menu = ({ handleDrawClick, setActiveMenu, setDraw, setAnimationComp
         }}>ewaa abu dhabi &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer" onClick={() => {
           handleDrawClick()
-          setActiveMenu('freshly')
-        }}>freshly meals &#47;</a></span>
-        <span><a className="hover:line-through cursor-pointer">client 3 &#47;</a></span>
+          setActiveMenu('scope')
+        }}>scope investments &#47;</a></span>
+        <span><a className="hover:line-through cursor-pointer" onClick={() => {
+          handleDrawClick()
+          setActiveMenu('market')
+        }}>market i research &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer" onClick={() => {
           handleDrawClick()
           setActiveMenu('coffee')
         }}>raw coffee company &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer" onClick={() => {
           handleDrawClick()
-          setActiveMenu('scope')
-        }}>scope investments &#47;</a></span>
+          setActiveMenu('freshly')
+        }}>freshly meals &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer" onClick={() => {
           handleDrawClick()
           setActiveMenu('ddy')
         }}>ddy autism center &#47;</a></span>
-        <span><a className="hover:line-through cursor-pointer" onClick={() => {
-          handleDrawClick()
-          setActiveMenu('market')
-        }}>market i research &#47;</a></span>
+        <span><a className="hover:line-through cursor-pointer">client 3 &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer" onClick={() => {
           handleDrawClick()
           setActiveMenu('lvmh')
