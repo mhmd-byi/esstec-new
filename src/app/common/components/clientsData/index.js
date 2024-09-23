@@ -45,7 +45,7 @@ export const clientData = [
     },
     {
         name: 'scope investments',
-        website: 'scopeinvestments.ae',
+        website: 'scopeinvestment.ae',
     },
     {
         name: 'lvmh',

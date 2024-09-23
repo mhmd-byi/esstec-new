@@ -13,7 +13,6 @@ export const ClientComponent = () => {
                         <div className="text-text-primary font-medium text-sm lowercase"><a href={`https://${data.website}`} target="_blank" className="cursor-pointer">{data.website}</a></div>
                     </div>
                 ))}
-            
             </div>
         </div>
     )
