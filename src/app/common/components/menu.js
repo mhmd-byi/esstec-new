@@ -55,7 +55,10 @@ export const Menu = ({ handleDrawClick, setActiveMenu, setDraw, setAnimationComp
           handleDrawClick()
           setActiveMenu('scope')
         }}>scope investments &#47;</a></span>
-        <span><a className="hover:line-through cursor-pointer">arabian knights &#47;</a></span>
+        <span><a className="hover:line-through cursor-pointer" onClick={() => {
+          handleDrawClick()
+          setActiveMenu('ddy')
+        }}>ddy autism center &#47;</a></span>
         <span><a className="hover:line-through cursor-pointer" onClick={() => {
           handleDrawClick()
           setActiveMenu('market')

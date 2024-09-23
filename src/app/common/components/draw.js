@@ -10,6 +10,7 @@ import { RawCoffeeCarouselComponent } from './projects/raw-coffee';
 import { FreshlyMealsCarouselComponent } from './projects/freshly-meals';
 import { LVMHCarouselComponent } from './projects/lvmh';
 import { TeamComponent } from './team';
+import { DDYCarouselComponent } from './projects/ddy';
 
 function DrawingComponent({ draw, activeMenu, animationComplete, setAnimationComplete }) {
   const rectRef = useRef(null);
@@ -90,6 +91,9 @@ function DrawingComponent({ draw, activeMenu, animationComplete, setAnimationCom
       </div>)}
       {(draw && animationComplete && activeMenu === 'team') && (<div className='px-20'>
         <TeamComponent />
+      </div>)}
+      {(draw && animationComplete && activeMenu === 'ddy') && (<div className='px-20'>
+        <DDYCarouselComponent />
       </div>)}
     </>
   );
