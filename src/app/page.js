@@ -29,8 +29,8 @@ export default function Home() {
   }, []);
   
   return (
-    <main className="flex min-h-screen flex-col px-40 pt-16 bg-bg-primary">
-      <div className="flex flex-row justify-between text-xs leading-6">
+    <main className="flex min-h-screen flex-col px-10 lg:px-40 pt-5 lg:pt-16 bg-bg-primary">
+      <div className="hidden lg:flex flex-row justify-between text-xs leading-6">
         <div className="text-text-primary uppercase">
           <p className="font-semibold">YOUR TIME</p>
           <p>{userTime}</p>
@@ -50,7 +50,7 @@ export default function Home() {
           <p>{gmtPlus4Time}</p>
         </div>
       </div>
-      <div className="text-right mt-16 z-50">
+      <div className="hidden lg:block text-right mt-16 z-50">
         <Menu 
           handleDrawClick={handleDrawClick} 
           setActiveMenu={setActiveMenu} 
@@ -58,17 +58,25 @@ export default function Home() {
           setAnimationComplete={setAnimationComplete}   
         />
       </div>
-      <DrawingComponent 
-        draw={draw} 
-        activeMenu={activeMenu} 
-        animationComplete={animationComplete} 
-        setAnimationComplete={setAnimationComplete} 
-      />
-      <div className="-mt-10">
+      <div className="hidden lg:block">
+        <DrawingComponent 
+          draw={draw} 
+          activeMenu={activeMenu} 
+          animationComplete={animationComplete} 
+          setAnimationComplete={setAnimationComplete} 
+        />
+      </div>
+      <div className="hidden lg:block -mt-10">
         <Image src={esstecLogo} width="w-full" height="h-full" />
       </div>
-      <div className="mt-10 mb-5">
+      <div className="hidden lg:block mt-10 mb-5">
         <Footer />
+      </div>
+      <div className="flex flex-col md:hidden my-auto text-center">
+        <Image
+          src={esstecLogo}
+        />
+        <p className="text-text-primary text-sm mt-10">For best experience please visit the website on your laptop, we are soon coming with our mobile design</p>
       </div>
     </main>
   );
