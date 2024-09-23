@@ -5,14 +5,14 @@ export const PhilosophyComponent = () => {
         philosophy
       </h2>
       <div className="mt-52 text-center max-w-[970px]">
-        <p className="text-text-primary uppercase text-base mb-6">
+        <p className="text-text-primary uppercase text-sm mb-6">
           we are the creatives who...
         </p>
-        <p className="text-text-primary uppercase text-base mb-6">
+        <p className="text-text-primary uppercase text-sm mb-6">
           believe in meaningful work and authentic connections over bagging
           contracts.
         </p>
-        <p className="text-text-primary uppercase text-base">*</p>
+        <p className="text-text-primary uppercase text-sm">*</p>
       </div>
     </div>
   );

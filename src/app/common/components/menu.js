@@ -2,7 +2,7 @@ export const Menu = ({ handleDrawClick, setActiveMenu, setDraw, setAnimationComp
   return (
     <div className="relative uppercase text-text-primary text-xs leading-6 z-40">
       <p className="flex flex-col">
-        <span className="font-medium cursor-pointer" onClick={() => {
+        <span className="font-semibold cursor-pointer" onClick={() => {
           setDraw(false);
           setAnimationComplete(false);
         }}>&#47;&#47; About</span>
@@ -19,7 +19,7 @@ export const Menu = ({ handleDrawClick, setActiveMenu, setDraw, setAnimationComp
           className="hover:line-through cursor-pointer" 
           onClick={() => {
             handleDrawClick()
-            setActiveMenu('philosophy')
+            setActiveMenu('expertise')
           }}
         >
           expertise &#47;
@@ -34,7 +34,7 @@ export const Menu = ({ handleDrawClick, setActiveMenu, setDraw, setAnimationComp
         }}>team &#47;</a></span>
       </p>
       <p className="flex flex-col">
-        <span className="font-medium cursor-pointer" onClick={() => {
+        <span className="font-semibold cursor-pointer" onClick={() => {
           setDraw(false);
           setAnimationComplete(false);
         }}>&#47;&#47; project showcase</span>
@@ -72,7 +72,7 @@ export const Menu = ({ handleDrawClick, setActiveMenu, setDraw, setAnimationComp
         }}>lvmh fragrances &#47;</a></span>
       </p>
       <p className="flex flex-col">
-        <span className="font-medium cursor-pointer" onClick={() => {
+        <span className="font-semibold cursor-pointer" onClick={() => {
           setDraw(false);
           setAnimationComplete(false);
         }}>&#47;&#47; contact</span>

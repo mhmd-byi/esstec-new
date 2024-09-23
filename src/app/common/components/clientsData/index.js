@@ -17,7 +17,7 @@ export const clientData = [
     },
     {
         name: 'creed perfumes',
-        website: 'creedperfumes.ae',
+        website: 'creedperfumes.com',
     },
     {
         name: 'round 10 boxing',
@@ -60,8 +60,8 @@ export const clientData = [
         website: 'ddyautismcenter.com',
     },
     {
-        name: 'ri & tony',
-        website: 'riandtony.com',
+        name: 'ri & toni',
+        website: 'riandtoni.com',
     },
     {
         name: 'market i research',

@@ -30,13 +30,13 @@ export default function Home() {
   
   return (
     <main className="flex min-h-screen flex-col px-40 pt-16 bg-bg-primary">
-      <div className="flex flex-row justify-between font-medium text-xs leading-6">
+      <div className="flex flex-row justify-between text-xs leading-6">
         <div className="text-text-primary uppercase">
-          <p>YOUR TIME</p>
+          <p className="font-semibold">YOUR TIME</p>
           <p>{userTime}</p>
         </div>
         <div>
-          <p className="text-text-primary uppercase">
+          <p className="text-text-primary uppercase font-semibold">
             a creative studio WORKING WITH BRANDS TO stand out in the GLOBAL
             market.{" "}
             <a href="mailto:info@esstec.ae" className="underline">
@@ -46,7 +46,7 @@ export default function Home() {
           </p>
         </div>
         <div className="text-right text-text-primary uppercase">
-          <p>Our time</p>
+          <p className="font-semibold">Our time</p>
           <p>{gmtPlus4Time}</p>
         </div>
       </div>
