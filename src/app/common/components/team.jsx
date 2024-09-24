@@ -12,7 +12,7 @@ export const TeamComponent = () => {
                 We let our projects dictate the required skills, ensuring progress is never hindered and always backed by our can-do attitude.
             </p>
             <p className="hidden md:block text-xs md:text-sm text-text-primary capitalize md:uppercase duration-1000 ease-in-out text-center max-w-[970px] mt-2 md:mt-10">
-                collaborating across the world with humans and pulling in animals (yes, essential for R&D), we maintain connecticonnections
+                collaborating across the world with humans and pulling in animals (yes, essential for R&D), we maintain connections
                 across asia, the middle east, africa and europe.
             </p>
             <p className="text-xs md:text-sm text-text-primary capitalize md:uppercase duration-1000 ease-in-out text-center max-w-[970px] mt-2 md:mt-10">
