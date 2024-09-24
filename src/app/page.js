@@ -1,15 +1,17 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { calculateCurrentTime, getCurrentTimeInGMTPlus4 } from "@/helper/helper";
 import esstecLogo from "@/assets/images/esstec-logo.svg";
 import { Menu } from "./common/components/menu";
 import { Footer } from "./common/components/footer";
 import DrawingComponent from "./common/components/draw";
+import { MobileFooter } from "./common/components/mobileFooter";
+import { Header } from "./common/components/header";
+import { MobileHeader } from "./common/components/mobileHeader";
+import MobileDrawingComponent from "./common/components/mobileDraw";
 
 export default function Home() {
-  const [userTime, setUserTime] = useState(calculateCurrentTime());
-  const [gmtPlus4Time, setGmtPlus4Time] = useState(getCurrentTimeInGMTPlus4());
+  
   const [draw, setDraw] = useState(false);
   const [animationComplete, setAnimationComplete] = useState(false);
   const [activeMenu, setActiveMenu] = useState('');
@@ -18,39 +20,13 @@ export default function Home() {
       setDraw(true);
     }
   };
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setUserTime(calculateCurrentTime());
-      setGmtPlus4Time(getCurrentTimeInGMTPlus4());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
   
   return (
     <main className="flex min-h-screen flex-col px-10 lg:px-40 pt-5 lg:pt-16 bg-bg-primary">
       <div className="hidden lg:flex flex-row justify-between text-xs leading-6">
-        <div className="text-text-primary uppercase">
-          <p className="font-semibold">YOUR TIME</p>
-          <p>{userTime}</p>
-        </div>
-        <div>
-          <p className="text-text-primary uppercase font-semibold">
-            a creative studio WORKING WITH BRANDS TO stand out in the GLOBAL
-            market.{" "}
-            <a href="mailto:info@esstec.ae" className="underline">
-              drop us a line
-            </a>
-            .
-          </p>
-        </div>
-        <div className="text-right text-text-primary uppercase">
-          <p className="font-semibold">Our time</p>
-          <p>{gmtPlus4Time}</p>
-        </div>
+        <Header />
       </div>
-      <div className="hidden lg:block text-right mt-16 z-50">
+      <div className="text-right mt-8 lg:mt-16 z-50">
         <Menu 
           handleDrawClick={handleDrawClick} 
           setActiveMenu={setActiveMenu} 
@@ -66,17 +42,28 @@ export default function Home() {
           setAnimationComplete={setAnimationComplete} 
         />
       </div>
-      <div className="hidden lg:block -mt-10">
-        <Image src={esstecLogo} width="w-full" height="h-full" />
+      <div className="block md:hidden my-5">
+        <hr />
+      </div>
+      <div className="block md:hidden">
+        <MobileHeader />
+      </div>
+      <div className="block md:hidden">
+        <MobileDrawingComponent 
+          draw={draw} 
+          activeMenu={activeMenu} 
+          animationComplete={animationComplete} 
+          setAnimationComplete={setAnimationComplete} 
+        />
+      </div>
+      <div className="mt-44 lg:-mt-10">
+        <Image src={esstecLogo} width="w-full" height="h-full" alt="logo" />
       </div>
       <div className="hidden lg:block mt-10 mb-5">
         <Footer />
       </div>
-      <div className="flex flex-col md:hidden my-auto text-center">
-        <Image
-          src={esstecLogo}
-        />
-        <p className="text-text-primary text-sm mt-10">For best experience please visit the website on your laptop, we are soon coming with our mobile design</p>
+      <div className="block md:hidden">
+        <MobileFooter />
       </div>
     </main>
   );
