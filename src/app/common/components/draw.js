@@ -13,6 +13,7 @@ import { TeamComponent } from './team';
 import { DDYCarouselComponent } from './projects/ddy';
 import { ArabianKnightsCarouselComponent } from './projects/arabian-knights';
 import { ExpertiseComponent } from './expertise';
+import { checkForScreenSizeInDraw } from '@/helper/helper';
 
 function DrawingComponent({ draw, activeMenu, animationComplete, setAnimationComplete }) {
   const rectRef = useRef(null);
@@ -38,22 +39,24 @@ function DrawingComponent({ draw, activeMenu, animationComplete, setAnimationCom
     }
   }, [draw]);
 
+  const checkForScreenSize = checkForScreenSizeInDraw();
+
   return (
     <>
       <div className='absolute inset-0 flex justify-center items-center'>
-        <svg viewBox="0 0 1100 490">
+        <svg viewBox={checkForScreenSize.viewBox}>
           {draw && (
             <rect
               ref={rectRef}
-              x="108"
-              y="85"
-              width="719" // Width of the rectangle
-              height="384" // Height of the rectangle
+              x={checkForScreenSize.xAxis}
+              y={checkForScreenSize.yAxis}
+              width={checkForScreenSize.rectangleWidth} // Width of the rectangle
+              height={checkForScreenSize.rectangleHeight} // Height of the rectangle
               rx="25" // Rounded corner radius
               ry="25" // Rounded corner radius
               fill="transparent"
               stroke="#222222"
-              strokeWidth="10"
+              strokeWidth={checkForScreenSize.strokeWidth}
               strokeLinecap="round"
               strokeLinejoin="round"
               transform="scale(1 , -1) translate(0, -550.5)"

@@ -7,16 +7,17 @@ import slide4 from "@/assets/projectImages/ewaa/4-infographic-posters.svg";
 import slide5 from "@/assets/projectImages/ewaa/5-website.svg";
 import slide6 from "@/assets/projectImages/ewaa/6-psa.svg";
 import slide7 from "@/assets/projectImages/ewaa/7-corporate-film.svg";
-import slide8 from "@/assets/projectImages/ewaa/1-brand-guidelines-mobile.svg";
+import slide8 from "@/assets/projectImages/ewaa/1-identity-rebrand.svg";
 import { ChevronRightIcon } from "../../icons/ChevronRightIcon";
 import { ChevronLeftIcon } from "../../icons/ChevronLeftIcon";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { checkForScreenSizeInDraw } from "@/helper/helper";
 
 export const EwaaCarouselComponent = () => {
-  const carouselImageClasses = "h-full w-full rounded-2xl md:rounded-[27.5px]";
-  const slides = [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8];
+  const slides = [slide8, slide1, slide2, slide3, slide4, slide5, slide6, slide7];
+  const checkForScreenSize = checkForScreenSizeInDraw();
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
@@ -67,14 +68,14 @@ export const EwaaCarouselComponent = () => {
     prevArrow: <PrevArrow />,
   };
   return (
-    <div className="absolute top-96 left-10 md:top-[190px] md:left-44 mt-[6.9rem] md:mt-2 w-[80.5vw] h-[80vw] md:w-[63.9vw] md:h-[68.5vh] items-center justify-center">
-      <Slider {...settings} className="rounded-[27.5px] z-50">
+    <div className={checkForScreenSize.sliderDivClasses}>
+      <Slider {...settings} className={checkForScreenSize.sliderSlideClasses}>
         {slides.map((src, index) => (
           <div key={index}>
             <Image
               src={src}
               alt={`Slide ${index + 1}`}
-              className={carouselImageClasses}
+              className={checkForScreenSize.carouselImageClasses}
             />
           </div>
         ))}

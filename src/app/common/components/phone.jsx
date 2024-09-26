@@ -1,6 +1,9 @@
+import { checkForScreenSizeInDraw } from "@/helper/helper";
+
 export const PhoneComponent = () => {
+  const checkForScreenSize = checkForScreenSizeInDraw();
   return (
-    <div className="absolute px-10 md:px-0 right-0 left-0 md:right-auto md:left-auto top-1/2 md:top-56 mt-14 md:mt-10 md:w-[1100px] items-center justify-center z-[60]">
+    <div className={checkForScreenSize.componentClass}>
       <h2 className="text-2xl md:text-6xl font-bold text-text-primary uppercase duration-1000 ease-in-out text-center md:max-w-[970px]">
         Contact
       </h2>

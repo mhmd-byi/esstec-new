@@ -1,17 +1,18 @@
 "use client";
 import Image from "next/image";
-import slide1 from "@/assets/projectImages/arabian-knights/1-asset-creation.svg"
-import slide2 from "@/assets/projectImages/arabian-knights/2-blockchain-contract.svg"
-import slide3 from "@/assets/projectImages/arabian-knights/3-nft-collection-setup.svg"
-import slide4 from "@/assets/projectImages/arabian-knights/4-asset-curation.svg"
+import slide1 from "@/assets/projectImages/arabian-knights/1-asset-creation.svg";
+import slide2 from "@/assets/projectImages/arabian-knights/2-blockchain-contract.svg";
+import slide3 from "@/assets/projectImages/arabian-knights/3-nft-collection-setup.svg";
+import slide4 from "@/assets/projectImages/arabian-knights/4-asset-curation.svg";
 import { ChevronLeftIcon } from "../../icons/ChevronLeftIcon";
 import { ChevronRightIcon } from "../../icons/ChevronRightIcon";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { checkForScreenSizeInDraw } from "@/helper/helper";
 
 export const ArabianKnightsCarouselComponent = () => {
-  const carouselImageClasses = "h-full w-full rounded-[27.5px]";
+  const checkForScreenSize = checkForScreenSizeInDraw();
   const slides = [slide1, slide2, slide3, slide4];
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
@@ -63,14 +64,14 @@ export const ArabianKnightsCarouselComponent = () => {
     prevArrow: <PrevArrow />,
   };
   return (
-    <div className="absolute top-[190px] left-44 mt-2 w-[63.9vw] h-[68.5vh] items-center justify-center">
-      <Slider {...settings} className="rounded-[27.5px] z-50">
+    <div className={checkForScreenSize.sliderDivClasses}>
+      <Slider {...settings} className={checkForScreenSize.sliderSlideClasses}>
         {slides.map((src, index) => (
           <div key={index}>
             <Image
               src={src}
               alt={`Slide ${index + 1}`}
-              className={carouselImageClasses}
+              className={checkForScreenSize.carouselImageClasses}
             />
           </div>
         ))}
