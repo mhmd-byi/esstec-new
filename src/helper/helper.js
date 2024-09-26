@@ -1,3 +1,4 @@
+import { widthClassNames } from "@/lang";
 import moment from "moment-timezone";
 
 export const convertTimezoneOffsetToGMT = (timezoneOffset) => {
@@ -39,11 +40,13 @@ export const checkForScreenSizeInDraw = () => {
           rectangleHeight: 350,
           strokeWidth: 10,
           xAxis: 143,
-          yAxis: -192,
+          yAxis: -187,
           viewBox: "0 0 1100 790",
-          componentClass:
-            "absolute sm:px-10 sm:right-0 sm:left-0 sm:top-1/2 top-56 sm:mt-14 w-[1000px] mt-10 z-[60]",
-          maxWidth: "max-w-[950px]",
+          componentClass: widthClassNames.screenSize1280.componentClass,
+          sliderDivClasses: widthClassNames.screenSize1280.sliderDivClasses,
+          sliderSlideClasses: widthClassNames.screenSize1280.sliderSlideClasses,
+          carouselImageClasses: widthClassNames.screenSize1280.carouselImageClasses,
+          maxWidth: widthClassNames.screenSize1280.maxWidth,
         };
       case 1536:
         console.log("1536");
@@ -54,9 +57,11 @@ export const checkForScreenSizeInDraw = () => {
           xAxis: 120,
           yAxis: -21,
           viewBox: "0 0 1100 600",
-          componentClass:
-            "absolute sm:px-10 sm:right-0 sm:left-0 sm:top-1/2 top-56 sm:mt-14 w-[1000px] mt-10 z-[60]",
-          maxWidth: "max-w-[1000px]",
+          componentClass: widthClassNames.screenSize1536.componentClass,
+          sliderDivClasses: widthClassNames.screenSize1536.sliderDivClasses,
+          sliderSlideClasses: widthClassNames.screenSize1536.sliderSlideClasses,
+          carouselImageClasses: widthClassNames.screenSize1536.carouselImageClasses,
+          maxWidth: widthClassNames.screenSize1536.maxWidth,
         };
       case 1920:
         console.log("1920");
@@ -67,13 +72,11 @@ export const checkForScreenSizeInDraw = () => {
           xAxis: 97,
           yAxis: 105,
           viewBox: "0 0 1100 490",
-          componentClass:
-            "absolute sm:px-10 px-0 sm:right-0 sm:left-0 right-auto left-auto sm:top-1/2 top-56 sm:mt-14 mt-10 w-[1100px] items-center justify-center z-[60]",
-          sliderDivClasses: "absolute top-[190px] left-44 mt-0 w-[66vw] max-h-[628px] items-center justify-center",
-          sliderSlideClasses: "rounded-[27.5px] z-50",
-          carouselImageClasses:
-            "w-full max-h-[628px] rounded-[27.5px]",
-          maxWidth: "max-w-[1150px]",
+          componentClass: widthClassNames.screenSize1920.componentClass,
+          sliderDivClasses: widthClassNames.screenSize1920.sliderDivClasses,
+          sliderSlideClasses: widthClassNames.screenSize1920.sliderSlideClasses,
+          carouselImageClasses: widthClassNames.screenSize1920.carouselImageClasses,
+          maxWidth: widthClassNames.screenSize1920.maxWidth,
         };
       default:
         console.log("default");
@@ -84,13 +87,11 @@ export const checkForScreenSizeInDraw = () => {
           xAxis: 108,
           yAxis: 85,
           viewBox: "0 0 1100 490",
-          componentClass:
-            "absolute sm:right-0 sm:left-0 mx-auto right-auto left-auto px-0 sm:px-10 sm:top-1/2 top-56 sm:mt-14 mt-10 w-[1100px] items-center justify-center z-[60]",
-          sliderDivClasses:
-            "absolute top-[190px] left-44 mt-2 w-[63.9vw] h-[68.5vh] items-center justify-center",
-          sliderSlideClasses: "rounded-[27.5px] z-50",
-          carouselImageClasses: "h-full w-full rounded-[27.5px]",
-          maxWidth: "max-w-[970px]",
+          componentClass: widthClassNames.defaultClasses.componentClass,
+          sliderDivClasses: widthClassNames.defaultClasses.sliderDivClasses,
+          sliderSlideClasses: widthClassNames.defaultClasses.sliderSlideClasses,
+          carouselImageClasses: widthClassNames.defaultClasses.carouselImageClasses,
+          maxWidth: widthClassNames.defaultClasses.maxWidth,
         };
     }
   }

@@ -27,6 +27,7 @@ export const EwaaCarouselComponent = () => {
     slide7,
   ];
   const checkForScreenSize = checkForScreenSizeInDraw();
+  console.log('line 32', checkForScreenSize)
   const sliderDivClasses = checkForScreenSize.sliderDivClasses;
   const carouselImageClasses = checkForScreenSize.carouselImageClasses;
   const NextArrow = (props) => {
@@ -82,6 +83,7 @@ export const EwaaCarouselComponent = () => {
     <div>
       {checkForScreenSize && (
         <div className={sliderDivClasses}>
+        {console.log('line 86', checkForScreenSize)}
           <Slider
             {...settings}
             className={checkForScreenSize.sliderSlideClasses}
