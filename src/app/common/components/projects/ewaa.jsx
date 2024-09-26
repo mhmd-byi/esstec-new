@@ -28,9 +28,10 @@ export const EwaaCarouselComponent = () => {
     slide7,
   ];
   const checkForScreenSize = checkForScreenSizeInDraw();
-  const sliderDivClasses = checkForScreenSize.screenSize === 1920 ? widthClassNames.screenSize1920.sliderDivClasses : (checkForScreenSize.screenSize === 1536 ? widthClassNames.screenSize1536.sliderDivClasses : (checkForScreenSize.screenSize === 1280 ? widthClassNames.screenSize1280.sliderDivClasses : widthClassNames.defaultClasses.sliderDivClasses));
+  const sliderDivClasses = checkForScreenSize.sliderDivClasses.toString();
+  const sliderSlideClasses = checkForScreenSize.sliderSlideClasses.toString();
+  const carouselImageClasses = checkForScreenSize.carouselImageClasses.toString();
 
-  const carouselImageClasses = checkForScreenSize.screenSize === 1920 ? widthClassNames.screenSize1920.carouselImageClasses : (checkForScreenSize.screenSize === 1536 ? widthClassNames.screenSize1536.carouselImageClasses : (checkForScreenSize.screenSize === 1280 ? widthClassNames.screenSize1280.carouselImageClasses : widthClassNames.defaultClasses.carouselImageClasses));
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
@@ -82,18 +83,18 @@ export const EwaaCarouselComponent = () => {
   };
   return (
     <div>
-      {checkForScreenSize.carouselImageClasses && (
-        <div className={(sliderDivClasses).toString()}>
+      {checkForScreenSize.screenSize >= 1 && (
+        <div className={sliderDivClasses}>
           <Slider
             {...settings}
-            className={(checkForScreenSize.sliderSlideClasses).toString()}
+            className={sliderSlideClasses}
           >
             {slides.map((src, index) => (
               <div key={index}>
                 <Image
                   src={src}
                   alt={`Slide ${index + 1}`}
-                  className={(carouselImageClasses).toString()}
+                  className={carouselImageClasses}
                 />
               </div>
             ))}
