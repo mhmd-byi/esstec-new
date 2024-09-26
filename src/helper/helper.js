@@ -34,8 +34,8 @@ export const checkForScreenSizeInDraw = () => {
   if (widthOfScreen !== null) {
     switch (widthOfScreen) {
       case 1280:
-        console.log("1280");
         return {
+          screenSize: 1280,
           rectangleWidth: 662,
           rectangleHeight: 350,
           strokeWidth: 10,
@@ -49,8 +49,8 @@ export const checkForScreenSizeInDraw = () => {
           maxWidth: widthClassNames.screenSize1280.maxWidth,
         };
       case 1536:
-        console.log("1536");
         return {
+          screenSize: 1536,
           rectangleWidth: 698,
           rectangleHeight: 400,
           strokeWidth: 10,
@@ -64,8 +64,8 @@ export const checkForScreenSizeInDraw = () => {
           maxWidth: widthClassNames.screenSize1536.maxWidth,
         };
       case 1920:
-        console.log("1920");
         return {
+          screenSize: 1920,
           rectangleWidth: 736,
           rectangleHeight: 370,
           strokeWidth: 10,
@@ -79,8 +79,8 @@ export const checkForScreenSizeInDraw = () => {
           maxWidth: widthClassNames.screenSize1920.maxWidth,
         };
       default:
-        console.log("default");
         return {
+          screenSize: 1,
           rectangleWidth: 719,
           rectangleHeight: 384,
           strokeWidth: 10,

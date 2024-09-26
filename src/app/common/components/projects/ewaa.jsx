@@ -14,6 +14,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { checkForScreenSizeInDraw } from "@/helper/helper";
+import { widthClassNames } from "@/lang";
 
 export const EwaaCarouselComponent = () => {
   const slides = [
@@ -27,9 +28,9 @@ export const EwaaCarouselComponent = () => {
     slide7,
   ];
   const checkForScreenSize = checkForScreenSizeInDraw();
-  console.log('line 32', checkForScreenSize)
-  const sliderDivClasses = checkForScreenSize.sliderDivClasses;
-  const carouselImageClasses = checkForScreenSize.carouselImageClasses;
+  const sliderDivClasses = checkForScreenSize.screenSize === 1920 ? widthClassNames.screenSize1920.sliderDivClasses : (checkForScreenSize.screenSize === 1536 ? widthClassNames.screenSize1536.sliderDivClasses : (checkForScreenSize.screenSize === 1280 ? widthClassNames.screenSize1280.sliderDivClasses : widthClassNames.defaultClasses.sliderDivClasses));
+
+  const carouselImageClasses = checkForScreenSize.screenSize === 1920 ? widthClassNames.screenSize1920.carouselImageClasses : (checkForScreenSize.screenSize === 1536 ? widthClassNames.screenSize1536.carouselImageClasses : (checkForScreenSize.screenSize === 1280 ? widthClassNames.screenSize1280.carouselImageClasses : widthClassNames.defaultClasses.carouselImageClasses));
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
