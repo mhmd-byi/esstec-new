@@ -14,19 +14,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { checkForScreenSizeInDraw } from "@/helper/helper";
-import { widthClassNames } from "@/lang";
-import { useEffect, useState } from "react";
 
 export const EwaaCarouselComponent = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 2000);
 
-    return () => clearTimeout(timer);
-  }, []);
   const slides = [
     slide8,
     slide1,
@@ -94,24 +84,20 @@ export const EwaaCarouselComponent = () => {
     prevArrow: <PrevArrow />,
   };
 
-  if (!isLoaded) {
-    return <div>Loading...</div>; // Or any other placeholder content
-  }
-
   return (
     <div>
       {checkForScreenSize.screenSize >= 1 && (
-        <div className={sliderDivClasses}>
+        <div className={checkForScreenSize.screenSize === 1920 ? "absolute top-[190px] left-44 mt-0 w-[66vw] max-h-[628px] items-center justify-center" : (checkForScreenSize.screenSize === 1536 ? "absolute top-[210px] left-44 -ml-1 mt-4 w-[62vw] items-center justify-center" : (checkForScreenSize.screenSize === 1280 ? "absolute top-[310px] left-44 ml-px mt-2 w-[57.8vw] items-center justify-center" : "absolute top-[190px] left-44 mt-2 w-[63.9vw] h-[68.5vh] items-center justify-center"))}>
           <Slider
             {...settings}
-            className={sliderSlideClasses}
+            className="rounded-[27.5px] z-50"
           >
             {slides.map((src, index) => (
               <div key={index}>
                 <Image
                   src={src}
                   alt={`Slide ${index + 1}`}
-                  className={carouselImageClasses}
+                  className={checkForScreenSize.screenSize === 1920 ? "w-full max-h-[628px] rounded-[27.5px]" : (checkForScreenSize.screenSize === 1536 ? "w-full max-h-[580px] rounded-[27.5px]" : (checkForScreenSize.screenSize === 1280 ? "w-full max-h-[500px] rounded-[27.5px]" : "h-full w-full rounded-[27.5px]"))}
                 />
               </div>
             ))}
