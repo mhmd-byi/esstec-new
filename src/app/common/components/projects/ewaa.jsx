@@ -16,8 +16,18 @@ import "slick-carousel/slick/slick-theme.css";
 import { checkForScreenSizeInDraw } from "@/helper/helper";
 
 export const EwaaCarouselComponent = () => {
-  const slides = [slide8, slide1, slide2, slide3, slide4, slide5, slide6, slide7];
+  const slides = [
+    slide8,
+    slide1,
+    slide2,
+    slide3,
+    slide4,
+    slide5,
+    slide6,
+    slide7,
+  ];
   const checkForScreenSize = checkForScreenSizeInDraw();
+  const carouselImageClasses = checkForScreenSize.carouselImageClasses;
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
@@ -68,18 +78,25 @@ export const EwaaCarouselComponent = () => {
     prevArrow: <PrevArrow />,
   };
   return (
-    <div className={checkForScreenSize.sliderDivClasses}>
-      <Slider {...settings} className={checkForScreenSize.sliderSlideClasses}>
-        {slides.map((src, index) => (
-          <div key={index}>
-            <Image
-              src={src}
-              alt={`Slide ${index + 1}`}
-              className={checkForScreenSize.carouselImageClasses}
-            />
-          </div>
-        ))}
-      </Slider>
+    <div>
+      {checkForScreenSize && (
+        <div className={checkForScreenSize.sliderDivClasses}>
+          <Slider
+            {...settings}
+            className={checkForScreenSize.sliderSlideClasses}
+          >
+            {slides.map((src, index) => (
+              <div key={index}>
+                <Image
+                  src={src}
+                  alt={`Slide ${index + 1}`}
+                  className={carouselImageClasses}
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
+      )}
     </div>
   );
 };
