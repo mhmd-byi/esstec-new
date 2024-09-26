@@ -43,7 +43,7 @@ function DrawingComponent({ draw, activeMenu, animationComplete, setAnimationCom
 
   return (
     <>
-      <div className='absolute inset-0 flex justify-center items-center'>
+      {checkForScreenSize && <div className='absolute inset-0 flex justify-center items-center'>
         <svg viewBox={checkForScreenSize.viewBox}>
           {draw && (
             <rect
@@ -63,7 +63,7 @@ function DrawingComponent({ draw, activeMenu, animationComplete, setAnimationCom
             />
           )}
         </svg>
-      </div>
+      </div>}
       {(draw && animationComplete && activeMenu === 'philosophy') && (<div className='px-20'>
         <PhilosophyComponent />
       </div>)}
