@@ -82,19 +82,18 @@ export const EwaaCarouselComponent = () => {
   };
   return (
     <div>
-      {checkForScreenSize && (
-        <div className={sliderDivClasses}>
-        {console.log('line 86', checkForScreenSize)}
+      {checkForScreenSize.carouselImageClasses && (
+        <div className={(sliderDivClasses).toString()}>
           <Slider
             {...settings}
-            className={checkForScreenSize.sliderSlideClasses}
+            className={(checkForScreenSize.sliderSlideClasses).toString()}
           >
             {slides.map((src, index) => (
               <div key={index}>
                 <Image
                   src={src}
                   alt={`Slide ${index + 1}`}
-                  className={carouselImageClasses}
+                  className={(carouselImageClasses).toString()}
                 />
               </div>
             ))}
