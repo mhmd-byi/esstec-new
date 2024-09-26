@@ -4,10 +4,10 @@ export const PhilosophyComponent = () => {
   const checkForScreenSize = checkForScreenSizeInDraw();
   return (
     <div className={checkForScreenSize.componentClass}>
-      <h2 className="text-2xl md:text-6xl font-bold text-text-primary uppercase duration-1000 ease-in-out text-center md:max-w-[970px]">
+      <h2 className={`text-2xl md:text-6xl font-bold text-text-primary uppercase duration-1000 ease-in-out text-center ${checkForScreenSize.maxWidth}`}>
         philosophy
       </h2>
-      <div className="mt-10 md:mt-52 text-center md:max-w-[970px]">
+      <div className={`mt-10 md:mt-52 text-center ${checkForScreenSize.maxWidth}`}>
         <p className="text-text-primary uppercase text-sm mb-6">
           we are the creatives who...
         </p>

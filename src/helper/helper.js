@@ -40,6 +40,9 @@ export const checkForScreenSizeInDraw = () => {
         xAxis: 143,
         yAxis: -192,
         viewBox: "0 0 1100 790",
+        componentClass:
+          "absolute sm:px-10 sm:right-0 sm:left-0 sm:top-1/2 top-56 sm:mt-14 w-[1000px] mt-10 z-[60]",
+        maxWidth: "max-w-[950px]"
       };
     case 1536:
       console.log("1536");
@@ -50,6 +53,9 @@ export const checkForScreenSizeInDraw = () => {
         xAxis: 120,
         yAxis: -21,
         viewBox: "0 0 1100 600",
+        componentClass:
+          "absolute sm:px-10 sm:right-0 sm:left-0 sm:top-1/2 top-56 sm:mt-14 w-[1000px] mt-10 z-[60]",
+        maxWidth: "max-w-[1000px]"
       };
     case 1920:
       console.log("1920");
@@ -61,10 +67,13 @@ export const checkForScreenSizeInDraw = () => {
         yAxis: 105,
         viewBox: "0 0 1100 490",
         componentClass:
-          "absolute px-10 md:px-0 right-0 left-0 md:right-auto md:left-auto top-1/2 md:top-56 mt-14 md:mt-10 md:w-[1100px] items-center justify-center z-[60]",
-        sliderDivClasses: "absolute top-96 left-10 md:top-[190px] md:left-44 mt-[6.9rem] md:mt-0 w-[80.5vw] h-[80vw] md:w-[66vw] md:h-fit items-center justify-center",
+          "absolute sm:px-10 px-0 sm:right-0 sm:left-0 right-auto left-auto sm:top-1/2 top-56 sm:mt-14 mt-10 w-[1100px] items-center justify-center z-[60]",
+        sliderDivClasses: 
+          "flex absolute sm:top-96 sm:left-10 top-[100px] left-44 sm:mt-[6.9rem] mt-0 sm:w-[80.5vw] sm:h-[80vw] w-[66vw] items-center justify-center",
+        // sliderDivClasses: "absolute sm:top-96 sm:left-10 top-[190px] left-44 sm:mt-[6.9rem] mt-0 sm:w-[80.5vw] sm:h-[80vw] w-[66vw] h-fit items-center justify-center",
         sliderSlideClasses: "rounded-[27.5px] z-50",
-        carouselImageClasses: "w-full h-full md:max-h-[628px] md:w-full rounded-2xl md:rounded-[27.5px]",
+        carouselImageClasses: "w-full sm:h-full max-h-[628px] sm:rounded-2xl rounded-[27.5px]",
+        maxWidth: "max-w-[1150px]"
       };
     default:
       console.log("default");
@@ -76,11 +85,12 @@ export const checkForScreenSizeInDraw = () => {
         yAxis: 85,
         viewBox: "0 0 1100 490",
         componentClass:
-          "absolute px-10 md:px-0 right-0 left-0 md:right-auto md:left-auto top-1/2 md:top-56 mt-14 md:mt-10 md:w-[1100px] items-center justify-center z-[60]",
+          "absolute sm:right-0 sm:left-0 mx-auto right-auto left-auto px-0 sm:px-10 sm:top-1/2 top-56 sm:mt-14 mt-10 w-[1100px] items-center justify-center z-[60]",
         sliderDivClasses:
-          "absolute top-96 left-10 md:top-[190px] md:left-44 mt-[6.9rem] md:mt-2 w-[80.5vw] h-[80vw] md:w-[63.9vw] md:h-[68.5vh] items-center justify-center",
+          "absolute sm:top-96 sm:left-10 top-[190px] left-44 sm:mt-[6.9rem] mt-2 sm:w-[80.5vw] sm:h-[80vw] w-[63.9vw] h-[68.5vh] items-center justify-center",
         sliderSlideClasses: "rounded-[27.5px] z-50",
-        carouselImageClasses: "h-full w-full rounded-2xl md:rounded-[27.5px]",
+        carouselImageClasses: "h-full w-full sm:rounded-2xl rounded-[27.5px]",
+        maxWidth: "max-w-[970px]",
       };
   }
 };

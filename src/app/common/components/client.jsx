@@ -5,10 +5,10 @@ export const ClientComponent = () => {
   const checkForScreenSize = checkForScreenSizeInDraw();
   return (
     <div className={checkForScreenSize.componentClass}>
-      <h2 className="text-6xl font-bold text-text-primary uppercase duration-1000 ease-in-out text-center max-w-[970px]">
+      <h2 className={`text-6xl font-bold text-text-primary uppercase duration-1000 ease-in-out text-center ${checkForScreenSize.maxWidth}`}>
         clients
       </h2>
-      <div className="flex flex-row flex-wrap mt-10 overflow-y-auto">
+      <div className={`flex flex-row flex-wrap mt-10 ${checkForScreenSize.maxWidth}`}>
         {clientData.map((data, index) => (
           <div className="basis-1/4 justify-between py-5" key={index}>
             <div className="text-text-primary text-sm uppercase">
