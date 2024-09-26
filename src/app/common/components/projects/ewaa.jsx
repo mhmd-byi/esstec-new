@@ -31,6 +31,8 @@ export const EwaaCarouselComponent = () => {
   const sliderDivClasses = checkForScreenSize.sliderDivClasses.toString();
   const sliderSlideClasses = checkForScreenSize.sliderSlideClasses.toString();
   const carouselImageClasses = checkForScreenSize.carouselImageClasses.toString();
+  console.log({ sliderDivClasses, sliderSlideClasses, carouselImageClasses });
+
 
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
