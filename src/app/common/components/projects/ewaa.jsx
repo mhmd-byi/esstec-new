@@ -15,8 +15,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { checkForScreenSizeInDraw } from "@/helper/helper";
 import { widthClassNames } from "@/lang";
+import { useEffect, useState } from "react";
 
 export const EwaaCarouselComponent = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
   const slides = [
     slide8,
     slide1,
@@ -83,6 +93,11 @@ export const EwaaCarouselComponent = () => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
+
+  if (!isLoaded) {
+    return <div>Loading...</div>; // Or any other placeholder content
+  }
+
   return (
     <div>
       {checkForScreenSize.screenSize >= 1 && (
