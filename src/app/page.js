@@ -31,7 +31,8 @@ export default function Home() {
           handleDrawClick={handleDrawClick} 
           setActiveMenu={setActiveMenu} 
           setDraw={setDraw}
-          setAnimationComplete={setAnimationComplete}   
+          setAnimationComplete={setAnimationComplete}
+          activeMenu={activeMenu}
         />
       </div>
       <div className="hidden lg:block">
