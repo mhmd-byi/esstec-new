@@ -26,7 +26,7 @@ export default function Home() {
       <div className="hidden lg:flex flex-row justify-between text-xs leading-6">
         <Header />
       </div>
-      <div className="text-right mt-8 lg:mt-16 z-50">
+      <div className="hidden md:block text-right mt-8 lg:mt-16 z-50">
         <Menu 
           handleDrawClick={handleDrawClick} 
           setActiveMenu={setActiveMenu} 
@@ -42,13 +42,13 @@ export default function Home() {
           setAnimationComplete={setAnimationComplete} 
         />
       </div>
-      <div className="block md:hidden my-5">
+      <div className="hidden my-5">
         <hr />
       </div>
-      <div className="block md:hidden">
+      <div className="hidden">
         <MobileHeader />
       </div>
-      <div className="block md:hidden">
+      <div className="hidden">
         <MobileDrawingComponent 
           draw={draw} 
           activeMenu={activeMenu} 
@@ -57,6 +57,7 @@ export default function Home() {
         />
       </div>
       <div className="mt-44 lg:-mt-10">
+        <p class="block md:hidden text-text-primary text-sm mt-20 mb-60 text-center">For best experience please visit the website on your laptop, we are soon coming with our mobile design</p>
         <Image src={esstecLogo} width="w-full" height="h-full" alt="logo" />
       </div>
       <div className="hidden lg:block mt-10 mb-5">
