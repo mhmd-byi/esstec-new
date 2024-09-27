@@ -7,7 +7,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata = {
-  title: "www.esstec.ae",
+  title: "esstec: a creative DESIGN STUDIO supporting BRANDS to stand out in the global market",
   description: "humanity, components and status",
 };
 

@@ -13,10 +13,30 @@ import { TeamComponent } from './team';
 import { DDYCarouselComponent } from './projects/ddy';
 import { ArabianKnightsCarouselComponent } from './projects/arabian-knights';
 import { ExpertiseComponent } from './expertise';
-import { checkForScreenSizeInDraw } from '@/helper/helper';
 
-function DrawingComponent({ draw, activeMenu, animationComplete, setAnimationComplete }) {
+function MobileDrawingComponent({ draw, activeMenu, animationComplete, setAnimationComplete }) {
+  const containerRef = useRef(null);
   const rectRef = useRef(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  const updateDimensions = () => {
+    if (containerRef.current) {
+      setDimensions({
+        width: containerRef.current.offsetWidth,
+        height: containerRef.current.offsetHeight
+      });
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', updateDimensions);
+    updateDimensions(); // Initial call to set dimensions
+
+    return () => {
+      window.removeEventListener('resize', updateDimensions);
+    };
+  }, []);
+
 
   useEffect(() => {
     if (draw && rectRef.current) {
@@ -39,31 +59,28 @@ function DrawingComponent({ draw, activeMenu, animationComplete, setAnimationCom
     }
   }, [draw]);
 
-  const checkForScreenSize = checkForScreenSizeInDraw();
-
   return (
     <>
-      {checkForScreenSize && <div className='absolute inset-0 flex justify-center items-center'>
-        <svg viewBox={checkForScreenSize.viewBox}>
+      <div className='absolute inset-0 flex justify-center items-center'>
+        <svg viewBox="0 0 550 1150">
           {draw && (
             <rect
               ref={rectRef}
-              x={checkForScreenSize.xAxis}
-              y={checkForScreenSize.yAxis}
-              width={checkForScreenSize.rectangleWidth} // Width of the rectangle
-              height={checkForScreenSize.rectangleHeight} // Height of the rectangle
+              x="50"
+              y="620"
+              width={dimensions.width || '450'} // Width of the rectangle
+              height="390" // Height of the rectangle
               rx="25" // Rounded corner radius
               ry="25" // Rounded corner radius
               fill="transparent"
               stroke="#222222"
-              strokeWidth={checkForScreenSize.strokeWidth}
+              strokeWidth="5"
               strokeLinecap="round"
               strokeLinejoin="round"
-              transform="scale(1 , -1) translate(0, -550.5)"
             />
           )}
         </svg>
-      </div>}
+      </div>
       {(draw && animationComplete && activeMenu === 'philosophy') && (<div className='px-20'>
         <PhilosophyComponent />
       </div>)}
@@ -110,4 +127,4 @@ function DrawingComponent({ draw, activeMenu, animationComplete, setAnimationCom
   );
 }
 
-export default DrawingComponent;
+export default MobileDrawingComponent;
