@@ -84,7 +84,7 @@ export const DDYCarouselComponent = () => {
           : checkForScreenSize.screenSize === 1536
           ? "absolute top-[210px] left-44 -ml-1 mt-4 w-[62vw] items-center justify-center"
           : checkForScreenSize.screenSize === 1280
-          ? "absolute top-[310px] left-44 ml-px mt-2 w-[57.8vw] items-center justify-center"
+          ? "absolute top-[265px] left-40 ml-3 w-[58.5vw] items-center justify-center"
           : "absolute top-[190px] left-44 mt-2 w-[63.9vw] h-[68.5vh] items-center justify-center"
       }
     >

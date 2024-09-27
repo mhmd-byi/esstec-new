@@ -37,7 +37,7 @@ export const checkForScreenSizeInDraw = () => {
         return {
           screenSize: 1280,
           rectangleWidth: 662,
-          rectangleHeight: 350,
+          rectangleHeight: 440,
           strokeWidth: 10,
           xAxis: 143,
           yAxis: -187,
@@ -47,6 +47,7 @@ export const checkForScreenSizeInDraw = () => {
           sliderSlideClasses: widthClassNames.screenSize1280.sliderSlideClasses,
           carouselImageClasses: widthClassNames.screenSize1280.carouselImageClasses,
           maxWidth: widthClassNames.screenSize1280.maxWidth,
+          marginTop: widthClassNames.screenSize1280.marginTop,
         };
       case 1536:
         return {
@@ -62,6 +63,7 @@ export const checkForScreenSizeInDraw = () => {
           sliderSlideClasses: widthClassNames.screenSize1536.sliderSlideClasses,
           carouselImageClasses: widthClassNames.screenSize1536.carouselImageClasses,
           maxWidth: widthClassNames.screenSize1536.maxWidth,
+          marginTop: widthClassNames.screenSize1536.marginTop,
         };
       case 1920:
         return {
@@ -77,6 +79,7 @@ export const checkForScreenSizeInDraw = () => {
           sliderSlideClasses: widthClassNames.screenSize1920.sliderSlideClasses,
           carouselImageClasses: widthClassNames.screenSize1920.carouselImageClasses,
           maxWidth: widthClassNames.screenSize1920.maxWidth,
+          marginTop: widthClassNames.screenSize1920.marginTop,
         };
       default:
         return {
@@ -92,6 +95,7 @@ export const checkForScreenSizeInDraw = () => {
           sliderSlideClasses: widthClassNames.defaultClasses.sliderSlideClasses,
           carouselImageClasses: widthClassNames.defaultClasses.carouselImageClasses,
           maxWidth: widthClassNames.defaultClasses.maxWidth,
+          marginTop: widthClassNames.defaultClasses.marginTop,
         };
     }
   }
