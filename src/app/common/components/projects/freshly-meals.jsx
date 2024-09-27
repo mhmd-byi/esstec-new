@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
-import slide1 from "@/assets/projectImages/freshly-meals/1-user-flow-design.svg"
-import slide2 from "@/assets/projectImages/freshly-meals/2-interface-design.svg"
-import slide3 from "@/assets/projectImages/freshly-meals/3-app-development.svg"
-import slide4 from "@/assets/projectImages/freshly-meals/4-app-development.svg"
-import slide5 from "@/assets/projectImages/freshly-meals/5-app-package-code.svg"
-import slide6 from "@/assets/projectImages/freshly-meals/6-backend-admin-panel.svg"
-import slide7 from "@/assets/projectImages/freshly-meals/7-in-app-emailers.svg"
+import slide1 from "@/assets/projectImages/freshly-meals/1-user-flow-design.svg";
+import slide2 from "@/assets/projectImages/freshly-meals/2-interface-design.svg";
+import slide3 from "@/assets/projectImages/freshly-meals/3-app-development.svg";
+import slide4 from "@/assets/projectImages/freshly-meals/4-app-development.svg";
+import slide5 from "@/assets/projectImages/freshly-meals/5-app-package-code.svg";
+import slide6 from "@/assets/projectImages/freshly-meals/6-backend-admin-panel.svg";
+import slide7 from "@/assets/projectImages/freshly-meals/7-in-app-emailers.svg";
 import { ChevronLeftIcon } from "../../icons/ChevronLeftIcon";
 import { ChevronRightIcon } from "../../icons/ChevronRightIcon";
 import Slider from "react-slick";
@@ -67,14 +67,32 @@ export const FreshlyMealsCarouselComponent = () => {
     prevArrow: <PrevArrow />,
   };
   return (
-    <div className={checkForScreenSize.sliderDivClasses}>
-      <Slider {...settings} className={checkForScreenSize.sliderSlideClasses}>
+    <div
+      className={
+        checkForScreenSize.screenSize === 1920
+          ? "absolute top-[190px] left-44 mt-0 w-[66vw] max-h-[628px] items-center justify-center"
+          : checkForScreenSize.screenSize === 1536
+          ? "absolute top-[210px] left-44 -ml-1 mt-4 w-[62vw] items-center justify-center"
+          : checkForScreenSize.screenSize === 1280
+          ? "absolute top-[310px] left-44 ml-px mt-2 w-[57.8vw] items-center justify-center"
+          : "absolute top-[190px] left-44 mt-2 w-[63.9vw] h-[68.5vh] items-center justify-center"
+      }
+    >
+      <Slider {...settings} className="rounded-[27.5px] z-50">
         {slides.map((src, index) => (
           <div key={index}>
             <Image
               src={src}
               alt={`Slide ${index + 1}`}
-              className={checkForScreenSize.carouselImageClasses}
+              className={
+                checkForScreenSize.screenSize === 1920
+                  ? "w-full max-h-[628px] rounded-[27.5px]"
+                  : checkForScreenSize.screenSize === 1536
+                  ? "w-full max-h-[580px] rounded-[27.5px]"
+                  : checkForScreenSize.screenSize === 1280
+                  ? "w-full max-h-[500px] rounded-[27.5px]"
+                  : "h-full w-full rounded-[27.5px]"
+              }
             />
           </div>
         ))}
