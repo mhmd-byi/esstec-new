@@ -8,6 +8,8 @@ import slide5 from "@/assets/projectImages/ewaa/5-website.svg";
 import slide6 from "@/assets/projectImages/ewaa/6-psa.svg";
 import slide7 from "@/assets/projectImages/ewaa/7-corporate-film.svg";
 import slide8 from "@/assets/projectImages/ewaa/1-identity-rebrand.svg";
+import slide9 from "@/assets/projectImages/ewaa/8-corporate-deck.svg";
+import slide10 from "@/assets/projectImages/ewaa/9-stakeholder-brochure.svg";
 import { ChevronRightIcon } from "../../icons/ChevronRightIcon";
 import { ChevronLeftIcon } from "../../icons/ChevronLeftIcon";
 import Slider from "react-slick";
@@ -21,6 +23,8 @@ export const EwaaCarouselComponent = () => {
     slide1,
     slide2,
     slide3,
+    slide9,
+    slide10,
     slide4,
     slide5,
     slide6,
