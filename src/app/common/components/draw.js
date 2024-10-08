@@ -43,44 +43,46 @@ function DrawingComponent({ draw, activeMenu, animationComplete, setAnimationCom
 
   return (
     <>
-      {checkForScreenSize && <div className='absolute inset-0 flex justify-center items-center'>
-        <svg viewBox={checkForScreenSize.viewBox}>
-          {draw && (
-            <rect
-              ref={rectRef}
-              x={checkForScreenSize.xAxis}
-              y={checkForScreenSize.yAxis}
-              width={checkForScreenSize.rectangleWidth} // Width of the rectangle
-              height={checkForScreenSize.rectangleHeight} // Height of the rectangle
-              rx="25" // Rounded corner radius
-              ry="25" // Rounded corner radius
-              fill="transparent"
-              stroke="#222222"
-              strokeWidth={checkForScreenSize.strokeWidth}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              transform="scale(1 , -1) translate(0, -550.5)"
-            />
-          )}
-        </svg>
-      </div>}
+      {checkForScreenSize && (
+          <div className='inset-0'>
+            <svg viewBox={checkForScreenSize.viewBox}>
+              {draw && (
+                  <rect
+                      ref={rectRef}
+                      x={checkForScreenSize.xAxis}
+                      y={checkForScreenSize.yAxis}
+                      width={checkForScreenSize.rectangleWidth} // Width of the rectangle
+                      height={checkForScreenSize.rectangleHeight} // Height of the rectangle
+                      rx="25" // Rounded corner radius
+                      ry="25" // Rounded corner radius
+                      fill="transparent"
+                      stroke="#222222"
+                      strokeWidth={checkForScreenSize.strokeWidth}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      transform="scale(1 , -1) translate(0, -550.5)"
+                  />
+              )}
+            </svg>
+          </div>
+      )}
       {(draw && animationComplete && activeMenu === 'philosophy') && (<div className='px-20'>
-        <PhilosophyComponent />
+        <PhilosophyComponent/>
       </div>)}
       {(draw && animationComplete && activeMenu === 'clients') && (<div className='px-20'>
-        <ClientComponent />
+        <ClientComponent/>
       </div>)}
       {(draw && animationComplete && activeMenu === 'ewaa') && (<div className='px-20'>
-        <EwaaCarouselComponent />
+        <EwaaCarouselComponent/>
       </div>)}
       {(draw && animationComplete && activeMenu === 'scope') && (<div className='px-20'>
-        <ScopeInvestmentsCarouselComponent />
+        <ScopeInvestmentsCarouselComponent/>
       </div>)}
       {(draw && animationComplete && activeMenu === 'market') && (<div className='px-20'>
-        <MarketIResearchCarouselComponent />
+        <MarketIResearchCarouselComponent/>
       </div>)}
       {(draw && animationComplete && activeMenu === 'email') && (<div className='px-20'>
-        <EmailComponent />
+        <EmailComponent/>
       </div>)}
       {(draw && animationComplete && activeMenu === 'phone') && (<div className='px-20'>
         <PhoneComponent />
