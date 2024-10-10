@@ -30,18 +30,18 @@ export const calculateCurrentTime = () => {
 export const checkForScreenSizeInDraw = () => {
   const hasWindow = typeof window !== "undefined";
   const widthOfScreen = hasWindow ? window.innerWidth : null;
-
+  const heightOfScreen = hasWindow ? window.innerHeight : null;
   if (widthOfScreen !== null) {
     switch (widthOfScreen) {
       case 1280:
         return {
           screenSize: 1280,
-          rectangleWidth: 662,
-          rectangleHeight: 440,
+          rectangleWidth: widthOfScreen - (40/100)*widthOfScreen,
+          rectangleHeight: heightOfScreen - (24/100)*heightOfScreen,
           strokeWidth: 10,
-          xAxis: 143,
-          yAxis: -187,
-          viewBox: "0 0 1100 790",
+          xAxis: (13/100)*widthOfScreen,
+          yAxis: -(43/100)*heightOfScreen,
+          viewBox: `0 0 ${widthOfScreen} ${heightOfScreen+200}`,
           componentClass: widthClassNames.screenSize1280.componentClass,
           sliderDivClasses: widthClassNames.screenSize1280.sliderDivClasses,
           sliderSlideClasses: widthClassNames.screenSize1280.sliderSlideClasses,
@@ -49,15 +49,111 @@ export const checkForScreenSizeInDraw = () => {
           maxWidth: widthClassNames.screenSize1280.maxWidth,
           marginTop: widthClassNames.screenSize1280.marginTop,
         };
+      case 1360:
+        return {
+          screenSize: 1360,
+          rectangleWidth: widthOfScreen - (38.5/100)*widthOfScreen,
+          rectangleHeight: heightOfScreen - (15/100)*heightOfScreen,
+          strokeWidth: 10,
+          xAxis: (12.25/100)*widthOfScreen,
+          yAxis: -(48/100)*heightOfScreen,
+          viewBox: `0 0 ${widthOfScreen} ${heightOfScreen+250}`,
+          componentClass: widthClassNames.screenSize1536.componentClass,
+          sliderDivClasses: widthClassNames.screenSize1536.sliderDivClasses,
+          sliderSlideClasses: widthClassNames.screenSize1536.sliderSlideClasses,
+          carouselImageClasses: widthClassNames.screenSize1536.carouselImageClasses,
+          maxWidth: widthClassNames.screenSize1536.maxWidth,
+          marginTop: widthClassNames.screenSize1536.marginTop,
+        };
+      case 1366:
+        return {
+          screenSize: 1366,
+          rectangleWidth: widthOfScreen - (38.5/100)*widthOfScreen,
+          rectangleHeight: heightOfScreen - (15/100)*heightOfScreen,
+          strokeWidth: 10,
+          xAxis: (12.25/100)*widthOfScreen,
+          yAxis: -(48/100)*heightOfScreen,
+          viewBox: `0 0 ${widthOfScreen} ${heightOfScreen+250}`,
+          componentClass: widthClassNames.screenSize1536.componentClass,
+          sliderDivClasses: widthClassNames.screenSize1536.sliderDivClasses,
+          sliderSlideClasses: widthClassNames.screenSize1536.sliderSlideClasses,
+          carouselImageClasses: widthClassNames.screenSize1536.carouselImageClasses,
+          maxWidth: widthClassNames.screenSize1536.maxWidth,
+          marginTop: widthClassNames.screenSize1536.marginTop,
+        };
+      case 1400:
+        return {
+          screenSize: 1400,
+          rectangleWidth: widthOfScreen - (37.5/100)*widthOfScreen,
+          rectangleHeight: heightOfScreen - (40/100)*heightOfScreen,
+          strokeWidth: 10,
+          xAxis: (11.5/100)*widthOfScreen,
+          yAxis: -(20/100)*heightOfScreen,
+          viewBox: `0 0 ${widthOfScreen} ${heightOfScreen}`,
+          componentClass: widthClassNames.screenSize1536.componentClass,
+          sliderDivClasses: widthClassNames.screenSize1536.sliderDivClasses,
+          sliderSlideClasses: widthClassNames.screenSize1536.sliderSlideClasses,
+          carouselImageClasses: widthClassNames.screenSize1536.carouselImageClasses,
+          maxWidth: widthClassNames.screenSize1536.maxWidth,
+          marginTop: widthClassNames.screenSize1536.marginTop,
+        };
+      case 1440:
+        return {
+          screenSize: 1440,
+          rectangleWidth: widthOfScreen - (37.5/100)*widthOfScreen,
+          rectangleHeight: heightOfScreen - (28/100)*heightOfScreen,
+          strokeWidth: 10,
+          xAxis: (11.5/100)*widthOfScreen,
+          yAxis: -(25/100)*heightOfScreen,
+          viewBox: `0 0 ${widthOfScreen} ${heightOfScreen}`,
+          componentClass: widthClassNames.screenSize1536.componentClass,
+          sliderDivClasses: widthClassNames.screenSize1536.sliderDivClasses,
+          sliderSlideClasses: widthClassNames.screenSize1536.sliderSlideClasses,
+          carouselImageClasses: widthClassNames.screenSize1536.carouselImageClasses,
+          maxWidth: widthClassNames.screenSize1536.maxWidth,
+          marginTop: widthClassNames.screenSize1536.marginTop,
+        };
       case 1536:
         return {
           screenSize: 1536,
-          rectangleWidth: 698,
-          rectangleHeight: 400,
+          rectangleWidth: widthOfScreen - (33/100)*widthOfScreen,
+          rectangleHeight: heightOfScreen - (32/100)*heightOfScreen,
           strokeWidth: 10,
-          xAxis: 120,
-          yAxis: -21,
-          viewBox: "0 0 1100 600",
+          xAxis: (8.75/100)*widthOfScreen,
+          yAxis: -(29/100)*heightOfScreen,
+          viewBox: `0 0 ${widthOfScreen} ${heightOfScreen}`,
+          componentClass: widthClassNames.screenSize1536.componentClass,
+          sliderDivClasses: widthClassNames.screenSize1536.sliderDivClasses,
+          sliderSlideClasses: widthClassNames.screenSize1536.sliderSlideClasses,
+          carouselImageClasses: widthClassNames.screenSize1536.carouselImageClasses,
+          maxWidth: widthClassNames.screenSize1536.maxWidth,
+          marginTop: widthClassNames.screenSize1536.marginTop,
+        };
+      case 1600:
+        return {
+          screenSize: 1600,
+          rectangleWidth: widthOfScreen - (36/100)*widthOfScreen,
+          rectangleHeight: heightOfScreen - (25/100)*heightOfScreen,
+          strokeWidth: 15,
+          xAxis: (10.5/100)*widthOfScreen,
+          yAxis: -(28.5/100)*heightOfScreen,
+          viewBox: `0 0 ${widthOfScreen} ${heightOfScreen+10}`,
+          componentClass: widthClassNames.screenSize1536.componentClass,
+          sliderDivClasses: widthClassNames.screenSize1536.sliderDivClasses,
+          sliderSlideClasses: widthClassNames.screenSize1536.sliderSlideClasses,
+          carouselImageClasses: widthClassNames.screenSize1536.carouselImageClasses,
+          maxWidth: widthClassNames.screenSize1536.maxWidth,
+          marginTop: widthClassNames.screenSize1536.marginTop,
+        };
+      case 1680:
+        return {
+          screenSize: 1680,
+          rectangleWidth: widthOfScreen - (35/100)*widthOfScreen,
+          rectangleHeight: heightOfScreen - (35/100)*heightOfScreen,
+          strokeWidth: 15,
+          xAxis: (10/100)*widthOfScreen,
+          yAxis: -(25.5/100)*heightOfScreen,
+          viewBox: `0 0 ${widthOfScreen} ${heightOfScreen}`,
           componentClass: widthClassNames.screenSize1536.componentClass,
           sliderDivClasses: widthClassNames.screenSize1536.sliderDivClasses,
           sliderSlideClasses: widthClassNames.screenSize1536.sliderSlideClasses,
@@ -68,12 +164,12 @@ export const checkForScreenSizeInDraw = () => {
       case 1920:
         return {
           screenSize: 1920,
-          rectangleWidth: 736,
-          rectangleHeight: 370,
-          strokeWidth: 10,
-          xAxis: 97,
-          yAxis: 105,
-          viewBox: "0 0 1100 490",
+          rectangleWidth: widthOfScreen - (33/100)*widthOfScreen,
+          rectangleHeight: heightOfScreen - (32/100)*heightOfScreen,
+          strokeWidth: 20,
+          xAxis: (8.75/100)*widthOfScreen,
+          yAxis: -(29/100)*heightOfScreen,
+          viewBox: `0 0 ${widthOfScreen} ${heightOfScreen}`,
           componentClass: widthClassNames.screenSize1920.componentClass,
           sliderDivClasses: widthClassNames.screenSize1920.sliderDivClasses,
           sliderSlideClasses: widthClassNames.screenSize1920.sliderSlideClasses,
