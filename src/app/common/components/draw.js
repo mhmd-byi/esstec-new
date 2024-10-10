@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { ClientComponent } from './client';
 import { PhilosophyComponent } from './philosophy';
 import { EwaaCarouselComponent } from "./projects/ewaa";
@@ -52,8 +52,8 @@ function DrawingComponent({ draw, activeMenu, animationComplete, setAnimationCom
               y={checkForScreenSize.yAxis}
               width={checkForScreenSize.rectangleWidth} // Width of the rectangle
               height={checkForScreenSize.rectangleHeight} // Height of the rectangle
-              rx="25" // Rounded corner radius
-              ry="25" // Rounded corner radius
+              rx="35" // Rounded corner radius
+              ry="35" // Rounded corner radius
               fill="transparent"
               stroke="#222222"
               strokeWidth={checkForScreenSize.strokeWidth}
