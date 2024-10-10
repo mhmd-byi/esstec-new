@@ -37,7 +37,7 @@ export const checkForScreenSizeInDraw = () => {
         return {
           screenSize: 1280,
           rectangleWidth: widthOfScreen - (40/100)*widthOfScreen,
-          rectangleHeight: heightOfScreen - (24/100)*heightOfScreen,
+          rectangleHeight: heightOfScreen - (39/100)*heightOfScreen,
           strokeWidth: 10,
           xAxis: (13/100)*widthOfScreen,
           yAxis: -(43/100)*heightOfScreen,
@@ -53,7 +53,7 @@ export const checkForScreenSizeInDraw = () => {
         return {
           screenSize: 1360,
           rectangleWidth: widthOfScreen - (38.5/100)*widthOfScreen,
-          rectangleHeight: heightOfScreen - (15/100)*heightOfScreen,
+          rectangleHeight: heightOfScreen - (29.5/100)*heightOfScreen,
           strokeWidth: 10,
           xAxis: (12.25/100)*widthOfScreen,
           yAxis: -(48/100)*heightOfScreen,
@@ -69,7 +69,7 @@ export const checkForScreenSizeInDraw = () => {
         return {
           screenSize: 1366,
           rectangleWidth: widthOfScreen - (38.5/100)*widthOfScreen,
-          rectangleHeight: heightOfScreen - (15/100)*heightOfScreen,
+          rectangleHeight: heightOfScreen - (30/100)*heightOfScreen,
           strokeWidth: 10,
           xAxis: (12.25/100)*widthOfScreen,
           yAxis: -(48/100)*heightOfScreen,
@@ -85,7 +85,7 @@ export const checkForScreenSizeInDraw = () => {
         return {
           screenSize: 1400,
           rectangleWidth: widthOfScreen - (37.5/100)*widthOfScreen,
-          rectangleHeight: heightOfScreen - (40/100)*heightOfScreen,
+          rectangleHeight: heightOfScreen - (49.5/100)*heightOfScreen,
           strokeWidth: 10,
           xAxis: (11.5/100)*widthOfScreen,
           yAxis: -(20/100)*heightOfScreen,
@@ -101,7 +101,7 @@ export const checkForScreenSizeInDraw = () => {
         return {
           screenSize: 1440,
           rectangleWidth: widthOfScreen - (37.5/100)*widthOfScreen,
-          rectangleHeight: heightOfScreen - (28/100)*heightOfScreen,
+          rectangleHeight: heightOfScreen - (37.5/100)*heightOfScreen,
           strokeWidth: 10,
           xAxis: (11.5/100)*widthOfScreen,
           yAxis: -(25/100)*heightOfScreen,
@@ -133,10 +133,10 @@ export const checkForScreenSizeInDraw = () => {
         return {
           screenSize: 1600,
           rectangleWidth: widthOfScreen - (36/100)*widthOfScreen,
-          rectangleHeight: heightOfScreen - (25/100)*heightOfScreen,
+          rectangleHeight: heightOfScreen - (29.25/100)*heightOfScreen,
           strokeWidth: 15,
           xAxis: (10.5/100)*widthOfScreen,
-          yAxis: -(28.5/100)*heightOfScreen,
+          yAxis: -(29.25/100)*heightOfScreen,
           viewBox: `0 0 ${widthOfScreen} ${heightOfScreen+10}`,
           componentClass: widthClassNames.screenSize1536.componentClass,
           sliderDivClasses: widthClassNames.screenSize1536.sliderDivClasses,
@@ -149,7 +149,7 @@ export const checkForScreenSizeInDraw = () => {
         return {
           screenSize: 1680,
           rectangleWidth: widthOfScreen - (35/100)*widthOfScreen,
-          rectangleHeight: heightOfScreen - (35/100)*heightOfScreen,
+          rectangleHeight: heightOfScreen - (36/100)*heightOfScreen,
           strokeWidth: 15,
           xAxis: (10/100)*widthOfScreen,
           yAxis: -(25.5/100)*heightOfScreen,
