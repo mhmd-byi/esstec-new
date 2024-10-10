@@ -67,22 +67,28 @@ export const RawCoffeeCarouselComponent = () => {
   };
   return (
     <div
-          className={
-            checkForScreenSize.screenSize === 1920
-              ? "absolute top-[190px] left-44 mt-0 w-[66vw] max-h-[628px] items-center justify-center"
-              : checkForScreenSize.screenSize === 1600
-              ? "absolute top-[210px] left-44 mt-0 w-[62vw] max-h-[600px] items-center justify-center"
-              : checkForScreenSize.screenSize === 1536
-              ? "absolute top-[210px] left-44 -ml-1 mt-4 w-[62vw] items-center justify-center"
-              : checkForScreenSize.screenSize === 1440
-              ? "absolute top-[210px] left-44 -ml-2 mt-6 w-[61vw] items-center justify-center"
-              : checkForScreenSize.screenSize === 1366
-              ? "absolute top-[210px] left-44 -ml-1 mt-6 w-[59.75vw] items-center justify-center"
-              : checkForScreenSize.screenSize === 1280
-              ? "absolute top-[265px] left-40 ml-3 w-[58.5vw] items-center justify-center"
-              : "absolute top-[190px] left-44 mt-2 w-[63.9vw] h-[68.5vh] items-center justify-center"
-          }
-        >
+      className={
+        checkForScreenSize.screenSize === 1920
+          ? "absolute top-[190px] left-44 mt-0 w-[66vw] items-center justify-center"
+          : checkForScreenSize.screenSize === 1680
+          ? "absolute top-[205px] left-44 mt-0 w-[64vw] max-h-[600px] items-center justify-center"
+          : checkForScreenSize.screenSize === 1600
+          ? "absolute top-[235px] left-44 mt-0 w-[62vw] max-h-[600px] items-center justify-center"
+          : checkForScreenSize.screenSize === 1536
+          ? "absolute top-[210px] left-44 -ml-1 mt-4 w-[62vw] items-center justify-center"
+          : checkForScreenSize.screenSize === 1440
+          ? "absolute top-[245px] left-44 -ml-2 mt-6 w-[61vw] items-center justify-center"
+          : checkForScreenSize.screenSize === 1400
+          ? "absolute top-[250px] left-44 -ml-2 mt-6 w-[61.5vw] items-center justify-center"
+          : checkForScreenSize.screenSize === 1366
+          ? "absolute top-[265px] left-44 -ml-1 mt-6 w-[59.75vw] items-center justify-center"
+          : checkForScreenSize.screenSize === 1360
+          ? "absolute top-[265px] left-44 -ml-1 mt-6 w-[59.75vw] items-center justify-center"
+          : checkForScreenSize.screenSize === 1280
+          ? "absolute top-[335px] left-40 ml-3 w-[58vw] items-center justify-center"
+          : "absolute top-[190px] left-44 mt-2 w-[63.9vw] h-[68.5vh] items-center justify-center"
+      }
+    >
       <Slider {...settings} className="rounded-[27.5px] z-50">
         {slides.map((src, index) => (
           <div key={index}>
@@ -91,11 +97,19 @@ export const RawCoffeeCarouselComponent = () => {
               alt={`Slide ${index + 1}`}
               className={
                 checkForScreenSize.screenSize === 1920
-                  ? "w-full max-h-[628px] rounded-[27.5px]"
+                  ? "w-full max-h-[625px] rounded-[27.5px] object-cover"
+                  : checkForScreenSize.screenSize === 1600
+                  ? "w-full max-h-[580px] rounded-[27.5px] object-cover"
                   : checkForScreenSize.screenSize === 1536
-                  ? "w-full max-h-[580px] rounded-[27.5px]"
+                  ? "w-full max-h-[580px] rounded-[27.5px] object-cover"
+                  : checkForScreenSize.screenSize === 1440
+                  ? "w-full max-h-[580px] rounded-[27.5px] object-cover"
+                  : checkForScreenSize.screenSize === 1440
+                  ? "w-full max-h-[580px] rounded-[27.5px] object-cover"
+                  : checkForScreenSize.screenSize === 1336
+                  ? "w-full max-h-[580px] rounded-[27.5px] object-cover"
                   : checkForScreenSize.screenSize === 1280
-                  ? "w-full max-h-[500px] rounded-[27.5px]"
+                  ? "w-full max-h-[500px] rounded-[27.5px] object-cover"
                   : "h-full w-full rounded-[27.5px]"
               }
             />

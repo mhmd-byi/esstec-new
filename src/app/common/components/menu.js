@@ -79,11 +79,13 @@ export const Menu = ({ handleDrawClick, setActiveMenu, setDraw, setAnimationComp
         <span><a className={`hover:line-through cursor-pointer ${activeMenu === 'email' && 'line-through'}`} onClick={() => {
           handleDrawClick()
           setActiveMenu('email')
-        }}>email &#47;</a></span>
-        <span><a className={`hover:line-through cursor-pointer ${activeMenu === 'phone' && 'line-through'}`} onClick={() => {
-          handleDrawClick()
-          setActiveMenu('phone')
-        }}>phone &#47;</a></span>
+        }}>email + phone &#47;</a></span>
+      </p>
+      <p className="flex flex-col">
+        <span className="font-semibold cursor-pointer" onClick={() => {
+          setDraw(false);
+          setAnimationComplete(false);
+        }}>&#47;&#47; Home</span>
       </p>
     </div>
   );

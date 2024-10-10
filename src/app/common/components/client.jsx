@@ -13,24 +13,73 @@ export const ClientComponent = () => {
           : checkForScreenSize.screenSize === 1536
           ? "absolute mx-auto right-auto left-auto top-56 w-[800px] mt-10 z-[60]"
           : checkForScreenSize.screenSize === 1440
-          ? "absolute px-0 right-auto left-auto top-44 mt-5 w-[750px] items-center justify-center z-[60]"
-          : checkForScreenSize.screenSize === 1366 || checkForScreenSize.screenSize === 1360
-          ? "absolute px-0 right-auto left-auto top-44 mt-10 w-[700px] items-center justify-center z-[60]"
+          ? "absolute px-0 right-auto left-auto top-64 mt-5 w-[750px] items-center justify-center z-[60]"
+          : checkForScreenSize.screenSize === 1400
+          ? "absolute px-0 right-auto left-auto top-64 mt-5 w-[750px] items-center justify-center z-[60]"
+          : checkForScreenSize.screenSize === 1366 ||
+            checkForScreenSize.screenSize === 1360
+          ? "absolute px-0 right-auto left-auto top-64 mt-10 w-[700px] items-center justify-center z-[60]"
           : checkForScreenSize.screenSize === 1280
-          ? "absolute mx-auto top-56 mt-10 w-[600px] z-[60]"
+          ? "absolute mx-auto top-60 mt-24 w-[600px] z-[60]"
           : "absolute mx-auto right-auto left-auto px-0 top-56 mt-10 w-[1000px] items-center justify-center z-[60]"
       }
     >
-      <h2 className={`${checkForScreenSize.screenSize === 1920 ? 'text-6xl' : (checkForScreenSize.screenSize === 1536 ? 'text-4xl' : (checkForScreenSize.screenSize === 1366 || checkForScreenSize.screenSize === 1360 ? 'text-3xl' : (checkForScreenSize.screenSize === 1280 ? 'text-3xl' : 'text-6xl')))} font-bold text-text-primary uppercase duration-1000 ease-in-out text-center ${checkForScreenSize.maxWidth}`}>
+      <h2
+        className={`${
+          checkForScreenSize.screenSize === 1920
+            ? "text-6xl"
+            : checkForScreenSize.screenSize === 1536
+            ? "text-4xl"
+            : checkForScreenSize.screenSize === 1366 ||
+              checkForScreenSize.screenSize === 1360 ||
+              checkForScreenSize.screenSize === 1440 ||
+              checkForScreenSize.screenSize === 1400
+            ? "text-3xl"
+            : checkForScreenSize.screenSize === 1280
+            ? "text-3xl"
+            : "text-6xl"
+        } font-bold text-text-primary uppercase duration-1000 ease-in-out text-center ${
+          checkForScreenSize.maxWidth
+        }`}
+      >
         clients
       </h2>
-      <div className={`flex flex-row flex-wrap mt-10 ${checkForScreenSize.maxWidth}`}>
+      <div
+        className={`flex flex-row flex-wrap mt-10 ${checkForScreenSize.maxWidth}`}
+      >
         {clientData.map((data, index) => (
-          <div className="basis-1/4 justify-between py-5" key={index}>
-            <div className={`text-text-primary uppercase ${(checkForScreenSize.screenSize === 1536 || checkForScreenSize.screenSize === 1280 || checkForScreenSize.screenSize === 1360  || checkForScreenSize.screenSize === 1366) ? 'text-xs' : 'text-sm'}`}>
+          <div
+            className={`basis-1/4 justify-between ${
+              checkForScreenSize.screenSize <= 1366 ? "py-3" : "py-5"
+            }`}
+            key={index}
+          >
+            <div
+              className={`text-text-primary uppercase ${
+                checkForScreenSize.screenSize === 1536 ||
+                checkForScreenSize.screenSize === 1280 ||
+                checkForScreenSize.screenSize === 1360 ||
+                checkForScreenSize.screenSize === 1366 ||
+                checkForScreenSize.screenSize === 1440 ||
+                checkForScreenSize.screenSize === 1400
+                  ? "text-xs"
+                  : "text-sm"
+              }`}
+            >
               {data.name}
             </div>
-            <div className={`text-text-primary font-medium lowercase ${(checkForScreenSize.screenSize === 1536 || checkForScreenSize.screenSize === 1280 || checkForScreenSize.screenSize === 1360 || checkForScreenSize.screenSize === 1366) ? 'text-xs' : 'text-sm'}`}>
+            <div
+              className={`text-text-primary font-medium lowercase ${
+                checkForScreenSize.screenSize === 1536 ||
+                checkForScreenSize.screenSize === 1280 ||
+                checkForScreenSize.screenSize === 1360 ||
+                checkForScreenSize.screenSize === 1366 ||
+                checkForScreenSize.screenSize === 1440 ||
+                checkForScreenSize.screenSize === 1400
+                  ? "text-xs"
+                  : "text-sm"
+              }`}
+            >
               <a
                 href={`https://${data.website}`}
                 target="_blank"
