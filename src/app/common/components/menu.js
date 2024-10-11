@@ -5,6 +5,7 @@ export const Menu = ({ handleDrawClick, setActiveMenu, setDraw, setAnimationComp
         <span className="font-semibold cursor-pointer" onClick={() => {
           setDraw(false);
           setAnimationComplete(false);
+          setActiveMenu('');
         }}>&#47;&#47; About</span>
         <span><a 
           className={`hover:line-through cursor-pointer ${activeMenu === 'philosophy' && 'line-through'}`} 
@@ -37,6 +38,7 @@ export const Menu = ({ handleDrawClick, setActiveMenu, setDraw, setAnimationComp
         <span className="font-semibold cursor-pointer" onClick={() => {
           setDraw(false);
           setAnimationComplete(false);
+          setActiveMenu('');
         }}>&#47;&#47; project showcase</span>
         <span><a className={`hover:line-through cursor-pointer ${activeMenu === 'ewaa' && 'line-through'}`} onClick={() => {
           handleDrawClick()
@@ -75,6 +77,7 @@ export const Menu = ({ handleDrawClick, setActiveMenu, setDraw, setAnimationComp
         <span className="font-semibold cursor-pointer" onClick={() => {
           setDraw(false);
           setAnimationComplete(false);
+          setActiveMenu('');
         }}>&#47;&#47; contact</span>
         <span><a className={`hover:line-through cursor-pointer ${activeMenu === 'email' && 'line-through'}`} onClick={() => {
           handleDrawClick()
@@ -85,6 +88,7 @@ export const Menu = ({ handleDrawClick, setActiveMenu, setDraw, setAnimationComp
         <span className="font-semibold cursor-pointer" onClick={() => {
           setDraw(false);
           setAnimationComplete(false);
+          setActiveMenu('');
         }}>&#47;&#47; Home</span>
       </p>
     </div>
