@@ -52,8 +52,8 @@ function DrawingComponent({ draw, activeMenu, animationComplete, setAnimationCom
               y={checkForScreenSize.yAxis}
               width={checkForScreenSize.rectangleWidth} // Width of the rectangle
               height={checkForScreenSize.rectangleHeight} // Height of the rectangle
-              rx="35" // Rounded corner radius
-              ry="35" // Rounded corner radius
+              rx="25" // Rounded corner radius
+              ry="25" // Rounded corner radius
               fill="transparent"
               stroke="#222222"
               strokeWidth={checkForScreenSize.strokeWidth}
