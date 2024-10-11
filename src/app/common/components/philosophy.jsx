@@ -15,8 +15,8 @@ export const PhilosophyComponent = () => {
           ? "absolute px-0 right-auto left-auto top-64 mt-5 w-[750px] items-center justify-center z-[60]"
           : checkForScreenSize.screenSize === 1400
           ? "absolute px-0 right-auto left-auto top-64 mt-5 w-[750px] items-center justify-center z-[60]"
-          : checkForScreenSize.screenSize === 1366 ||
-            checkForScreenSize.screenSize === 1360
+          : (checkForScreenSize.screenSize === 1366 ||
+            checkForScreenSize.screenSize === 1360)
           ? "absolute px-0 right-auto left-auto top-64 mt-10 w-[700px] items-center justify-center z-[60]"
           : checkForScreenSize.screenSize === 1280
           ? "absolute mx-auto top-60 mt-24 w-[600px] z-[60]"
@@ -44,7 +44,7 @@ export const PhilosophyComponent = () => {
         philosophy
       </h2>
       <div
-        className={`text-text-primary uppercase ${
+        className={`text-text-primary text-center mt-10 uppercase ${
           checkForScreenSize.screenSize === 1536 ||
           checkForScreenSize.screenSize === 1280 ||
           checkForScreenSize.screenSize === 1360 ||
