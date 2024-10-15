@@ -14,7 +14,7 @@ export const Header = () => {
   const hasWindow = typeof window !== "undefined";
   const widthOfScreen = hasWindow ? window.innerWidth : null;
   const heightOfScreen = hasWindow ? window.innerHeight : null;
-  const platform = getOperatingSystem();
+  const platform = hasWindow ? getOperatingSystem() : null;
 
   return (
     <>
