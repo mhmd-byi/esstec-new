@@ -59,7 +59,7 @@ function DrawingComponent({
                 ref={rectRef}
                 x={5}
                 y={5}
-                width={widthOfScreen - 670} // Width of the rectangle
+                width={widthOfScreen - ((54/100)*widthOfScreen)} // Width of the rectangle
                 height={heightOfScreen - 500} // Height of the rectangle
                 rx="35" // Rounded corner radius
                 ry="35" // Rounded corner radius
@@ -111,6 +111,7 @@ function DrawingComponent({
             }
           })()}
         </div>
+        // <div></div>
       )}
     </>
   );

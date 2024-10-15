@@ -1,24 +1,26 @@
 import { useEffect, useState } from "react";
-import { calculateCurrentTime, getCurrentTimeInGMTPlus4 } from "@/helper/helper";
+import { getCurrentTimeInGMTPlus4, getOperatingSystem } from "@/helper/helper";
 
 export const Header = () => {
-  const [userTime, setUserTime] = useState(calculateCurrentTime());
   const [gmtPlus4Time, setGmtPlus4Time] = useState(getCurrentTimeInGMTPlus4());
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setUserTime(calculateCurrentTime());
       setGmtPlus4Time(getCurrentTimeInGMTPlus4());
     }, 1000);
 
     return () => clearInterval(timer);
   }, []);
+  const hasWindow = typeof window !== "undefined";
+  const widthOfScreen = hasWindow ? window.innerWidth : null;
+  const heightOfScreen = hasWindow ? window.innerHeight : null;
+  const platform = getOperatingSystem();
 
   return (
     <>
       <div className="text-text-primary uppercase">
-        <p className="font-semibold">YOUR TIME</p>
-        <p>{userTime}</p>
+        <p className="font-semibold">DEVICE INFO</p>
+        <p>{widthOfScreen} x {heightOfScreen} {platform}</p>
       </div>
       <div>
         <p className="text-text-primary uppercase font-semibold">

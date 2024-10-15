@@ -44,10 +44,6 @@ export default function Home() {
           />
         </div>
         <div className="mt-44 lg:-mt-10">
-          <p class="block md:hidden text-text-primary text-sm mt-20 mb-60 text-center">
-            For best experience please visit the website on your laptop, we are
-            soon coming with our mobile design
-          </p>
           <Image src={esstecLogo} width="w-full" height="h-full" alt="logo" />
         </div>
         <div className="hidden lg:block mt-10 mb-5">
