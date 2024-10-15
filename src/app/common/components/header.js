@@ -22,11 +22,11 @@ export const Header = () => {
         <p className="font-semibold">DEVICE INFO</p>
         <p>{widthOfScreen} x {heightOfScreen} {platform}</p>
       </div>
-      <div>
+      <div className="z-50">
         <p className="text-text-primary uppercase font-semibold">
           a creative design studio WORKING WITH BRANDS TO stand out in the GLOBAL
           market.{" "}
-          <a href="mailto:info@esstec.ae" className="underline">
+          <a href="mailto:info@esstec.ae" className="underline hover:cursor-pointer">
             drop us a line
           </a>
           .
