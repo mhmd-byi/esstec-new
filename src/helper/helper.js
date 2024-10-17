@@ -34,7 +34,7 @@ export const getOperatingSystem = () => {
     return "Windows";
   } else if (/Android/.test(userAgent)) {
     return "Android";
-  } else if (!os && /Linux/.test(platform)) {
+  } else if (/Linux/.test(platform)) {
     return "Linux";
   }
 
