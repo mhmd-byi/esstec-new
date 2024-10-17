@@ -96,7 +96,7 @@ export const Menu = ({
               setActiveMenu("scope");
             }}
           >
-            scope investments &#47;
+            scope investment &#47;
           </a>
         </span>
         <span>
