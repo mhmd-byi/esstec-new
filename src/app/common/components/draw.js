@@ -45,7 +45,7 @@ function DrawingComponent({
           {draw && (
             <rect
               ref={rectRef}
-              x="0"
+              x="1"
               y="0"
               width="160"
               height="90"
@@ -53,7 +53,7 @@ function DrawingComponent({
               ry="8"
               fill="transparent"
               stroke="#222222"
-              strokeWidth="2"
+              strokeWidth="2.15"
               strokeLinecap="round"
               strokeLinejoin="round"
               transform="scale(1, -1) translate(0, -90)"

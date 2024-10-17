@@ -34,7 +34,7 @@ export default function Home() {
         {/* Image and Drawing */}
         <div className="relative">
           {activeMenu && (
-            <div className="absolute bottom-[2%] w-full md:bottom-[3%] md:w-[81%]">
+            <div className="absolute bottom-[2%] w-full md:bottom-[3%] md:w-[80.40%]">
               <DrawingComponent
                 draw={draw}
                 activeMenu={activeMenu}
