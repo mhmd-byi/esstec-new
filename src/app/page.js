@@ -1,72 +1,55 @@
 "use client";
 import { useState } from "react";
+import { Footer } from "./common/components/footer";
+import { Header } from "./common/components/header";
+import { Menu } from "./common/components/menu";
+import ActiveMenuList from "./common/components/ActiveMenu";
+import DrawingComponent from "./common/components/draw";
 import Image from "next/image";
 import esstecLogo from "@/assets/images/esstec-logo.svg";
-import { Menu } from "./common/components/menu";
-import { Footer } from "./common/components/footer";
-import DrawingComponent from "./common/components/draw";
-import { MobileFooter } from "./common/components/mobileFooter";
-import { Header } from "./common/components/header";
-import { MobileHeader } from "./common/components/mobileHeader";
-import MobileDrawingComponent from "./common/components/mobileDraw";
 
 export default function Home() {
-  
   const [draw, setDraw] = useState(false);
   const [animationComplete, setAnimationComplete] = useState(false);
-  const [activeMenu, setActiveMenu] = useState('');
+  const [activeMenu, setActiveMenu] = useState("");
   const handleDrawClick = () => {
     if (!draw) {
       setDraw(true);
     }
   };
-  
   return (
-    <main className="flex min-h-screen flex-col px-10 lg:px-40 pt-5 lg:pt-16 bg-bg-primary">
-      <div className="hidden lg:flex flex-row justify-between text-xs leading-6">
+    <div className="bg-bg-primary">
+      <div className="mx-auto flex min-h-dvh w-11/12 max-w-screen-2xl flex-col justify-between gap-6">
         <Header />
-      </div>
-      <div className="hidden md:block text-right mt-8 lg:mt-16 z-50">
-        <Menu 
-          handleDrawClick={handleDrawClick} 
-          setActiveMenu={setActiveMenu} 
+
+        <Menu
+          handleDrawClick={handleDrawClick}
+          setActiveMenu={setActiveMenu}
           setDraw={setDraw}
           setAnimationComplete={setAnimationComplete}
           activeMenu={activeMenu}
+          style="order-first md:order-none"
         />
-      </div>
-      <div className="hidden lg:block">
-        <DrawingComponent 
-          draw={draw} 
-          activeMenu={activeMenu} 
-          animationComplete={animationComplete} 
-          setAnimationComplete={setAnimationComplete} 
-        />
-      </div>
-      <div className="hidden my-5">
-        <hr />
-      </div>
-      <div className="hidden">
-        <MobileHeader />
-      </div>
-      <div className="hidden">
-        <MobileDrawingComponent 
-          draw={draw} 
-          activeMenu={activeMenu} 
-          animationComplete={animationComplete} 
-          setAnimationComplete={setAnimationComplete} 
-        />
-      </div>
-      <div className="mt-44 lg:-mt-10">
-        <p class="block md:hidden text-text-primary text-sm mt-20 mb-60 text-center">For best experience please visit the website on your laptop, we are soon coming with our mobile design</p>
-        <Image src={esstecLogo} width="w-full" height="h-full" alt="logo" />
-      </div>
-      <div className="hidden lg:block mt-10 mb-5">
+
+        {/* Image and Drawing */}
+        <div className="relative">
+          {activeMenu && (
+            <div className="absolute bottom-[2%] w-full md:bottom-[3%] md:w-[81%]">
+              <DrawingComponent
+                draw={draw}
+                activeMenu={activeMenu}
+                animationComplete={animationComplete}
+                setAnimationComplete={setAnimationComplete}
+              />
+            </div>
+          )}
+          <div>
+            <Image src={esstecLogo} className="w-full" alt="logo" />
+          </div>
+        </div>
+
         <Footer />
       </div>
-      <div className="block md:hidden">
-        <MobileFooter />
-      </div>
-    </main>
+    </div>
   );
 }
