@@ -62,7 +62,7 @@ function DrawingComponent({
         </svg>
 
         {draw && animationComplete && (
-          <div className="absolute inset-1.5 w-full flex items-center justify-center overflow-hidden rounded-[5%] bg-bg-primary">
+          <div className="absolute inset-2 w-full flex items-center justify-center overflow-hidden rounded-[5%] bg-bg-primary">
             <ActiveMenuList activeMenu={activeMenu} />
           </div>
         )}
