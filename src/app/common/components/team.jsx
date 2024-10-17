@@ -1,7 +1,7 @@
 export const TeamComponent = () => {
   return (
     <div className="scrollbar max-h-full space-y-4 overflow-auto p-2 md:space-y-6 md:p-4">
-      <h2 className="text-center text-3xl font-bold uppercase text-text-primary duration-1000 ease-in-out sm:text-4xl md:text-5xl lg:text-6xl">
+      <h2 className="text-center text-3xl font-bold uppercase text-text-primary duration-1000 ease-in-out sm:text-4xl md:text-5xl lg:text-6xl md:pb-20">
         Team
       </h2>
       <div className="space-y-3 text-center text-xs uppercase text-text-primary sm:space-y-4 md:text-sm">
