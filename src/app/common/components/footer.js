@@ -3,7 +3,7 @@ import moment from "moment";
 export const Footer = () => {
   const currentYear = moment().year();
   return (
-    <footer className="flex items-center justify-between gap-3 pb-2 text-xs leading-6 text-text-primary">
+    <footer className="flex items-center justify-between gap-3 pb-2 mb-4 text-xs leading-6 text-text-primary">
       <div className="hidden sm:block sm:text-left">
         <p>CRAFTING BRAND STORIES.</p>
         <p>ONE HIT AT A TIME.</p>

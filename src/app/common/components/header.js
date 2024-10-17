@@ -21,7 +21,7 @@ export const Header = () => {
   const osDetails = getOperatingSystem();
 
   return (
-    <header className="relative py-2 text-xs leading-6">
+    <header className="relative py-2 text-xs leading-6 my-4">
       <hr className="my-3 h-px border-0 bg-text-primary md:hidden" />
       <div className="my-4 md:absolute md:left-1/2 md:top-0 md:mt-0 md:flex md:h-full md:-translate-x-1/2 md:items-center">
         <p className="text-center font-semibold uppercase text-text-primary">

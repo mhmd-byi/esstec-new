@@ -32,7 +32,7 @@ export default function Home() {
         />
 
         {/* Image and Drawing */}
-        <div className="relative">
+        <div className="relative -mt-14">
           {activeMenu && (
             <div className="absolute bottom-[2%] w-full md:bottom-[3%] md:w-[80.40%]">
               <DrawingComponent

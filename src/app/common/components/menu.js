@@ -8,7 +8,7 @@ export const Menu = ({
 }) => {
   return (
     <div
-      className={`relative py-2 text-right text-xs uppercase leading-5 text-text-primary md:leading-6 ${style}`}
+      className={`relative py-2 text-right text-xs uppercase leading-6 text-text-primary md:leading-6 ${style}`}
     >
       <p className="flex flex-col">
         <span
