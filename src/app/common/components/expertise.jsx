@@ -1,7 +1,7 @@
 export const ExpertiseComponent = () => {
   return (
-    <div className="scrollbar max-h-full space-y-4 overflow-auto p-2 md:space-y-6 md:p-4 lg:h-fit">
-      <h2 className="text-center text-3xl font-bold uppercase text-text-primary duration-1000 ease-in-out sm:text-4xl md:text-5xl lg:text-6xl md:pb-20">
+    <div className="scrollbar max-h-full space-y-4 p-2 md:space-y-6 md:h-full grid grid-cols-1 md:px-32">
+      <h2 className="text-center text-3xl font-bold uppercase text-text-primary duration-1000 ease-in-out sm:text-4xl md:text-5xl lg:text-6xl md:mt-20 md:-mb-20">
         Digital & Physical
       </h2>
       <div className="space-y-5 text-center text-xs uppercase text-text-primary sm:space-y-6 md:text-sm">
@@ -9,7 +9,7 @@ export const ExpertiseComponent = () => {
           branding & communication
           <br />-<br />
           visual identity / brand guidelines / brand strategy / marketing
-          collaterals / graphics & illustrations content / social engagement /
+          collaterals / graphics & illustrations<br /> content / social engagement /
           podcasts / market research / lead gen / press & media / av production
         </p>
         <p>

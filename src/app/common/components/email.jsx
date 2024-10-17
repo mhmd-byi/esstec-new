@@ -1,8 +1,8 @@
 export const EmailComponent = () => {
   return (
-    <div className="space-y-4 p-2 md:space-y-6 md:h-96 content-between grid grid-cols-1">
+    <div className="scrollbar max-h-full w-full space-y-4 p-2 md:space-y-6 md:h-full grid grid-cols-1 md:px-32">
       <div>
-        <h2 className="text-center text-3xl font-bold uppercase text-text-primary duration-1000 ease-in-out sm:text-4xl md:text-5xl lg:text-6xl">
+        <h2 className="text-center text-3xl font-bold uppercase text-text-primary duration-1000 ease-in-out sm:text-4xl md:text-5xl lg:text-6xl md:mt-20 md:-mb-20">
           Email + Phone
         </h2>
       </div>
