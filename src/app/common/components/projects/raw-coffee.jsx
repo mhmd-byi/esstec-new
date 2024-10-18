@@ -14,6 +14,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 export const RawCoffeeCarouselComponent = () => {
   const slides = [slide1, slide2, slide3, slide4, slide5, slide6];
+  const hasWindow = typeof window !== "undefined";
+  const widthOfScreen = hasWindow ? window.innerWidth : null;
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
@@ -22,7 +24,7 @@ export const RawCoffeeCarouselComponent = () => {
         style={{
           ...style,
           display: "block",
-          right: "30px",
+          right: widthOfScreen < 500 ? "5px" : "30px",
           color: "#222222",
           zIndex: 10,
         }}

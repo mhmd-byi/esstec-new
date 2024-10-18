@@ -27,6 +27,8 @@ export const MarketIResearchCarouselComponent = () => {
     slide8,
     slide9,
   ];
+  const hasWindow = typeof window !== "undefined";
+  const widthOfScreen = hasWindow ? window.innerWidth : null;
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
@@ -35,7 +37,7 @@ export const MarketIResearchCarouselComponent = () => {
         style={{
           ...style,
           display: "block",
-          right: "30px",
+          right: widthOfScreen < 500 ? "5px" : "30px",
           color: "#222222",
           zIndex: 10,
         }}

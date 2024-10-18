@@ -29,6 +29,8 @@ export const EwaaCarouselComponent = () => {
     slide6,
     slide7,
   ];
+  const hasWindow = typeof window !== "undefined";
+  const widthOfScreen = hasWindow ? window.innerWidth : null;
 
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
@@ -38,7 +40,7 @@ export const EwaaCarouselComponent = () => {
         style={{
           ...style,
           display: "block",
-          right: "30px",
+          right: widthOfScreen < 500 ? "5px" : "30px",
           color: "#222222",
           zIndex: 10,
         }}
