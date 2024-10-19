@@ -4,7 +4,7 @@ import {
   getOperatingSystem,
 } from "@/helper/helper";
 
-export const Header = ({ draw }) => {
+export const Header = ({ mobileComponentOpen, draw }) => {
   const [gmtPlus4Time, setGmtPlus4Time] = useState(getCurrentTimeInGMTPlus4());
 
   useEffect(() => {
@@ -19,6 +19,8 @@ export const Header = ({ draw }) => {
   const widthOfScreen = hasWindow ? window.innerWidth : null;
   const heightOfScreen = hasWindow ? window.innerHeight : null;
   const osDetails = getOperatingSystem();
+
+  if (mobileComponentOpen > 0 && widthOfScreen < 450) return null;
 
   return (
     <header className="relative py-2 text-xs leading-6 my-4">

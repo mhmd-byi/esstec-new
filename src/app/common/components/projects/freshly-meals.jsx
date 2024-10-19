@@ -74,7 +74,7 @@ export const FreshlyMealsCarouselComponent = () => {
             <Image
               src={src}
               alt={`Slide ${index + 1}`}
-              className="h-full w-full object-cover"
+              className="h-[17.5rem] rounded-xl md:h-full w-full object-cover"
             />
           </div>
         ))}

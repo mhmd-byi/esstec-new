@@ -18,16 +18,16 @@ import "slick-carousel/slick/slick-theme.css";
 
 export const EwaaCarouselComponent = () => {
   const slides = [
-    slide8,
-    slide1,
-    slide2,
-    slide3,
-    slide9,
-    slide10,
-    slide4,
-    slide5,
-    slide6,
-    slide7,
+    {slide: slide8, title: "identity rebrand"},
+    {slide: slide1, title: "brand guidelines"},
+    {slide: slide2, title: "brand guidelines"},
+    {slide: slide3, title: "animation video"},
+    {slide: slide9, title: "corporate deck"},
+    {slide: slide10, title: "stakeholder brochure"},
+    {slide: slide4, title: "infographic posters"},
+    {slide: slide5, title: "web development"},
+    {slide: slide6, title: "psa shorts"},
+    {slide: slide7, title: "corporate film"},
   ];
   const hasWindow = typeof window !== "undefined";
   const widthOfScreen = hasWindow ? window.innerWidth : null;
@@ -85,13 +85,14 @@ export const EwaaCarouselComponent = () => {
   return (
     <div className="h-full w-full">
       <Slider {...settings} className="h-full w-full">
-        {slides.map((src, index) => (
-          <div key={index} className="h-full w-full">
+        {slides.map((slide, index) => (
+          <div key={index} className="relative h-full w-full">
             <Image
-              src={src}
+              src={slide.slide}
               alt={`Slide ${index + 1}`}
-              className="h-full w-full object-cover"
+              className="h-[17.5rem] rounded-xl md:h-full md:w-full object-cover"
             />
+            <div className="absolute bottom-0 md:bottom-20 md:right-0 w-full md:w-[24.5rem] md:text-3xl bg-text-primary text-center text-bg-primary font-bold uppercase py-2 md:py-6 z-10">{slide.title}</div>
           </div>
         ))}
       </Slider>
