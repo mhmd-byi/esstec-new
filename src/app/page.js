@@ -19,8 +19,8 @@ export default function Home() {
   };
   return (
     <div className="bg-bg-primary">
-      <div className="hidden mx-auto md:flex min-h-dvh w-11/12 max-w-screen-2xl flex-col justify-between gap-6">
-        <Header />
+      <div className="mx-auto flex min-h-dvh w-11/12 max-w-screen-2xl flex-col justify-between gap-6">
+        <Header draw={draw} />
 
         <Menu
           handleDrawClick={handleDrawClick}
@@ -50,12 +50,12 @@ export default function Home() {
 
         <Footer />
       </div>
-      <div className="flex md:hidden items-center justify-center h-screen px-10">
+      {/*<div className="flex md:hidden items-center justify-center h-screen px-10">
         <div className="text-center text-text-primary">
           <p>For best view please view the website on desktop</p>
           <Image src={esstecLogo} className="w-full mt-20" alt="logo" />
         </div>
-      </div>
+      </div>*/}
     </div>
   );
 }
