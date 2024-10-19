@@ -51,7 +51,7 @@ export default function Home() {
         <Footer />
       </div>
       <div className="flex md:hidden items-center justify-center h-screen px-10">
-        <div className="text-center">
+        <div className="text-center text-text-primary">
           <p>For best view please view the website on desktop</p>
           <Image src={esstecLogo} className="w-full mt-20" alt="logo" />
         </div>
