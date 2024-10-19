@@ -23,11 +23,10 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('this is form data', formData);
     if (formData.username === "admin" && formData.password === "123456") {
       localStorage.setItem('isAuthenticated', true);
       toast.success('You are being redirected to admin area');
-      router.push('/admin');
+      router.push('/dashboard');
     } else {
       toast.error('Invalid login credentials');
     }
