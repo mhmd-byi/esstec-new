@@ -86,13 +86,13 @@ export const EwaaCarouselComponent = () => {
     <div className="h-full w-full">
       <Slider {...settings} className="h-full w-full">
         {slides.map((slide, index) => (
-          <div key={index} className="relative h-full w-full">
+          <div key={index} className="relative h-full w-full pointer-events-none">
             <Image
               src={slide.slide}
               alt={`Slide ${index + 1}`}
-              className="h-[17.5rem] rounded-xl md:h-full md:w-full object-cover"
+              className="h-[17.5rem] rounded-xl md:h-full md:w-full object-cover pointer-events-none"
             />
-            <div className="absolute -bottom-px md:bottom-20 -ml-1 md:ml-0 md:right-0 w-[101.2%] md:w-[24.5rem] md:text-3xl bg-text-primary text-center text-bg-primary font-bold uppercase py-2 md:py-6 z-10 rounded-b-xl md:rounded-none">{slide.title}</div>
+            <div className="absolute -bottom-px md:bottom-20 -ml-1 md:ml-0 md:right-0 w-[101.2%] md:w-[24.5rem] md:text-3xl bg-text-primary text-center text-bg-primary font-bold uppercase py-2 md:py-6 z-10 rounded-b-xl md:rounded-none pointer-events-none">{slide.title}</div>
           </div>
         ))}
       </Slider>
