@@ -6,20 +6,20 @@ export const ExpertiseComponent = () => {
       </h2>
       <div className="space-y-5 text-center text-xs uppercase text-text-primary sm:space-y-6 md:text-sm">
         <p>
-          branding & communication
+          <span className="font-medium">branding & communication</span>
           <br />-<br />
           visual identity / brand guidelines / brand strategy / marketing
           collaterals / graphics & illustrations<br /> content / social engagement /
           podcasts / market research / lead gen / press & media / av production
         </p>
         <p>
-          VIRTUAL COMPUTING
+        <span className="font-medium">VIRTUAL COMPUTING</span>
           <br />-<br />
           UX design / UI frameworks / web development / app development / nft &
           tokens / web3 / quality audits
         </p>
         <p>
-          spatial experience
+        <span className="font-medium">spatial experience</span>
           <br />-<br />
           industrial design / visual merchandizing / 3d printing / environmental
           graphics architecture / interior design / project mgmt. / fabrication
