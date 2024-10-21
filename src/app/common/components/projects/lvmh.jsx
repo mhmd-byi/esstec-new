@@ -11,7 +11,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export const LVMHCarouselComponent = () => {
-  const slides = [slide1, slide2, slide3, slide4];
+  const slides = [
+    {slide: slide1, title: 'corporate film'},
+    {slide: slide2, title: 'event shoot'},
+    {slide: slide3, title: 'av production'},
+    {slide: slide4, title: 'av production'},
+  ];
   const hasWindow = typeof window !== "undefined";
   const widthOfScreen = hasWindow ? window.innerWidth : null;
   const NextArrow = (props) => {
@@ -66,13 +71,14 @@ export const LVMHCarouselComponent = () => {
   return (
     <div className="h-full w-full">
       <Slider {...settings} className="h-full w-full">
-        {slides.map((src, index) => (
+        {slides.map((slide, index) => (
           <div key={index} className="h-full w-full">
             <Image
-              src={src}
+              src={slide.slide}
               alt={`Slide ${index + 1}`}
               className="h-[17.5rem] rounded-xl md:h-full w-full object-cover"
             />
+            <div className="absolute border-2 border-text-primary -bottom-px md:bottom-20 -ml-1.5 md:ml-0 md:right-0 w-[102%] md:w-[24.5rem] md:text-3xl bg-text-primary text-center text-bg-primary font-bold uppercase py-2 md:py-6 z-10 rounded-b-xl md:rounded-none pointer-events-none">{slide.title}</div>
           </div>
         ))}
       </Slider>
