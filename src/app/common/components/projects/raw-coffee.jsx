@@ -1,20 +1,27 @@
-"use client";
-import Image from "next/image";
-import slide1 from "@/assets/projectImages/raw-coffee/1-project-fitout.svg";
-import slide2 from "@/assets/projectImages/raw-coffee/2-industrial-design.svg";
-import slide3 from "@/assets/projectImages/raw-coffee/3-product-launch.svg";
-import slide4 from "@/assets/projectImages/raw-coffee/4-vehicle-livery.svg";
-import slide5 from "@/assets/projectImages/raw-coffee/5-production-drawings.svg";
-import slide6 from "@/assets/projectImages/raw-coffee/6-installation-design.svg";
-import { ChevronLeftIcon } from "../../icons/ChevronLeftIcon";
-import { ChevronRightIcon } from "../../icons/ChevronRightIcon";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+'use client';
+import Image from 'next/image';
+import slide1 from '@/assets/projectImages/raw-coffee/1-project-fitout.svg';
+import slide2 from '@/assets/projectImages/raw-coffee/2-industrial-design.svg';
+import slide3 from '@/assets/projectImages/raw-coffee/3-product-launch.svg';
+import slide4 from '@/assets/projectImages/raw-coffee/4-vehicle-livery.svg';
+import slide5 from '@/assets/projectImages/raw-coffee/5-production-drawings.svg';
+import slide6 from '@/assets/projectImages/raw-coffee/6-installation-design.svg';
+import { ChevronLeftIcon } from '../../icons/ChevronLeftIcon';
+import { ChevronRightIcon } from '../../icons/ChevronRightIcon';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 export const RawCoffeeCarouselComponent = () => {
-  const slides = [slide1, slide2, slide3, slide4, slide5, slide6];
-  const hasWindow = typeof window !== "undefined";
+  const slides = [
+    { slide: slide1, title: 'project fit-out' },
+    { slide: slide2, title: 'industrial design' },
+    { slide: slide3, title: 'project launch' },
+    { slide: slide4, title: 'vehicle livery' },
+    { slide: slide5, title: 'production drawings' },
+    { slide: slide6, title: 'installation design' },
+  ];
+  const hasWindow = typeof window !== 'undefined';
   const widthOfScreen = hasWindow ? window.innerWidth : null;
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
@@ -23,9 +30,9 @@ export const RawCoffeeCarouselComponent = () => {
         className={className}
         style={{
           ...style,
-          display: "block",
-          right: widthOfScreen < 500 ? "5px" : "30px",
-          color: "#222222",
+          display: 'block',
+          right: widthOfScreen < 500 ? '5px' : '30px',
+          color: '#222222',
           zIndex: 10,
         }}
         onClick={onClick}
@@ -42,9 +49,9 @@ export const RawCoffeeCarouselComponent = () => {
         className={className}
         style={{
           ...style,
-          display: "block",
-          left: "10px",
-          color: "#222222",
+          display: 'block',
+          left: '10px',
+          color: '#222222',
           zIndex: 10,
         }}
         onClick={onClick}
@@ -68,13 +75,19 @@ export const RawCoffeeCarouselComponent = () => {
   return (
     <div className="h-full w-full">
       <Slider {...settings} className="h-full w-full">
-        {slides.map((src, index) => (
-          <div key={index} className="h-full w-full">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className="relative h-full w-full pointer-events-none"
+          >
             <Image
-              src={src}
+              src={slide.slide}
               alt={`Slide ${index + 1}`}
-              className="h-[17.5rem] rounded-xl md:h-full w-full object-cover"
+              className="h-[17.5rem] rounded-xl md:h-full w-full object-cover pointer-events-none"
             />
+            <div className="absolute border-2 border-text-primary -bottom-px md:bottom-20 -ml-1.5 md:ml-0 md:right-0 w-[102%] md:w-[24.5rem] md:text-3xl bg-text-primary text-center text-bg-primary font-bold uppercase py-2 md:py-6 z-10 rounded-b-xl md:rounded-none pointer-events-none">
+              {slide.title}
+            </div>
           </div>
         ))}
       </Slider>
