@@ -35,7 +35,7 @@ export default function Home() {
           style="hidden md:block order-first md:order-none"
         />
 
-        <MobileMenu open={mobileComponentOpen} setOpen={setMobileComponentOpen} setActiveMenu={setActiveMenu} activeMenu={activeMenu} style="block md:hidden order-first md:order-none" />
+        <MobileMenu open={mobileComponentOpen} setOpen={setMobileComponentOpen} style="block md:hidden order-first md:order-none" />
 
         {/* Image and Drawing */}
         <div className="relative mt-6 md:-mt-14">

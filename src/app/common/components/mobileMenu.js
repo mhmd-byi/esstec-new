@@ -17,7 +17,7 @@ import { ArabianKnightsCarouselComponent } from './projects/arabian-knights';
 import { LVMHCarouselComponent } from './projects/lvmh';
 import { EmailComponent } from './email';
 
-export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
+export const MobileMenu = ({ open, setOpen, style }) => {
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
   return (
     <div
@@ -34,7 +34,7 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
           <span onClick={() => handleOpen(1)} className="text-right">
             <a
               className={`cursor-pointer hover:line-through text-right ${
-                activeMenu === 'philosophy' && 'line-through'
+                open === 1 && 'line-through'
               }`}
             >
               philosophy &#47;
@@ -50,7 +50,7 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
           <span onClick={() => handleOpen(2)}>
             <a
               className={`cursor-pointer hover:line-through ${
-                activeMenu === 'expertise' && 'line-through'
+                open === 2 && 'line-through'
               }`}
             >
               expertise &#47;
@@ -66,7 +66,7 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
           <span onClick={() => handleOpen(3)}>
             <a
               className={`cursor-pointer hover:line-through ${
-                activeMenu === 'clients' && 'line-through'
+                open === 3 && 'line-through'
               }`}
             >
               clients &#47;
@@ -82,7 +82,7 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
           <span onClick={() => handleOpen(4)}>
             <a
               className={`cursor-pointer hover:line-through ${
-                activeMenu === 'team' && 'line-through'
+                open === 4 && 'line-through'
               }`}
             >
               team &#47;
@@ -106,7 +106,7 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
           <span onClick={() => handleOpen(5)} className="text-right">
             <a
               className={`cursor-pointer hover:line-through text-right ${
-                activeMenu === 'ewaa' && 'line-through'
+                open === 5 && 'line-through'
               }`}
             >
               ewaa abu dhabi &#47;
@@ -122,7 +122,7 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
           <span onClick={() => handleOpen(6)} className="text-right">
             <a
               className={`cursor-pointer hover:line-through text-right ${
-                activeMenu === 'scope' && 'line-through'
+                open === 6 && 'line-through'
               }`}
             >
               scope investment &#47;
@@ -138,7 +138,7 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
           <span onClick={() => handleOpen(7)} className="text-right">
             <a
               className={`cursor-pointer hover:line-through text-right ${
-                activeMenu === 'market' && 'line-through'
+                open === 7 && 'line-through'
               }`}
             >
               market i research &#47;
@@ -154,7 +154,7 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
           <span onClick={() => handleOpen(8)} className="text-right">
             <a
               className={`cursor-pointer hover:line-through text-right ${
-                activeMenu === 'coffee' && 'line-through'
+                open === 8 && 'line-through'
               }`}
             >
               raw coffee company &#47;
@@ -170,7 +170,7 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
           <span onClick={() => handleOpen(9)} className="text-right">
             <a
               className={`cursor-pointer hover:line-through text-right ${
-                activeMenu === 'freshly' && 'line-through'
+                open === 9 && 'line-through'
               }`}
             >
               freshly meals &#47;
@@ -186,7 +186,7 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
           <span onClick={() => handleOpen(10)} className="text-right">
             <a
               className={`cursor-pointer hover:line-through text-right ${
-                activeMenu === 'ddy' && 'line-through'
+                open === 10 && 'line-through'
               }`}
             >
               ddy autism center &#47;
@@ -202,7 +202,7 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
           <span onClick={() => handleOpen(11)} className="text-right">
             <a
               className={`cursor-pointer hover:line-through text-right ${
-                activeMenu === 'arabian' && 'line-through'
+                open === 11 && 'line-through'
               }`}
             >
               arabian knights &#47;
@@ -218,7 +218,7 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
           <span onClick={() => handleOpen(12)} className="text-right">
             <a
               className={`cursor-pointer hover:line-through text-right ${
-                activeMenu === 'lvmh' && 'line-through'
+                open === 12 && 'line-through'
               }`}
             >
               lvmh fragrances &#47;
@@ -242,7 +242,7 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
           <span onClick={() => handleOpen(13)} className="text-right">
             <a
               className={`cursor-pointer hover:line-through text-right ${
-                activeMenu === 'email' && 'line-through'
+                open === 13 && 'line-through'
               }`}
             >
               email + phone &#47;
