@@ -1,31 +1,31 @@
-"use client";
-import Image from "next/image";
-import slide1 from "@/assets/projectImages/ddy/1-identity-rebrand.svg";
-import slide2 from "@/assets/projectImages/ddy/2-marcom-strategy.svg";
-import slide3 from "@/assets/projectImages/ddy/3-brand-guidelines.svg";
-import slide4 from "@/assets/projectImages/ddy/4-brand-collaterals.svg";
-import slide5 from "@/assets/projectImages/ddy/5-event-collaterals.svg";
-import slide6 from "@/assets/projectImages/ddy/6-web-development.svg";
-import slide7 from "@/assets/projectImages/ddy/7-social-playbook.svg";
-import slide8 from "@/assets/projectImages/ddy/8-social-templates.svg";
-import { ChevronLeftIcon } from "../../icons/ChevronLeftIcon";
-import { ChevronRightIcon } from "../../icons/ChevronRightIcon";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+'use client';
+import Image from 'next/image';
+import slide1 from '@/assets/projectImages/ddy/1-identity-rebrand.svg';
+import slide2 from '@/assets/projectImages/ddy/2-marcom-strategy.svg';
+import slide3 from '@/assets/projectImages/ddy/3-brand-guidelines.svg';
+import slide4 from '@/assets/projectImages/ddy/4-brand-collaterals.svg';
+import slide5 from '@/assets/projectImages/ddy/5-event-collaterals.svg';
+import slide6 from '@/assets/projectImages/ddy/6-web-development.svg';
+import slide7 from '@/assets/projectImages/ddy/7-social-playbook.svg';
+import slide8 from '@/assets/projectImages/ddy/8-social-templates.svg';
+import { ChevronLeftIcon } from '../../icons/ChevronLeftIcon';
+import { ChevronRightIcon } from '../../icons/ChevronRightIcon';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 export const DDYCarouselComponent = () => {
   const slides = [
-    slide1,
-    slide2,
-    slide3,
-    slide4,
-    slide5,
-    slide6,
-    slide7,
-    slide8,
+    { slide: slide1, title: 'identity rebrand' },
+    { slide: slide2, title: 'marcom strategy' },
+    { slide: slide3, title: 'brand guidelines' },
+    { slide: slide4, title: 'brand colaterals' },
+    { slide: slide5, title: 'event collaterals' },
+    { slide: slide6, title: 'web development' },
+    { slide: slide7, title: 'social playbook' },
+    { slide: slide8, title: 'social templates' },
   ];
-  const hasWindow = typeof window !== "undefined";
+  const hasWindow = typeof window !== 'undefined';
   const widthOfScreen = hasWindow ? window.innerWidth : null;
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
@@ -34,9 +34,9 @@ export const DDYCarouselComponent = () => {
         className={className}
         style={{
           ...style,
-          display: "block",
-          right: widthOfScreen < 500 ? "5px" : "30px",
-          color: "#222222",
+          display: 'block',
+          right: widthOfScreen < 500 ? '5px' : '30px',
+          color: '#222222',
           zIndex: 10,
         }}
         onClick={onClick}
@@ -53,9 +53,9 @@ export const DDYCarouselComponent = () => {
         className={className}
         style={{
           ...style,
-          display: "block",
-          left: "10px",
-          color: "#222222",
+          display: 'block',
+          left: '10px',
+          color: '#222222',
           zIndex: 10,
         }}
         onClick={onClick}
@@ -79,13 +79,19 @@ export const DDYCarouselComponent = () => {
   return (
     <div className="h-full w-full">
       <Slider {...settings} className="h-full w-full">
-        {slides.map((src, index) => (
-          <div key={index} className="h-full w-full">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className="relative h-full w-full pointer-events-none"
+          >
             <Image
-              src={src}
+              src={slide.slide}
               alt={`Slide ${index + 1}`}
-              className="h-[17.5rem] rounded-xl md:h-full w-full object-cover"
+              className="h-[17.5rem] rounded-xl md:h-full w-full object-cover pointer-events-none"
             />
+            <div className="absolute border-2 border-text-primary -bottom-px md:bottom-20 -ml-1.5 md:ml-0 md:right-0 w-[102%] md:w-[24.5rem] md:text-3xl bg-text-primary text-center text-bg-primary font-bold uppercase py-2 md:py-6 z-10 rounded-b-xl md:rounded-none pointer-events-none">
+              {slide.title}
+            </div>
           </div>
         ))}
       </Slider>
