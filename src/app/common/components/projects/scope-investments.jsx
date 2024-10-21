@@ -13,7 +13,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export const ScopeInvestmentsCarouselComponent = () => {
-  const slides = [slide1, slide2, slide3, slide4, slide5, slide6];
+  const slides = [
+    {slide: slide1, title: "media engagement"},
+    {slide: slide2, title: "brand guidelines"},
+    {slide: slide3, title: "brand guidelines"},
+    {slide: slide4, title: "print collaterals"},
+    {slide: slide5, title: "web development"},
+    {slide: slide6, title: "corporate deck"},
+  ];
   const hasWindow = typeof window !== "undefined";
   const widthOfScreen = hasWindow ? window.innerWidth : null;
   const NextArrow = (props) => {
@@ -68,13 +75,14 @@ export const ScopeInvestmentsCarouselComponent = () => {
   return (
     <div className="h-full w-full">
       <Slider {...settings} className="h-full w-full">
-        {slides.map((src, index) => (
-          <div key={index} className="h-full w-full">
+        {slides.map((slide, index) => (
+          <div key={index} className="relative h-full w-full pointer-events-none">
             <Image
-              src={src}
+              src={slide.slide}
               alt={`Slide ${index + 1}`}
-              className="h-[17.5rem] rounded-xl md:h-full w-full object-cover"
+              className="h-[17.5rem] rounded-xl md:h-full w-full object-cover pointer-events-none"
             />
+            <div className="absolute border-2 border-text-primary -bottom-px md:bottom-20 -ml-1.5 md:ml-0 md:right-0 w-[102%] md:w-[24.5rem] md:text-3xl bg-text-primary text-center text-bg-primary font-bold uppercase py-2 md:py-6 z-10 rounded-b-xl md:rounded-none pointer-events-none">{slide.title}</div>
           </div>
         ))}
       </Slider>
