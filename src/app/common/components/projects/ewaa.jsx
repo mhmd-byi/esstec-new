@@ -92,7 +92,7 @@ export const EwaaCarouselComponent = () => {
               alt={`Slide ${index + 1}`}
               className="h-[17.5rem] rounded-xl md:h-full md:w-full object-cover"
             />
-            <div className="absolute -bottom-px md:bottom-20 -ml-px md:ml-0 md:right-0 w-[100.5%] md:w-[24.5rem] md:text-3xl bg-text-primary text-center text-bg-primary font-bold uppercase py-2 md:py-6 z-10 rounded-b-xl md:rounded-none">{slide.title}</div>
+            <div className="absolute -bottom-px md:bottom-20 -ml-1 md:ml-0 md:right-0 w-[101.2%] md:w-[24.5rem] md:text-3xl bg-text-primary text-center text-bg-primary font-bold uppercase py-2 md:py-6 z-10 rounded-b-xl md:rounded-none">{slide.title}</div>
           </div>
         ))}
       </Slider>
