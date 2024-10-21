@@ -2,7 +2,7 @@ import { clientData } from "./clientsData";
 
 export const ClientComponent = () => {
   return (
-    <div className="overflow-scroll md:overflow-hidden max-h-full w-full space-y-4 p-2 md:space-y-6 md:h-full grid grid-cols-1">
+    <div className="overflow-scroll md:overflow-hidden max-h-full w-full space-y-4 p-2 md:space-y-6 md:h-full grid grid-cols-1 px-5 md:px-0">
       <h2 className="text-center text-3xl font-bold uppercase text-text-primary duration-1000 ease-in-out sm:text-4xl md:text-5xl lg:text-6xl md:mt-20 md:-mb-20">
         clients
       </h2>
