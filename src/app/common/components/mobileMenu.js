@@ -1,14 +1,10 @@
 'use client';
-import { useState } from 'react';
 import {
   Accordion,
   AccordionBody,
-  AccordionHeader,
 } from '@material-tailwind/react';
-import ActiveMenuList from './ActiveMenu';
 import { PhilosophyComponent } from './philosophy';
 import { ExpertiseComponent } from './expertise';
-import { MobileContainer } from '@/helper/mobileContainer';
 import { ClientComponent } from './client';
 import { TeamComponent } from './team';
 import { EwaaCarouselComponent } from './projects/ewaa';
@@ -22,14 +18,16 @@ import { LVMHCarouselComponent } from './projects/lvmh';
 import { EmailComponent } from './email';
 
 export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
-  
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
   return (
     <div
       className={`relative py-2 text-right text-xs uppercase leading-6 text-text-primary md:leading-6 ${style}`}
     >
       <p className="flex flex-col">
-        <span className="cursor-pointer font-semibold mr-4" onClick={() => handleOpen(0)}>
+        <span
+          className="cursor-pointer font-semibold mr-4"
+          onClick={() => handleOpen(0)}
+        >
           &#47;&#47; About
         </span>
         <Accordion open={open === 1} className="text-right">
@@ -43,9 +41,9 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
             </a>
           </span>
           <AccordionBody>
-            <MobileContainer>
+            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
               <PhilosophyComponent />
-            </MobileContainer>
+            </div>
           </AccordionBody>
         </Accordion>
         <Accordion open={open === 2}>
@@ -59,9 +57,9 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
             </a>
           </span>
           <AccordionBody>
-            <MobileContainer>
+            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
               <ExpertiseComponent />
-            </MobileContainer>
+            </div>
           </AccordionBody>
         </Accordion>
         <Accordion open={open === 3}>
@@ -75,9 +73,9 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
             </a>
           </span>
           <AccordionBody>
-            <MobileContainer>
+            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
               <ClientComponent />
-            </MobileContainer>
+            </div>
           </AccordionBody>
         </Accordion>
         <Accordion open={open === 4}>
@@ -91,14 +89,17 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
             </a>
           </span>
           <AccordionBody>
-            <MobileContainer>
+            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
               <TeamComponent />
-            </MobileContainer>
+            </div>
           </AccordionBody>
         </Accordion>
       </p>
       <p className="flex flex-col">
-        <span className="cursor-pointer font-semibold mt-2" onClick={() => handleOpen(0)}>
+        <span
+          className="cursor-pointer font-semibold mt-2"
+          onClick={() => handleOpen(0)}
+        >
           &#47;&#47; project showcase
         </span>
         <Accordion open={open === 5} className="text-right">
@@ -112,9 +113,9 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
             </a>
           </span>
           <AccordionBody>
-            <MobileContainer>
+            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
               <EwaaCarouselComponent />
-            </MobileContainer>
+            </div>
           </AccordionBody>
         </Accordion>
         <Accordion open={open === 6} className="text-right">
@@ -128,9 +129,9 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
             </a>
           </span>
           <AccordionBody>
-            <MobileContainer>
+            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
               <ScopeInvestmentsCarouselComponent />
-            </MobileContainer>
+            </div>
           </AccordionBody>
         </Accordion>
         <Accordion open={open === 7} className="text-right">
@@ -144,9 +145,9 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
             </a>
           </span>
           <AccordionBody>
-            <MobileContainer>
+            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
               <MarketIResearchCarouselComponent />
-            </MobileContainer>
+            </div>
           </AccordionBody>
         </Accordion>
         <Accordion open={open === 8} className="text-right">
@@ -160,9 +161,9 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
             </a>
           </span>
           <AccordionBody>
-            <MobileContainer>
+            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
               <RawCoffeeCarouselComponent />
-            </MobileContainer>
+            </div>
           </AccordionBody>
         </Accordion>
         <Accordion open={open === 9} className="text-right">
@@ -176,9 +177,9 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
             </a>
           </span>
           <AccordionBody>
-            <MobileContainer>
+            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
               <FreshlyMealsCarouselComponent />
-            </MobileContainer>
+            </div>
           </AccordionBody>
         </Accordion>
         <Accordion open={open === 10} className="text-right">
@@ -192,9 +193,9 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
             </a>
           </span>
           <AccordionBody>
-            <MobileContainer>
+            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
               <DDYCarouselComponent />
-            </MobileContainer>
+            </div>
           </AccordionBody>
         </Accordion>
         <Accordion open={open === 11} className="text-right">
@@ -208,9 +209,9 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
             </a>
           </span>
           <AccordionBody>
-            <MobileContainer>
+            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
               <ArabianKnightsCarouselComponent />
-            </MobileContainer>
+            </div>
           </AccordionBody>
         </Accordion>
         <Accordion open={open === 12} className="text-right">
@@ -224,14 +225,17 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
             </a>
           </span>
           <AccordionBody>
-            <MobileContainer>
+            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
               <LVMHCarouselComponent />
-            </MobileContainer>
+            </div>
           </AccordionBody>
         </Accordion>
       </p>
       <p className="flex flex-col">
-        <span className="cursor-pointer font-semibold mt-2" onClick={() => handleOpen(0)}>
+        <span
+          className="cursor-pointer font-semibold mt-2"
+          onClick={() => handleOpen(0)}
+        >
           &#47;&#47; contact
         </span>
         <Accordion open={open === 13} className="text-right">
@@ -245,14 +249,17 @@ export const MobileMenu = ({ open, setOpen, activeMenu, style }) => {
             </a>
           </span>
           <AccordionBody>
-            <MobileContainer>
+            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
               <EmailComponent />
-            </MobileContainer>
+            </div>
           </AccordionBody>
         </Accordion>
       </p>
       <p className="flex flex-col">
-        <span className="cursor-pointer font-semibold mt-2" onClick={() => handleOpen(0)}>
+        <span
+          className="cursor-pointer font-semibold mt-2"
+          onClick={() => handleOpen(0)}
+        >
           &#47;&#47; home
         </span>
       </p>
