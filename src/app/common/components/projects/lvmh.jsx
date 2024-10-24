@@ -1,9 +1,9 @@
 'use client';
 import Image from 'next/image';
-import slide1 from '@/assets/projectImages/lvmh/1-corporate-film.svg';
-import slide2 from '@/assets/projectImages/lvmh/2-event-shoot.svg';
-import slide3 from '@/assets/projectImages/lvmh/3-av-production.svg';
-import slide4 from '@/assets/projectImages/lvmh/4-av-production.svg';
+import slide1 from '@/assets/projectImages/lvmh/1-corporate-film.png';
+import slide2 from '@/assets/projectImages/lvmh/2-event-shoot.png';
+import slide3 from '@/assets/projectImages/lvmh/3-av-production.png';
+import slide4 from '@/assets/projectImages/lvmh/4-av-production.png';
 import { ChevronLeftIcon } from '../../icons/ChevronLeftIcon';
 import { ChevronRightIcon } from '../../icons/ChevronRightIcon';
 import Slider from 'react-slick';

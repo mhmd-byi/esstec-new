@@ -7,7 +7,7 @@ import slide4 from "@/assets/projectImages/ewaa/4-infographic-posters.svg";
 import slide5 from "@/assets/projectImages/ewaa/5-website.svg";
 import slide6 from "@/assets/projectImages/ewaa/6-psa.svg";
 import slide7 from "@/assets/projectImages/ewaa/7-corporate-film.svg";
-import slide8 from "@/assets/projectImages/ewaa/1-identity-rebrand.svg";
+import slide8 from "@/assets/projectImages/ewaa/1-identity-rebrand.png";
 import slide9 from "@/assets/projectImages/ewaa/8-corporate-deck.svg";
 import slide10 from "@/assets/projectImages/ewaa/9-stakeholder-brochure.svg";
 import { ChevronRightIcon } from "../../icons/ChevronRightIcon";
