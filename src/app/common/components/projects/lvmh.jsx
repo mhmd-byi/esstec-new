@@ -74,7 +74,7 @@ export const LVMHCarouselComponent = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className="relative h-full w-full pointer-events-none"
+            className="relative h-full w-[101%] md:w-full pointer-events-none -ml-1 md:ml-0"
           >
             <Image
               src={slide.slide}

@@ -76,7 +76,7 @@ export const ScopeInvestmentsCarouselComponent = () => {
     <div className="h-full w-full">
       <Slider {...settings} className="h-full w-full">
         {slides.map((slide, index) => (
-          <div key={index} className="relative h-full w-full pointer-events-none">
+          <div key={index} className="relative h-full w-[101%] md:w-full pointer-events-none -ml-1 md:ml-0">
             <Image
               src={slide.slide}
               alt={`Slide ${index + 1}`}
