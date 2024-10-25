@@ -5,6 +5,7 @@ import slide3 from '@/assets/projectImages/raw-coffee/3-product-launch.svg';
 import slide4 from '@/assets/projectImages/raw-coffee/4-vehicle-livery.svg';
 import slide5 from '@/assets/projectImages/raw-coffee/5-production-drawings.svg';
 import slide6 from '@/assets/projectImages/raw-coffee/6-installation-design.svg';
+import { SliderComponent } from '../sliderComponent';
 
 export const RawCoffeeCarouselComponent = () => {
   const slides = [
