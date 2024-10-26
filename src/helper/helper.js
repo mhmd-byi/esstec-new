@@ -44,7 +44,7 @@ export const getOperatingSystem = () => {
 export const getRandomQuotes = async () => {
   const category = 'imagination';
   const url = `https://api.api-ninjas.com/v1/quotes?category=${category}`;
-  const apiKey = process.env.NEXT_PUBLIC_QUOTES_API;
+  const apiKey = process.env.NEXT_PUBLIC_QUOTES_API.toString();
 
   try {
     const response = await fetch(url, {
