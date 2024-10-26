@@ -1,18 +1,23 @@
-"use client";
-import { useState } from "react";
-import Image from "next/image";
-import esstecLogo from "@/assets/images/esstec-logo.svg";
-import toast, { Toaster } from "react-hot-toast";
-import { useRouter } from "next/navigation";
+'use client';
+import { useState } from 'react';
+import Image from 'next/image';
+import esstecLogo from '@/assets/images/esstec-logo.svg';
+import toast, { Toaster } from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
+  const hasWindow = typeof window !== 'undefined';
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
 
   const router = useRouter();
-    
+  const authentication = hasWindow && localStorage.getItem('isAuthenticated');
+  if (authentication) {
+    return router.push('/dashboard');
+  }
+
   const handleChange = (e) => {
     e.preventDefault();
     setFormData({
@@ -23,8 +28,8 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.username === "admin" && formData.password === "123456") {
-      const hasWindow = typeof window !== "undefined";
+    if (formData.username === 'admin' && formData.password === '123456') {
+      const hasWindow = typeof window !== 'undefined';
       hasWindow && localStorage.setItem('isAuthenticated', true);
       toast.success('You are being redirected to admin area');
       router.push('/dashboard');
@@ -45,7 +50,7 @@ export default function Login() {
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
-                  for="username"
+                  htmlFor="username"
                   className="block mb-2 text-sm font-medium text-text-primary"
                 >
                   Username
@@ -61,7 +66,7 @@ export default function Login() {
               </div>
               <div>
                 <label
-                  for="password"
+                  htmlFor="password"
                   className="block mb-2 text-sm font-medium text-text-primary"
                 >
                   Password
@@ -88,7 +93,7 @@ export default function Login() {
                     />
                   </div>
                   <div className="ml-3 text-sm">
-                    <label for="remember" className="text-text-primary">
+                    <label htmlFor="remember" className="text-text-primary">
                       Remember me
                     </label>
                   </div>
@@ -117,8 +122,8 @@ export default function Login() {
               </p>*/}
             </form>
           </div>
-          </div>
-          <Toaster />
+        </div>
+        <Toaster />
       </div>
     </section>
   );
