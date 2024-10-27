@@ -25,7 +25,7 @@ export const MobileMenu = ({ open, setOpen, style }) => {
     >
       <p className="flex flex-col">
         <span
-          className="cursor-pointer font-semibold mr-4"
+          className="cursor-pointer font-semibold"
           onClick={() => handleOpen(0)}
         >
           &#47;&#47; About
