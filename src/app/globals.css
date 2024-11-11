@@ -75,3 +75,11 @@ body {
 img {
   outline: none !important;
 }
+
+.wysiwyg {
+  background-color: white;
+  color: black;
+  margin-top: -10px;
+  margin-bottom: 50px;
+  height: 200px !important;
+}

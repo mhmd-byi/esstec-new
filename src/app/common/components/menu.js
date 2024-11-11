@@ -1,3 +1,5 @@
+import menuData  from "./menuData";
+
 export const Menu = ({
   handleDrawClick,
   setActiveMenu,
@@ -21,50 +23,19 @@ export const Menu = ({
         >
           &#47;&#47; About
         </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "philosophy" && "line-through"}`}
-            onClick={() => {
-              handleDrawClick();
-              setActiveMenu("philosophy");
-            }}
-          >
-            philosophy &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "expertise" && "line-through"}`}
-            onClick={() => {
-              handleDrawClick();
-              setActiveMenu("expertise");
-            }}
-          >
-            expertise &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "clients" && "line-through"}`}
-            onClick={() => {
-              handleDrawClick();
-              setActiveMenu("clients");
-            }}
-          >
-            clients &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "team" && "line-through"}`}
-            onClick={() => {
-              handleDrawClick();
-              setActiveMenu("team");
-            }}
-          >
-            team &#47;
-          </a>
-        </span>
+        {menuData.map((menuItem, index) => (
+          <span key={index}>
+            <a 
+              className={`cursor-pointer hover:line-through ${activeMenu === menuItem.activeMenu && "line-through"}`}
+              onClick={() => {
+                handleDrawClick();
+                setActiveMenu(menuItem.activeMenu);
+              }}
+            >
+              {menuItem.title} &#47;
+            </a>
+          </span>
+        ))}
       </p>
       <p className="flex flex-col">
         <span

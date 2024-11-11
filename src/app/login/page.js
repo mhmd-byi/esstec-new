@@ -28,7 +28,7 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.username === 'admin' && formData.password === '123456') {
+    if (formData.username === 'admin' && formData.password === 'Alwaysrespect1+') {
       const hasWindow = typeof window !== 'undefined';
       hasWindow && localStorage.setItem('isAuthenticated', true);
       toast.success('You are being redirected to admin area');
