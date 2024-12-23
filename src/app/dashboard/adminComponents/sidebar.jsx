@@ -1,78 +1,61 @@
-import React, { useEffect } from 'react';
+"use client";
+
+import React, { useState } from "react";
 import {
-  Card,
-  Typography,
-  List,
-  ListItem,
-  ListItemPrefix,
-  ListItemSuffix,
-  Chip,
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
-  Alert,
-} from '@material-tailwind/react';
-import {
-  PresentationChartBarIcon,
-  ShoppingBagIcon,
-  UserCircleIcon,
   Cog6ToothIcon,
-  InboxIcon,
   PowerIcon,
-} from '@heroicons/react/24/solid';
-import { ChevronRightIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
-import Image from 'next/image';
-import esstecLogo from '@/assets/images/esstec-logo.svg';
-import { useRouter } from 'next/navigation';
+} from "@heroicons/react/24/solid";
+import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
+import esstecLogo from "@/assets/images/esstec-logo.svg";
+import { useRouter } from "next/navigation";
 
 export const SidebarWithLogo = () => {
-  const [open, setOpen] = React.useState(0);
+  const [projectsOpen, setProjectsOpen] = useState(false);
 
-  const handleOpen = (value) => {
-    setOpen(open === value ? 0 : value);
-  };
-
-  const hasWindow = typeof window !== 'undefined';
   const router = useRouter();
+
   const handleLogout = () => {
-    hasWindow && localStorage.setItem('isAuthenticated', false);
-    router.push('/');
+    if (typeof window !== "undefined") {
+      localStorage.setItem("isAuthenticated", false);
+    }
+    router.push("/");
   };
 
   return (
-    <Card className="h-[calc(100vh-2rem)] w-full max-w-[25rem] p-4 text-text-primary border-2 border-text-primary">
-      <div className="mb-2 flex items-center gap-4 p-4">
-        <Image src={esstecLogo} className="w-full" alt="logo" />
+    <div className="h-[calc(100vh-2rem)] w-full max-w-[25rem] p-4 text-text-primary rounded-xl border-2 border-text-primary">
+      <div className="mb-6 flex items-center gap-4 p-4">
+        <Image src={esstecLogo} alt="Esstec Logo" className="w-full" />
       </div>
-      <List className='space-y-6'>
-        <ListItem onClick={() => router.push('/dashboard/editMenu')}>
-          <Typography color="blue-gray" className="mr-auto font-normal px-4 py-2">
-            Project
-          </Typography>
-        </ListItem>
-        <ListItem>
-          <Typography color="blue-gray" className="mr-auto font-normal px-4 py-2">
-            Menu Details
-          </Typography>
-        </ListItem>
-        <hr className="my-2 border-blue-gray-50" />
-        <ListItem>
-          <ListItemPrefix>
+      <ul className="space-y-4">
+        <li className="cursor-pointer" onClick={() => setProjectsOpen(!projectsOpen)}>
+          <div className="flex items-center justify-between">
+            <span>Projects</span>
+            {projectsOpen ? <ChevronDownIcon className="h-5 w-5" /> : <ChevronRightIcon className="h-5 w-5" />}
+          </div>
+          {projectsOpen && (
+            <ul className="pl-4 mt-2">
+              <li className="cursor-pointer" onClick={() => router.push('/dashboard/projects/allProjects')}>All Projects</li>
+              <li className="cursor-pointer" onClick={() => router.push('/dashboard/projects/addProjects')}>Add Project</li>
+            </ul>
+          )}
+        </li>
+        <li className="cursor-pointer" onClick={() => router.push('/dashboard/editMenu')}>
+          Menu Details
+        </li>
+        <li>
+          <div className="flex items-center">
             <Cog6ToothIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          <Typography color="blue-gray" className="mr-auto font-normal px-4 py-2">
-            Settings
-          </Typography>
-        </ListItem>
-        <ListItem onClick={handleLogout}>
-          <ListItemPrefix>
+            <span className="ml-2">Settings</span>
+          </div>
+        </li>
+        <li className="cursor-pointer" onClick={handleLogout}>
+          <div className="flex items-center">
             <PowerIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          <Typography color="blue-gray" className="mr-auto font-normal px-4 py-2">
-            Logout
-          </Typography>
-        </ListItem>
-      </List>
-    </Card>
+            <span className="ml-2">Logout</span>
+          </div>
+        </li>
+      </ul>
+    </div>
   );
 };
