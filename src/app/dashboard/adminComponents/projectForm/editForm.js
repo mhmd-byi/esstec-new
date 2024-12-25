@@ -66,7 +66,7 @@ function EditForm({ projectId }) {
   const handleAddImageField = (type) => {
     const width = type === "desktopImages" ? 743 : 193;
     const height = type === "desktopImages" ? 394 : 140;
-    const newImage = { imageUrl: "", alt: "", height: height, width: width };
+    const newImage = { imageUrl: "", alt: "", height: height, width: width, title: "" };
     setProject((prev) => ({ ...prev, [type]: [...prev[type], newImage] }));
   };
 
@@ -155,7 +155,7 @@ function EditForm({ projectId }) {
                 name="title"
                 id="title"
                 value={image.title}
-                onChange={(e) => handleChange(e)}
+                onChange={(e) => handleChange(e, type, index, "title")}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
               {project[type].length > 1 && (
