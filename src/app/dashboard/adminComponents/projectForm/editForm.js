@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
-function EditForm({ projectId }) {
+function EditForm() {
+  const regex = /[^/]+$/;
+  const pathname = usePathname();
+  const match = pathname.match(regex);
+  const projectId = match[0];
   const [project, setProject] = useState({
     name: "",
     isProjectActive: false,
