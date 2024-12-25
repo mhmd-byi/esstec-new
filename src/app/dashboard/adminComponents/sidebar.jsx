@@ -48,8 +48,8 @@ export const SidebarWithLogo = () => {
           </div>
           {clientsOpen && (
             <ul className="pl-4 mt-2">
-              <li className="cursor-pointer" onClick={() => router.push('/dashboard/projects/allProjects')}>All Clients</li>
-              <li className="cursor-pointer" onClick={() => router.push('/dashboard/projects/addProjects')}>Add Client</li>
+              <li className="cursor-pointer" onClick={() => router.push('/dashboard/clients/allClients')}>All Clients</li>
+              <li className="cursor-pointer" onClick={() => router.push('/dashboard/clients/addClients')}>Add Client</li>
             </ul>
           )}
         </li>
