@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 
 export const SidebarWithLogo = () => {
   const [projectsOpen, setProjectsOpen] = useState(false);
+  const [clientsOpen, setClientsOpen] = useState(false);
 
   const router = useRouter();
 
@@ -37,6 +38,18 @@ export const SidebarWithLogo = () => {
             <ul className="pl-4 mt-2">
               <li className="cursor-pointer" onClick={() => router.push('/dashboard/projects/allProjects')}>All Projects</li>
               <li className="cursor-pointer" onClick={() => router.push('/dashboard/projects/addProjects')}>Add Project</li>
+            </ul>
+          )}
+        </li>
+        <li className="cursor-pointer" onClick={() => setClientsOpen(!clientsOpen)}>
+          <div className="flex items-center justify-between">
+            <span>Clients</span>
+            {clientsOpen ? <ChevronDownIcon className="h-5 w-5" /> : <ChevronRightIcon className="h-5 w-5" />}
+          </div>
+          {clientsOpen && (
+            <ul className="pl-4 mt-2">
+              <li className="cursor-pointer" onClick={() => router.push('/dashboard/projects/allProjects')}>All Clients</li>
+              <li className="cursor-pointer" onClick={() => router.push('/dashboard/projects/addProjects')}>Add Client</li>
             </ul>
           )}
         </li>
