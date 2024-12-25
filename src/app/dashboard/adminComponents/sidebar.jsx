@@ -53,9 +53,6 @@ export const SidebarWithLogo = () => {
             </ul>
           )}
         </li>
-        <li className="cursor-pointer" onClick={() => router.push('/dashboard/editMenu')}>
-          Menu Details
-        </li>
         <li>
           <div className="flex items-center">
             <Cog6ToothIcon className="h-5 w-5" />
