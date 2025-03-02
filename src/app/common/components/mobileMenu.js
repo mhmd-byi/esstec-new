@@ -16,9 +16,52 @@ import { DDYCarouselComponent } from './projects/ddy';
 import { ArabianKnightsCarouselComponent } from './projects/arabian-knights';
 import { LVMHCarouselComponent } from './projects/lvmh';
 import { EmailComponent } from './email';
+import { useEffect, useRef } from 'react';
+
+const hashToAccordionMap = {
+  philosophy: 1,
+  expertise: 2,
+  clients: 3,
+  team: 4,
+  ewaa: 5,
+  scope: 6,
+  market: 7,
+  coffee: 8,
+  freshly: 9,
+  ddy: 10,
+  arabian: 11,
+  lvmh: 12,
+  email: 13
+};
 
 export const MobileMenu = ({ open, setOpen, style }) => {
-  const handleOpen = (value) => setOpen(open === value ? 0 : value);
+  const hasMounted = useRef(false);
+
+  useEffect(() => {
+    if (hasMounted.current) return;
+    hasMounted.current = true;
+
+    const hash = window.location.hash.substring(1);
+    if (hash in hashToAccordionMap) {
+      setOpen(hashToAccordionMap[hash]);
+    }
+  }, [setOpen]);
+
+  const handleOpen = (value) => {
+    const newValue = open === value ? 0 : value;
+    setOpen(newValue);
+    
+    const hash = Object.keys(hashToAccordionMap).find(
+      key => hashToAccordionMap[key] === newValue
+    );
+    
+    if (hash) {
+      window.location.hash = hash;
+    } else {
+      window.history.replaceState(null, null, ' ');
+    }
+  };
+
   return (
     <div
       className={`relative py-2 text-right text-xs uppercase leading-6 text-text-primary md:leading-6 ${style}`}
