@@ -1,3 +1,4 @@
+import React, { useEffect, useRef } from 'react';
 import menuData  from "./menuData";
 
 export const Menu = ({
@@ -8,6 +9,26 @@ export const Menu = ({
   activeMenu,
   style,
 }) => {
+  const hasMounted = useRef(false);
+
+  useEffect(() => {
+    const hash = window.location.hash.substring(1);
+    
+    if (!hasMounted.current && hash) {
+      hasMounted.current = true;
+      console.log('this is hash', hash);
+      setDraw(true);
+      setActiveMenu(hash);
+    }
+  }, [setActiveMenu, setDraw]);
+
+  // Update handleDrawClick in menu items to reset the hasMounted state
+  const handleItemClick = (menuValue) => {
+    handleDrawClick();
+    setActiveMenu(menuValue);
+    window.history.replaceState(null, null, ' '); // Clear URL hash
+  };
+
   return (
     <div
       className={`relative py-2 text-right text-xs uppercase leading-6 text-text-primary md:leading-6 ${style}`}
@@ -27,10 +48,7 @@ export const Menu = ({
           <span key={index}>
             <a 
               className={`cursor-pointer hover:line-through ${activeMenu === menuItem.activeMenu && "line-through"}`}
-              onClick={() => {
-                handleDrawClick();
-                setActiveMenu(menuItem.activeMenu);
-              }}
+              onClick={() => handleItemClick(menuItem.activeMenu)}
             >
               {menuItem.title} &#47;
             </a>
@@ -51,10 +69,7 @@ export const Menu = ({
         <span>
           <a
             className={`cursor-pointer hover:line-through ${activeMenu === "ewaa" && "line-through"}`}
-            onClick={() => {
-              handleDrawClick();
-              setActiveMenu("ewaa");
-            }}
+            onClick={() => handleItemClick("ewaa")}
           >
             ewaa abu dhabi &#47;
           </a>
@@ -62,10 +77,7 @@ export const Menu = ({
         <span>
           <a
             className={`cursor-pointer hover:line-through ${activeMenu === "scope" && "line-through"}`}
-            onClick={() => {
-              handleDrawClick();
-              setActiveMenu("scope");
-            }}
+            onClick={() => handleItemClick("scope")}
           >
             scope investment &#47;
           </a>
@@ -73,10 +85,7 @@ export const Menu = ({
         <span>
           <a
             className={`cursor-pointer hover:line-through ${activeMenu === "market" && "line-through"}`}
-            onClick={() => {
-              handleDrawClick();
-              setActiveMenu("market");
-            }}
+            onClick={() => handleItemClick("market")}
           >
             market i research &#47;
           </a>
@@ -84,10 +93,7 @@ export const Menu = ({
         <span>
           <a
             className={`cursor-pointer hover:line-through ${activeMenu === "coffee" && "line-through"}`}
-            onClick={() => {
-              handleDrawClick();
-              setActiveMenu("coffee");
-            }}
+            onClick={() => handleItemClick("coffee")}
           >
             raw coffee company &#47;
           </a>
@@ -95,10 +101,7 @@ export const Menu = ({
         <span>
           <a
             className={`cursor-pointer hover:line-through ${activeMenu === "freshly" && "line-through"}`}
-            onClick={() => {
-              handleDrawClick();
-              setActiveMenu("freshly");
-            }}
+            onClick={() => handleItemClick("freshly")}
           >
             freshly meals &#47;
           </a>
@@ -106,10 +109,7 @@ export const Menu = ({
         <span>
           <a
             className={`cursor-pointer hover:line-through ${activeMenu === "ddy" && "line-through"}`}
-            onClick={() => {
-              handleDrawClick();
-              setActiveMenu("ddy");
-            }}
+            onClick={() => handleItemClick("ddy")}
           >
             ddy autism center &#47;
           </a>
@@ -117,10 +117,7 @@ export const Menu = ({
         <span>
           <a
             className={`cursor-pointer hover:line-through ${activeMenu === "arabian" && "line-through"}`}
-            onClick={() => {
-              handleDrawClick();
-              setActiveMenu("arabian");
-            }}
+            onClick={() => handleItemClick("arabian")}
           >
             arabian knights &#47;
           </a>
@@ -128,10 +125,7 @@ export const Menu = ({
         <span>
           <a
             className={`cursor-pointer hover:line-through ${activeMenu === "lvmh" && "line-through"}`}
-            onClick={() => {
-              handleDrawClick();
-              setActiveMenu("lvmh");
-            }}
+            onClick={() => handleItemClick("lvmh")}
           >
             lvmh fragrances &#47;
           </a>
@@ -151,10 +145,7 @@ export const Menu = ({
         <span>
           <a
             className={`cursor-pointer hover:line-through ${activeMenu === "email" && "line-through"}`}
-            onClick={() => {
-              handleDrawClick();
-              setActiveMenu("email");
-            }}
+            onClick={() => handleItemClick("email")}
           >
             email + phone &#47;
           </a>
