@@ -28,7 +28,6 @@ const ProjectsPage = () => {
     <div className="container mx-auto px-4">
       <h1 className="text-xl font-semibold my-4">Projects</h1>
       <div className="space-y-3">
-      {console.log(projects)}
         {projects.map((project) => (
           <div
             key={project._id}
