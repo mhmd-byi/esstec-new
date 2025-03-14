@@ -12,7 +12,7 @@ import slide10 from "@/assets/projectImages/ewaa/9-stakeholder-brochure.svg";
 import slide1Mobile1 from "@/assets/projectImages/ewaa/1-mobile.png";
 import { SliderComponent } from "../sliderComponent";
 
-export const EwaaCarouselComponent = () => {
+export const CarouselComponent = () => {
   const hasWindow = typeof window !== 'undefined';
   const widthOfScreen = hasWindow ? window.innerWidth : null;
   const slides = [

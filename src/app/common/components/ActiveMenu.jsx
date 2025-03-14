@@ -5,7 +5,7 @@ import { PhilosophyComponent } from "./philosophy";
 import { PhoneComponent } from "./phone";
 import { ArabianKnightsCarouselComponent } from "./projects/arabian-knights";
 import { DDYCarouselComponent } from "./projects/ddy";
-import { EwaaCarouselComponent } from "./projects/ewaa";
+import { CarouselComponent } from "./projects/CarouselComponent";
 import { FreshlyMealsCarouselComponent } from "./projects/freshly-meals";
 import { LVMHCarouselComponent } from "./projects/lvmh";
 import { MarketIResearchCarouselComponent } from "./projects/market-i-research";
@@ -22,7 +22,7 @@ const ActiveMenuList = ({ activeMenu }) => {
       return <ClientComponent />;
 
     case "ewaa":
-      return <EwaaCarouselComponent />;
+      return <CarouselComponent />;
 
     case "scope":
       return <ScopeInvestmentsCarouselComponent />;

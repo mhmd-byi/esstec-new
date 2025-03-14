@@ -7,7 +7,7 @@ import { PhilosophyComponent } from './philosophy';
 import { ExpertiseComponent } from './expertise';
 import { ClientComponent } from './client';
 import { TeamComponent } from './team';
-import { EwaaCarouselComponent } from './projects/ewaa';
+import { CarouselComponent } from './projects/CarouselComponent';
 import { ScopeInvestmentsCarouselComponent } from './projects/scope-investments';
 import { MarketIResearchCarouselComponent } from './projects/market-i-research';
 import { RawCoffeeCarouselComponent } from './projects/raw-coffee';
@@ -157,7 +157,7 @@ export const MobileMenu = ({ open, setOpen, style }) => {
           </span>
           <AccordionBody>
             <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
-              <EwaaCarouselComponent />
+              <CarouselComponent />
             </div>
           </AccordionBody>
         </Accordion>
