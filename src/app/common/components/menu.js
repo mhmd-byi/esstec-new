@@ -1,6 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import menuData  from "./menuData";
 
+const titless = [
+  {title: "ewaa abu dhabi", code: "ewaa"},
+  {title: "scope investment", code: "scope"},
+  {title: "market i research", code: "market"},
+  {title: "raw coffee company", code: "coffee"},
+  {title: "freshly meals", code: "freshly"},
+  {title: "ddy autism center", code: "ddy"},
+  {title: "arabian knights", code: "arabian"},
+  {title: "lvmh fragrances", code: "lvmh"},
+];
+
 export const Menu = ({
   handleDrawClick,
   setActiveMenu,
@@ -66,70 +77,24 @@ export const Menu = ({
         >
           &#47;&#47; project showcase
         </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "ewaa" && "line-through"}`}
-            onClick={() => handleItemClick("ewaa")}
-          >
-            ewaa abu dhabi &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "scope" && "line-through"}`}
-            onClick={() => handleItemClick("scope")}
-          >
-            scope investment &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "market" && "line-through"}`}
-            onClick={() => handleItemClick("market")}
-          >
-            market i research &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "coffee" && "line-through"}`}
-            onClick={() => handleItemClick("coffee")}
-          >
-            raw coffee company &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "freshly" && "line-through"}`}
-            onClick={() => handleItemClick("freshly")}
-          >
-            freshly meals &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "ddy" && "line-through"}`}
-            onClick={() => handleItemClick("ddy")}
-          >
-            ddy autism center &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "arabian" && "line-through"}`}
-            onClick={() => handleItemClick("arabian")}
-          >
-            arabian knights &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "lvmh" && "line-through"}`}
-            onClick={() => handleItemClick("lvmh")}
-          >
-            lvmh fragrances &#47;
-          </a>
-        </span>
+        {
+          titless.map(({title, code}, i) => {
+            return (
+              <>
+                <span>
+                  <a
+                    className={`cursor-pointer hover:line-through ${
+                      activeMenu === code && "line-through"
+                    }`}
+                    onClick={() => handleItemClick(code)}
+                  >
+                    {title} &#47;
+                  </a>
+                </span>
+              </>
+            );
+          })
+        }
       </p>
       <p className="flex flex-col">
         <span
