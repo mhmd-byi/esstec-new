@@ -1,16 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import menuData  from "./menuData";
-
-const titless = [
-  {title: "ewaa abu dhabi", code: "ewaa"},
-  {title: "scope investment", code: "scope"},
-  {title: "market i research", code: "market"},
-  {title: "raw coffee company", code: "coffee"},
-  {title: "freshly meals", code: "freshly"},
-  {title: "ddy autism center", code: "ddy"},
-  {title: "arabian knights", code: "arabian"},
-  {title: "lvmh fragrances", code: "lvmh"},
-];
+import React, { useEffect, useRef } from "react";
+import menuData from "./menuData";
+import ProjectList from "./ProjectList";
 
 export const Menu = ({
   handleDrawClick,
@@ -24,10 +14,10 @@ export const Menu = ({
 
   useEffect(() => {
     const hash = window.location.hash.substring(1);
-    
+
     if (!hasMounted.current && hash) {
       hasMounted.current = true;
-      console.log('this is hash', hash);
+      console.log("this is hash", hash);
       setDraw(true);
       setActiveMenu(hash);
     }
@@ -37,7 +27,7 @@ export const Menu = ({
   const handleItemClick = (menuValue) => {
     handleDrawClick();
     setActiveMenu(menuValue);
-    window.history.replaceState(null, null, ' '); // Clear URL hash
+    window.history.replaceState(null, null, " "); // Clear URL hash
   };
 
   return (
@@ -57,8 +47,10 @@ export const Menu = ({
         </span>
         {menuData.map((menuItem, index) => (
           <span key={index}>
-            <a 
-              className={`cursor-pointer hover:line-through ${activeMenu === menuItem.activeMenu && "line-through"}`}
+            <a
+              className={`cursor-pointer hover:line-through ${
+                activeMenu === menuItem.activeMenu && "line-through"
+              }`}
               onClick={() => handleItemClick(menuItem.activeMenu)}
             >
               {menuItem.title} &#47;
@@ -77,24 +69,7 @@ export const Menu = ({
         >
           &#47;&#47; project showcase
         </span>
-        {
-          titless.map(({title, code}, i) => {
-            return (
-              <>
-                <span>
-                  <a
-                    className={`cursor-pointer hover:line-through ${
-                      activeMenu === code && "line-through"
-                    }`}
-                    onClick={() => handleItemClick(code)}
-                  >
-                    {title} &#47;
-                  </a>
-                </span>
-              </>
-            );
-          })
-        }
+        <ProjectList activeMenu={activeMenu} handleItemClick={handleItemClick} />
       </p>
       <p className="flex flex-col">
         <span
@@ -109,7 +84,9 @@ export const Menu = ({
         </span>
         <span>
           <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "email" && "line-through"}`}
+            className={`cursor-pointer hover:line-through ${
+              activeMenu === "email" && "line-through"
+            }`}
             onClick={() => handleItemClick("email")}
           >
             email + phone &#47;
