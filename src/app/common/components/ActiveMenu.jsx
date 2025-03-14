@@ -21,44 +21,20 @@ const ActiveMenuList = ({ activeMenu }) => {
     case "clients":
       return <ClientComponent />;
 
-    case "ewaa":
-      return <CarouselComponent />;
-
-    case "scope":
-      return <ScopeInvestmentsCarouselComponent />;
-
-    case "market":
-      return <MarketIResearchCarouselComponent />;
-
     case "email":
       return <EmailComponent />;
 
     case "phone":
       return <PhoneComponent />;
 
-    case "coffee":
-      return <RawCoffeeCarouselComponent />;
-
-    case "freshly":
-      return <FreshlyMealsCarouselComponent />;
-
-    case "lvmh":
-      return <LVMHCarouselComponent />;
-
     case "team":
       return <TeamComponent />;
-
-    case "ddy":
-      return <DDYCarouselComponent />;
-
-    case "arabian":
-      return <ArabianKnightsCarouselComponent />;
 
     case "expertise":
       return <ExpertiseComponent />;
 
     default:
-      return null;
+      return <CarouselComponent projectId={activeMenu} />;
   }
 };
 
