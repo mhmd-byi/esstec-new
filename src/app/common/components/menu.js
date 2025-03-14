@@ -66,7 +66,7 @@ export const Menu = ({
           </span>
         ))}
       </p>
-      <p className="flex flex-col">
+      <p className="flex flex-col min-h-52">
         <span
           className="cursor-pointer font-semibold"
           onClick={() => {
