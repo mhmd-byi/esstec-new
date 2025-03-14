@@ -9,7 +9,6 @@ const ProjectList = ({ activeMenu, handleItemClick }) => {
     try {
       setLoading(() => true);
       const list = await fetch("/api/projects").then((r) => r.json());
-      console.log("huzefa check", list);
 
       // setProjectsData(() => list);
       projects.current = list;
