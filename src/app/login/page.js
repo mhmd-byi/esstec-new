@@ -13,7 +13,7 @@ export default function Login() {
   });
 
   const router = useRouter();
-  const authentication = hasWindow && localStorage.getItem('isAuthenticated');
+  const authentication = hasWindow && sessionStorage.getItem('isAuthenticated');
   if (authentication) {
     return router.push('/dashboard');
   }
@@ -30,7 +30,7 @@ export default function Login() {
     e.preventDefault();
     if (formData.username === 'admin' && formData.password === 'Alwaysrespect1+') {
       const hasWindow = typeof window !== 'undefined';
-      hasWindow && localStorage.setItem('isAuthenticated', true);
+      hasWindow && sessionStorage.setItem('isAuthenticated', true);
       toast.success('You are being redirected to admin area');
       router.push('/dashboard');
     } else {

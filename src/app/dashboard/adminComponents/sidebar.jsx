@@ -18,7 +18,7 @@ export const SidebarWithLogo = () => {
 
   const handleLogout = () => {
     if (typeof window !== "undefined") {
-      localStorage.setItem("isAuthenticated", false);
+      sessionStorage.setItem("isAuthenticated", false);
     }
     router.push("/");
   };
