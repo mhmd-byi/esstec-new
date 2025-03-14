@@ -38,9 +38,7 @@ const ProjectList = ({ activeMenu, handleItemClick }) => {
   if (loading) {
     return (
       <>
-        <span>
-          <a>Loading... &#47;</a>
-        </span>
+        <span>Loading... &#47;</span>
       </>
     );
   }
