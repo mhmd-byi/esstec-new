@@ -56,7 +56,6 @@ export const CarouselComponent = ({ projectId, project }) => {
     return <></>;
   }
 
-  console.log("huzefa", slides.current);
   return (
     <>
       <SliderComponent slides={slides.current} />
