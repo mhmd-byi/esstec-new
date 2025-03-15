@@ -40,7 +40,7 @@ const ProjectList = ({ activeMenu, handleItemClick }) => {
     <>
       {projects.current.map(({ name, _id, isProjectActive }, i) => {
         if (!isProjectActive) {
-          return <></>;
+          return null;
         }
 
         return (
