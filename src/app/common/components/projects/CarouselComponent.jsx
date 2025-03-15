@@ -1,50 +1,58 @@
 "use client";
 import slide1 from "@/assets/projectImages/ewaa/1-brand-guidelines.svg";
-import slide2 from "@/assets/projectImages/ewaa/2-brand-guidelines.svg";
-import slide3 from "@/assets/projectImages/ewaa/3-animation-video.svg";
-import slide4 from "@/assets/projectImages/ewaa/4-infographic-posters.svg";
-import slide5 from "@/assets/projectImages/ewaa/5-website.svg";
-import slide6 from "@/assets/projectImages/ewaa/6-psa.svg";
-import slide7 from "@/assets/projectImages/ewaa/7-corporate-film.svg";
-import slide8 from "@/assets/projectImages/ewaa/1-identity-rebrand.png";
-import slide9 from "@/assets/projectImages/ewaa/8-corporate-deck.svg";
-import slide10 from "@/assets/projectImages/ewaa/9-stakeholder-brochure.svg";
-import slide1Mobile1 from "@/assets/projectImages/ewaa/1-mobile.png";
 import { SliderComponent } from "../sliderComponent";
+import React, { useEffect, useRef, useState } from "react";
 
 export const CarouselComponent = ({ projectId }) => {
-  console.log("huzefa", projectId);
-  const hasWindow = typeof window !== 'undefined';
-  const widthOfScreen = hasWindow ? window.innerWidth : null;
-  const slides = [
-    {slide: slide8, title: "identity rebrand"},
-    {slide: slide1, title: "brand guidelines"},
-    {slide: slide2, title: "brand guidelines"},
-    {slide: slide3, title: "animation video"},
-    {slide: slide9, title: "corporate deck"},
-    {slide: slide10, title: "stakeholder brochure"},
-    {slide: slide4, title: "infographic posters"},
-    {slide: slide5, title: "web development"},
-    {slide: slide6, title: "psa shorts"},
-    {slide: slide7, title: "corporate film"},
-  ];
+  const hasWindow = typeof window !== "undefined";
+  const widthOfScreen = useRef(hasWindow ? window.innerWidth : null);
 
-  const mobileSlides = [
-    {slide: slide1Mobile1, title: "identity rebrand"},
-    {slide: slide1, title: "brand guidelines"},
-    {slide: slide2, title: "brand guidelines"},
-    {slide: slide3, title: "animation video"},
-    {slide: slide9, title: "corporate deck"},
-    {slide: slide10, title: "stakeholder brochure"},
-    {slide: slide4, title: "infographic posters"},
-    {slide: slide5, title: "web development"},
-    {slide: slide6, title: "psa shorts"},
-    {slide: slide7, title: "corporate film"},
-  ];
+  const [loading, setLoading] = useState(true);
 
+  const slides = useRef();
+
+  const generateObjForArr = (imgObj) => ({
+    slide: imgObj.url || imgObj.imageUrl,
+    title: imgObj.title || "",
+    ...imgObj,
+  });
+
+  const getProject = async (id) => {
+    try {
+      setLoading(() => true);
+      const pt = await fetch("api/projects/" + id).then((r) => r.json());
+      const { desktopImages, mobileImages } = pt;
+
+      slides.current =
+        widthOfScreen.current > 450
+          ? desktopImages.map(generateObjForArr).filter((o) => !!o.slide)
+          : mobileImages.map(generateObjForArr).filter((o) => !!o.slide);
+      setLoading(() => false);
+    } catch (error) {
+      console.log("pt error", error);
+      setLoading(() => false);
+    }
+  };
+
+  useEffect(() => {
+    if (projectId !== undefined) {
+      getProject(projectId);
+    }
+  }, [projectId]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  const gotError = !loading && slides.current === undefined;
+  if (gotError) {
+    return <></>;
+  }
+
+  console.log("huzefa", slides.current);
   return (
     <>
-      <SliderComponent slides={widthOfScreen > 450 ? slides : mobileSlides} />
+      <SliderComponent slides={slides.current} />
     </>
   );
 };

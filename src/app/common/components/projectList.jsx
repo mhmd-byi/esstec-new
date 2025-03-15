@@ -38,7 +38,11 @@ const ProjectList = ({ activeMenu, handleItemClick }) => {
 
   return (
     <>
-      {projects.current.map(({ name, _id }, i) => {
+      {projects.current.map(({ name, _id, isProjectActive }, i) => {
+        if (!isProjectActive) {
+          return <></>;
+        }
+
         return (
           <React.Fragment key={i}>
             <span>
