@@ -17,6 +17,7 @@ import { ArabianKnightsCarouselComponent } from './projects/arabian-knights';
 import { LVMHCarouselComponent } from './projects/lvmh';
 import { EmailComponent } from './email';
 import { useEffect, useRef } from 'react';
+import ProjectList from './ProjectList';
 
 const hashToAccordionMap = {
   philosophy: 1,
@@ -138,141 +139,14 @@ export const MobileMenu = ({ open, setOpen, style }) => {
           </AccordionBody>
         </Accordion>
       </p>
-      <p className="flex flex-col">
+      <p className="flex flex-col min-h-52">
         <span
           className="cursor-pointer font-semibold mt-2"
           onClick={() => handleOpen(0)}
         >
           &#47;&#47; project showcase
         </span>
-        <Accordion open={open === 5} className="text-right">
-          <span onClick={() => handleOpen(5)} className="text-right">
-            <a
-              className={`cursor-pointer hover:line-through text-right ${
-                open === 5 && 'line-through'
-              }`}
-            >
-              ewaa abu dhabi &#47;
-            </a>
-          </span>
-          <AccordionBody>
-            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
-              <CarouselComponent />
-            </div>
-          </AccordionBody>
-        </Accordion>
-        <Accordion open={open === 6} className="text-right">
-          <span onClick={() => handleOpen(6)} className="text-right">
-            <a
-              className={`cursor-pointer hover:line-through text-right ${
-                open === 6 && 'line-through'
-              }`}
-            >
-              scope investment &#47;
-            </a>
-          </span>
-          <AccordionBody>
-            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
-              <ScopeInvestmentsCarouselComponent />
-            </div>
-          </AccordionBody>
-        </Accordion>
-        <Accordion open={open === 7} className="text-right">
-          <span onClick={() => handleOpen(7)} className="text-right">
-            <a
-              className={`cursor-pointer hover:line-through text-right ${
-                open === 7 && 'line-through'
-              }`}
-            >
-              market i research &#47;
-            </a>
-          </span>
-          <AccordionBody>
-            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
-              <MarketIResearchCarouselComponent />
-            </div>
-          </AccordionBody>
-        </Accordion>
-        <Accordion open={open === 8} className="text-right">
-          <span onClick={() => handleOpen(8)} className="text-right">
-            <a
-              className={`cursor-pointer hover:line-through text-right ${
-                open === 8 && 'line-through'
-              }`}
-            >
-              raw coffee company &#47;
-            </a>
-          </span>
-          <AccordionBody>
-            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
-              <RawCoffeeCarouselComponent />
-            </div>
-          </AccordionBody>
-        </Accordion>
-        <Accordion open={open === 9} className="text-right">
-          <span onClick={() => handleOpen(9)} className="text-right">
-            <a
-              className={`cursor-pointer hover:line-through text-right ${
-                open === 9 && 'line-through'
-              }`}
-            >
-              freshly meals &#47;
-            </a>
-          </span>
-          <AccordionBody>
-            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
-              <FreshlyMealsCarouselComponent />
-            </div>
-          </AccordionBody>
-        </Accordion>
-        <Accordion open={open === 10} className="text-right">
-          <span onClick={() => handleOpen(10)} className="text-right">
-            <a
-              className={`cursor-pointer hover:line-through text-right ${
-                open === 10 && 'line-through'
-              }`}
-            >
-              ddy autism center &#47;
-            </a>
-          </span>
-          <AccordionBody>
-            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
-              <DDYCarouselComponent />
-            </div>
-          </AccordionBody>
-        </Accordion>
-        <Accordion open={open === 11} className="text-right">
-          <span onClick={() => handleOpen(11)} className="text-right">
-            <a
-              className={`cursor-pointer hover:line-through text-right ${
-                open === 11 && 'line-through'
-              }`}
-            >
-              arabian knights &#47;
-            </a>
-          </span>
-          <AccordionBody>
-            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
-              <ArabianKnightsCarouselComponent />
-            </div>
-          </AccordionBody>
-        </Accordion>
-        <Accordion open={open === 12} className="text-right">
-          <span onClick={() => handleOpen(12)} className="text-right">
-            <a
-              className={`cursor-pointer hover:line-through text-right ${
-                open === 12 && 'line-through'
-              }`}
-            >
-              lvmh fragrances &#47;
-            </a>
-          </span>
-          <AccordionBody>
-            <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
-              <LVMHCarouselComponent />
-            </div>
-          </AccordionBody>
-        </Accordion>
+        <ProjectList open={open} handleOpen={handleOpen} />
       </p>
       <p className="flex flex-col">
         <span
