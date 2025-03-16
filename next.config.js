@@ -14,6 +14,11 @@ const nextConfig = {
                 hostname: 'picsum.photos',
                 port: '',
             },
+            {
+                protocol: 'https',
+                hostname: 'www.dropbox.com',
+                port: '',
+            }
         ],
     },
 };

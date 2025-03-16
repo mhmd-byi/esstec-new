@@ -17,7 +17,8 @@ import { ArabianKnightsCarouselComponent } from './projects/arabian-knights';
 import { LVMHCarouselComponent } from './projects/lvmh';
 import { EmailComponent } from './email';
 import { useEffect, useRef } from 'react';
-import ProjectList from './ProjectList';
+import ProjectList from './projectListDynamic';
+import ProjectListDynamic from './projectListDynamic';
 
 const hashToAccordionMap = {
   philosophy: 1,
@@ -146,7 +147,7 @@ export const MobileMenu = ({ open, setOpen, style }) => {
         >
           &#47;&#47; project showcase
         </span>
-        <ProjectList open={open} handleOpen={handleOpen} />
+        <ProjectListDynamic open={open} handleOpen={handleOpen} />
       </p>
       <p className="flex flex-col">
         <span

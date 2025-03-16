@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import menuData from "./menuData";
-import ProjectList from "./ProjectList";
+import ProjectListDynamic from "./projectListDynamic";
 
 export const Menu = ({
   handleDrawClick,
@@ -69,7 +69,7 @@ export const Menu = ({
         >
           &#47;&#47; project showcase
         </span>
-        <ProjectList activeMenu={activeMenu} handleItemClick={handleItemClick} />
+        <ProjectListDynamic activeMenu={activeMenu} handleItemClick={handleItemClick} />
       </p>
       <p className="flex flex-col">
         <span

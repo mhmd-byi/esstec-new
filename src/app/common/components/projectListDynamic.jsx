@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Accordion, AccordionBody } from "@material-tailwind/react";
 import { CarouselComponent } from "./projects/CarouselComponent";
 
-const ProjectList = ({ activeMenu, handleItemClick, open, handleOpen }) => {
+const ProjectListDynamic = ({ activeMenu, handleItemClick, open, handleOpen }) => {
   const isDesktop = [activeMenu, handleItemClick].every((a) => a !== undefined);
   const isMobile = [open, handleOpen].every((a) => a !== undefined);
 
@@ -107,4 +107,4 @@ const ProjectList = ({ activeMenu, handleItemClick, open, handleOpen }) => {
   }
 };
 
-export default ProjectList;
+export default ProjectListDynamic;
