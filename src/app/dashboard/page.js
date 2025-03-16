@@ -13,7 +13,7 @@ export default function Dashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    const authentication = hasWindow && localStorage.getItem('isAuthenticated');
+    const authentication = hasWindow && sessionStorage.getItem('isAuthenticated');
     setIsAuthenticated(authentication);
     if (!authentication) {
       console.log('Redirecting because not authenticated');
