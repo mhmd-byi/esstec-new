@@ -4,6 +4,7 @@ import Image from 'next/image';
 import esstecLogo from '@/assets/images/esstec-logo.svg';
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import { sessionStrgAuthKey } from '@/helper/helper';
 
 export default function Login() {
   const hasWindow = typeof window !== 'undefined';
@@ -13,7 +14,7 @@ export default function Login() {
   });
 
   const router = useRouter();
-  const authentication = hasWindow && sessionStorage.getItem('isAuthenticated');
+  const authentication = hasWindow && sessionStorage.getItem(sessionStrgAuthKey) === "true";
   if (authentication) {
     return router.push('/dashboard');
   }
@@ -30,7 +31,7 @@ export default function Login() {
     e.preventDefault();
     if (formData.username === 'admin' && formData.password === 'Alwaysrespect1+') {
       const hasWindow = typeof window !== 'undefined';
-      hasWindow && sessionStorage.setItem('isAuthenticated', true);
+      hasWindow && sessionStorage.setItem(sessionStrgAuthKey, true);
       toast.success('You are being redirected to admin area');
       router.push('/dashboard');
     } else {

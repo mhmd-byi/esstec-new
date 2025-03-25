@@ -9,6 +9,7 @@ import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import esstecLogo from "@/assets/images/esstec-logo.svg";
 import { useRouter } from "next/navigation";
+import { sessionStrgAuthKey } from "@/helper/helper";
 
 export const SidebarWithLogo = () => {
   const [projectsOpen, setProjectsOpen] = useState(false);
@@ -18,7 +19,7 @@ export const SidebarWithLogo = () => {
 
   const handleLogout = () => {
     if (typeof window !== "undefined") {
-      sessionStorage.setItem("isAuthenticated", false);
+      sessionStorage.setItem(sessionStrgAuthKey, false);
     }
     router.push("/");
   };
