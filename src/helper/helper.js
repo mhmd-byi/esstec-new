@@ -1,5 +1,7 @@
 import moment from 'moment-timezone';
 
+export const sessionStrgAuthKey = "isAuthenticated";
+
 export const convertTimezoneOffsetToGMT = (timezoneOffset) => {
   const sign = timezoneOffset > 0 ? '-' : '+';
   const absoluteOffset = Math.abs(timezoneOffset);
