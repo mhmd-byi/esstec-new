@@ -83,3 +83,20 @@ img {
   margin-bottom: 50px;
   height: 200px !important;
 }
+
+.image img[alt]:after {
+  display: block;
+  position: absolute;
+  top: -26px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #f3bb44;
+  color: #e3342f;
+  font-weight: 300;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  content: "Image Not Found!";
+}
