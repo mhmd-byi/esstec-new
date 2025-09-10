@@ -5,24 +5,24 @@ export const ClientComponent = () => {
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const fetchClients = async () => {
-  //     const response = await fetch("/api/clients");
-  //     const data = await response.json();
-  //     if (response.ok) {
-  //       setClients(data);
-  //     } else {
-  //       alert("Failed to fetch projects");
-  //     }
-  //     setLoading(false);
-  //   };
+  useEffect(() => {
+    const fetchClients = async () => {
+      const response = await fetch("/api/clients");
+      const data = await response.json();
+      if (response.ok) {
+        setClients(data);
+      } else {
+        alert("Failed to fetch projects");
+      }
+      setLoading(false);
+    };
 
-  //   fetchClients();
-  // }, []);
+    fetchClients();
+  }, []);
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="overflow-scroll md:overflow-hidden max-h-full w-full space-y-4 p-2 md:space-y-6 md:h-full grid grid-cols-1 px-5 md:px-0">
@@ -30,7 +30,7 @@ export const ClientComponent = () => {
         clients
       </h2>
       <div className="grid gap-4 text-center md:text-left text-xs uppercase text-text-primary grid-cols-1 md:grid-cols-3 md:text-sm lg:grid-cols-4 md:pl-12 lg:pl-24">
-        {clientData.map(
+        {clients.map(
           (client, index) =>
             client.isClientActive && (
               <div key={index}>
