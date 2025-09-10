@@ -5,24 +5,24 @@ export const ClientComponent = () => {
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchClients = async () => {
-      const response = await fetch("/api/clients");
-      const data = await response.json();
-      if (response.ok) {
-        setClients(data);
-      } else {
-        alert("Failed to fetch projects");
-      }
-      setLoading(false);
-    };
+  // useEffect(() => {
+  //   const fetchClients = async () => {
+  //     const response = await fetch("/api/clients");
+  //     const data = await response.json();
+  //     if (response.ok) {
+  //       setClients(data);
+  //     } else {
+  //       alert("Failed to fetch projects");
+  //     }
+  //     setLoading(false);
+  //   };
 
-    fetchClients();
-  }, []);
+  //   fetchClients();
+  // }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <div className="overflow-scroll md:overflow-hidden max-h-full w-full space-y-4 p-2 md:space-y-6 md:h-full grid grid-cols-1 px-5 md:px-0">
