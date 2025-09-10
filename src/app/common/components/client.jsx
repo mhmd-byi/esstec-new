@@ -30,7 +30,7 @@ export const ClientComponent = () => {
         clients
       </h2>
       <div className="grid gap-4 text-center md:text-left text-xs uppercase text-text-primary grid-cols-1 md:grid-cols-3 md:text-sm lg:grid-cols-4 md:pl-12 lg:pl-24">
-        {clients.map(
+        {clientData.map(
           (client, index) =>
             client.isClientActive && (
               <div key={index}>
