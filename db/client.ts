@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb';
 
-const uri = process.env.MONGODB_URI || 'mongodb+srv://mhmd:Mhmd%4066426633@kal-graphql.8ubsnp3.mongodb.net/esstec?retryWrites=true&w=majority';
+const uri = process.env.MONGODB_URI;
 if (!uri) {
   throw new Error('Please define the MONGODB_URI environment variable');
 }
