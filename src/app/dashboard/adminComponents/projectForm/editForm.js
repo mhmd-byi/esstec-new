@@ -27,6 +27,7 @@ function EditForm() {
         title: "",
       },
     ],
+    year: "",
   });
   const [isLoading, setLoading] = useState(true);
 
@@ -99,6 +100,10 @@ function EditForm() {
     }
   };
 
+  const handleYearChange = (e) => {
+    setProject((prev) => ({ ...prev, year: e.target.value }));
+  };
+
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -121,7 +126,8 @@ function EditForm() {
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
         />
       </div>
-      <div className="mb-4">
+      <div className="mb-4 flex">
+        <div className="flex w-full">
         <label htmlFor="isProjectActive" className="flex items-center">
           <input
             type="checkbox"
@@ -133,6 +139,22 @@ function EditForm() {
           />
           <span className="ml-2 text-sm text-gray-700">Is Active?</span>
         </label>
+        </div>
+        <div className="flex w-full">
+          <div className="flex flex-col">
+            <label htmlFor="year" className="block text-sm font-medium text-gray-700">
+              Project Year
+            </label>
+            <input
+              type="number"
+              name="year"
+              id="year"
+              value={project.year}
+              onChange={(e) => handleYearChange(e)}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+        </div>
       </div>
       {["desktopImages", "mobileImages"].map((type) => (
         <div key={type} className="mb-6">
