@@ -24,6 +24,7 @@ function ProjectForm() {
       },
     ],
     year: "",
+    monthYear: "",
   });
 
   const handleNameChange = (e) => {
@@ -36,6 +37,17 @@ function ProjectForm() {
 
   const handleYearChange = (e) => {
     setProject({ ...project, year: e.target.value });
+  };
+
+  const handleMonthYearChange = (e) => {
+    const monthYearValue = e.target.value;
+    setProject({ ...project, monthYear: monthYearValue });
+    
+    // Extract year from month-year format (YYYY-MM)
+    if (monthYearValue) {
+      const year = monthYearValue.split('-')[0];
+      setProject(prev => ({ ...prev, year: year }));
+    }
   };
 
   const handleImageChange = (type, index, field, value) => {
@@ -83,6 +95,8 @@ function ProjectForm() {
           title: "",
           desktopImages: [{ imageUrl: "", alt: "", height: 394, width: 743 }],
           mobileImages: [{ imageUrl: "", alt: "", height: 140, width: 193 }],
+          year: "",
+          monthYear: "",
         });
       } else {
         throw new Error("Failed to submit the project.");
@@ -127,17 +141,17 @@ function ProjectForm() {
         <div className="flex w-full">
           <div className="flex flex-col">
             <label
-              htmlFor="year"
+              htmlFor="monthYear"
               className="block text-sm font-medium text-gray-700"
             >
-              Project Year
+              Project Month & Year
             </label>
             <input
-              type="number"
-              name="year"
-              id="year"
-              value={project.year}
-              onChange={handleYearChange}
+              type="month"
+              name="monthYear"
+              id="monthYear"
+              value={project.monthYear}
+              onChange={handleMonthYearChange}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>

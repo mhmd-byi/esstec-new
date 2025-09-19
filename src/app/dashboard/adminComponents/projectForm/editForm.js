@@ -11,7 +11,7 @@ function EditForm() {
     isProjectActive: false,
     desktopImages: [
       {
-        imageUrl: "",
+        url: "",
         alt: "",
         height: 394,
         width: 743,
@@ -20,7 +20,7 @@ function EditForm() {
     ],
     mobileImages: [
       {
-        imageUrl: "",
+        url: "",
         alt: "",
         height: 140,
         width: 193,
@@ -28,6 +28,7 @@ function EditForm() {
       },
     ],
     year: "",
+    monthYear: "",
   });
   const [isLoading, setLoading] = useState(true);
 
@@ -40,11 +41,13 @@ function EditForm() {
           name: data.name,
           isProjectActive: data.isProjectActive,
           desktopImages: data.desktopImages || [
-            { imageUrl: "", alt: "", height: 394, width: 743, title: "" },
+            { url: "", alt: "", height: 394, width: 743, title: "" },
           ],
           mobileImages: data.mobileImages || [
-            { imageUrl: "", alt: "", height: 140, width: 193, title: "" },
+            { url: "", alt: "", height: 140, width: 193, title: "" },
           ],
+          year: data.year || "",
+          monthYear: data.monthYear || "",
         });
       } else {
         alert("Failed to fetch project details");
@@ -72,7 +75,7 @@ function EditForm() {
   const handleAddImageField = (type) => {
     const width = type === "desktopImages" ? 743 : 193;
     const height = type === "desktopImages" ? 394 : 140;
-    const newImage = { imageUrl: "", alt: "", height: height, width: width, title: "" };
+    const newImage = { url: "", alt: "", height: height, width: width, title: "" };
     setProject((prev) => ({ ...prev, [type]: [...prev[type], newImage] }));
   };
 
@@ -102,6 +105,17 @@ function EditForm() {
 
   const handleYearChange = (e) => {
     setProject((prev) => ({ ...prev, year: e.target.value }));
+  };
+
+  const handleMonthYearChange = (e) => {
+    const monthYearValue = e.target.value;
+    setProject(prev => ({ ...prev, monthYear: monthYearValue }));
+    
+    // Extract year from month-year format (YYYY-MM)
+    if (monthYearValue) {
+      const year = monthYearValue.split('-')[0];
+      setProject(prev => ({ ...prev, year: year }));
+    }
   };
 
   if (isLoading) {
@@ -142,15 +156,15 @@ function EditForm() {
         </div>
         <div className="flex w-full">
           <div className="flex flex-col">
-            <label htmlFor="year" className="block text-sm font-medium text-gray-700">
-              Project Year
+            <label htmlFor="monthYear" className="block text-sm font-medium text-gray-700">
+              Project Month & Year
             </label>
             <input
-              type="number"
-              name="year"
-              id="year"
-              value={project.year}
-              onChange={(e) => handleYearChange(e)}
+              type="month"
+              name="monthYear"
+              id="monthYear"
+              value={project.monthYear}
+              onChange={handleMonthYearChange}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
@@ -166,8 +180,8 @@ function EditForm() {
               <input
                 type="text"
                 placeholder="Enter image URL"
-                value={image.imageUrl}
-                onChange={(e) => handleChange(e, type, index, "imageUrl")}
+                value={image.url}
+                onChange={(e) => handleChange(e, type, index, "url")}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
               <input
