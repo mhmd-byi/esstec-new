@@ -46,13 +46,12 @@ const ProjectListDynamic = ({ activeMenu, handleItemClick, open, handleOpen }) =
   }
 
   if (isDesktop) {
+    const activeProjects = projects.current.filter(project => project.isProjectActive);
+    const displayProjects = activeProjects.slice(0, 7);
+    
     return (
       <>
-        {projects.current.map(({ name, _id, isProjectActive }, i) => {
-          if (!isProjectActive) {
-            return null;
-          }
-
+        {displayProjects.map(({ name, _id }, i) => {
           return (
             <React.Fragment key={i}>
               <span>
@@ -68,18 +67,27 @@ const ProjectListDynamic = ({ activeMenu, handleItemClick, open, handleOpen }) =
             </React.Fragment>
           );
         })}
+        {activeProjects.length > 7 && (
+          <span>
+            <a
+              href="/archive"
+              className="cursor-pointer hover:line-through"
+            >
+              Archive &#47;
+            </a>
+          </span>
+        )}
       </>
     );
   }
 
   if (isMobile) {
+    const activeProjects = projects.current.filter(project => project.isProjectActive);
+    const displayProjects = activeProjects.slice(0, 7);
+    
     return (
       <>
-        {projects.current.map((project, i) => {
-          if (!project.isProjectActive) {
-            return null;
-          }
-
+        {displayProjects.map((project, i) => {
           const _id = i + 5;
           return (
             <React.Fragment key={i}>
@@ -102,6 +110,16 @@ const ProjectListDynamic = ({ activeMenu, handleItemClick, open, handleOpen }) =
             </React.Fragment>
           );
         })}
+        {activeProjects.length > 7 && (
+          <span className="text-right">
+            <a
+              href="/archive"
+              className="cursor-pointer hover:line-through text-right"
+            >
+              Archive &#47;
+            </a>
+          </span>
+        )}
       </>
     );
   }
