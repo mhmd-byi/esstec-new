@@ -124,7 +124,7 @@ export const ArchiveCarouselComponent = ({ projectId, project }) => {
                 alt={`Slide ${index + 1}`}
                 width={slide.width ?? 0}
                 height={slide.height ?? 0}
-                className="h-full w-full object-cover pointer-events-none rounded-t-2xl"
+                className="h-full w-full object-cover pointer-events-none"
                 style={{ objectPosition: 'center' }}
               />
             </div>

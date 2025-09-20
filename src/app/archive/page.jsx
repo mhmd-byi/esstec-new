@@ -6,7 +6,7 @@ const ArchivePage = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState(null);
-  const [sortOrder, setSortOrder] = useState('position'); // 'position', 'a-z', 'z-a'
+  const [sortOrder, setSortOrder] = useState('position'); // 'position', 'a-z', 'z-a', 'chronological'
 
   const handleProjectSelect = (project) => {
     setSelectedProject(project);
@@ -22,6 +22,16 @@ const ArchivePage = () => {
     }
   };
 
+  const handleChronologicalToggle = () => {
+    console.log('Current sort order:', sortOrder);
+    if (sortOrder === 'chronological-asc') {
+      setSortOrder('chronological-desc');
+    } else {
+      setSortOrder('chronological-asc');
+    }
+    console.log('New sort order will be:', sortOrder === 'chronological-asc' ? 'chronological-desc' : 'chronological-asc');
+  };
+
   const getSortedProjects = () => {
     if (!projects.length) return [];
     
@@ -31,6 +41,44 @@ const ArchivePage = () => {
       return sortedProjects.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortOrder === 'z-a') {
       return sortedProjects.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (sortOrder === 'chronological-asc') {
+      console.log('Sorting chronologically ascending');
+      return sortedProjects.sort((a, b) => {
+        // Get date for comparison - prioritize monthYear, fallback to year
+        const getDateForSort = (project) => {
+          if (project.monthYear) {
+            return project.monthYear; // Already in YYYY-MM format
+          } else if (project.year) {
+            return `${project.year}-01`; // Convert year to YYYY-01
+          } else {
+            return '9999-12'; // Projects without dates go to end
+          }
+        };
+        
+        const dateA = getDateForSort(a);
+        const dateB = getDateForSort(b);
+        console.log(`Comparing ${a.name}: ${dateA} vs ${b.name}: ${dateB}`);
+        return dateA.localeCompare(dateB);
+      });
+    } else if (sortOrder === 'chronological-desc') {
+      console.log('Sorting chronologically descending');
+      return sortedProjects.sort((a, b) => {
+        // Get date for comparison - prioritize monthYear, fallback to year
+        const getDateForSort = (project) => {
+          if (project.monthYear) {
+            return project.monthYear; // Already in YYYY-MM format
+          } else if (project.year) {
+            return `${project.year}-01`; // Convert year to YYYY-01
+          } else {
+            return '0000-01'; // Projects without dates go to beginning
+          }
+        };
+        
+        const dateA = getDateForSort(a);
+        const dateB = getDateForSort(b);
+        console.log(`Comparing ${a.name}: ${dateA} vs ${b.name}: ${dateB}`);
+        return dateB.localeCompare(dateA);
+      });
     } else {
       // Default: sort by position (admin-set order)
       return sortedProjects.sort((a, b) => (a.position || 0) - (b.position || 0));
@@ -75,12 +123,12 @@ const ArchivePage = () => {
       {/* Header */}
       <div className="border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl md:text-3xl font-bold">Project Archive</h1>
+          <h1 className="text-2xl md:text-3xl font-bold uppercase">Project Archive</h1>
           <a
             href="/"
             className="text-sm bg-text-primary text-bg-primary px-4 py-2 rounded hover:bg-gray-800 transition-colors"
           >
-            Back to Home
+            Home
           </a>
         </div>
       </div>
@@ -90,7 +138,12 @@ const ArchivePage = () => {
         <div className="w-full lg:w-1/2 border-r-0 lg:border-r border-gray-200 overflow-y-auto">
           <div className="p-6">
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-lg font-semibold">All Projects</h2>
+            <button
+                onClick={handleChronologicalToggle}
+                className="text-sm text-gray-600 hover:text-text-primary hover:underline transition-colors duration-200"
+              >
+                chronological
+              </button>
               
               {/* Minimalist Sort Button */}
               <button
@@ -101,8 +154,8 @@ const ArchivePage = () => {
               </button>
             </div>
             
-            {/* 2 Column List Layout */}
-            <div className="grid grid-cols-2 gap-x-8 gap-y-1">
+            {/* 3 Column List Layout */}
+            <div className="grid grid-cols-3 gap-x-4 gap-y-1">
               {getSortedProjects().map((project, index) => (
                 <div
                   key={project._id}
@@ -113,15 +166,29 @@ const ArchivePage = () => {
                       : ''
                   }`}
                 >
-                  <div className="flex justify-between items-center">
-                    {/* Project Name */}
+                  <div className="text-left">
+                    {/* Project Name with Date */}
                     <span className="text-sm font-medium text-gray-900">
                       {project.name}
-                    </span>
-                    
-                    {/* Date/Year */}
-                    <span className="text-sm text-gray-600">
-                      {project.year || project.monthYear || '—'}
+                      {(() => {
+                        if (project.monthYear) {
+                          // Convert YYYY-MM to MM/YYYY
+                          const [year, month] = project.monthYear.split('-');
+                          return (
+                            <span className="text-gray-600 font-normal">
+                              {' '}({month}/{year})
+                            </span>
+                          );
+                        } else if (project.year) {
+                          // If only year is available, show as 01/YYYY
+                          return (
+                            <span className="text-gray-600 font-normal">
+                              {' '}(01/{project.year})
+                            </span>
+                          );
+                        }
+                        return null;
+                      })()}
                     </span>
                   </div>
                 </div>
@@ -152,8 +219,8 @@ const ArchivePage = () => {
               </div>
               
               {/* Image Slider Area */}
-              <div className="flex-1 p-4 lg:p-6">
-                <div className="w-full h-72 lg:aspect-video lg:h-auto border-4 border-text-primary rounded-2xl overflow-hidden relative">
+              <div className="flex-1">
+                <div className="w-full h-72 lg:aspect-video lg:h-auto overflow-hidden relative">
                   <ArchiveCarouselComponent key={selectedProject._id} project={selectedProject} />
                 </div>
               </div>
