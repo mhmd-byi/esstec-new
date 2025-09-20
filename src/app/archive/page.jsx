@@ -6,9 +6,35 @@ const ArchivePage = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [sortOrder, setSortOrder] = useState('position'); // 'position', 'a-z', 'z-a'
 
   const handleProjectSelect = (project) => {
     setSelectedProject(project);
+  };
+
+  const handleSortToggle = () => {
+    if (sortOrder === 'position') {
+      setSortOrder('a-z');
+    } else if (sortOrder === 'a-z') {
+      setSortOrder('z-a');
+    } else {
+      setSortOrder('a-z');
+    }
+  };
+
+  const getSortedProjects = () => {
+    if (!projects.length) return [];
+    
+    const sortedProjects = [...projects];
+    
+    if (sortOrder === 'a-z') {
+      return sortedProjects.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortOrder === 'z-a') {
+      return sortedProjects.sort((a, b) => b.name.localeCompare(a.name));
+    } else {
+      // Default: sort by position (admin-set order)
+      return sortedProjects.sort((a, b) => (a.position || 0) - (b.position || 0));
+    }
   };
 
   useEffect(() => {
@@ -63,11 +89,21 @@ const ArchivePage = () => {
         {/* Left Side - 3 Column Project Directory */}
         <div className="w-full lg:w-1/2 border-r-0 lg:border-r border-gray-200 overflow-y-auto">
           <div className="p-6">
-            <h2 className="text-lg font-semibold mb-6">All Projects</h2>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-lg font-semibold">All Projects</h2>
+              
+              {/* Minimalist Sort Button */}
+              <button
+                onClick={handleSortToggle}
+                className="text-sm text-gray-600 hover:text-text-primary hover:underline transition-colors duration-200"
+              >
+                alphabetical
+              </button>
+            </div>
             
             {/* 2 Column List Layout */}
             <div className="grid grid-cols-2 gap-x-8 gap-y-1">
-              {projects.map((project, index) => (
+              {getSortedProjects().map((project, index) => (
                 <div
                   key={project._id}
                   onClick={() => handleProjectSelect(project)}
@@ -92,7 +128,7 @@ const ArchivePage = () => {
               ))}
             </div>
             
-            {projects.length === 0 && (
+            {getSortedProjects().length === 0 && (
               <div className="text-center py-12">
                 <p className="text-gray-600">No projects found.</p>
               </div>
