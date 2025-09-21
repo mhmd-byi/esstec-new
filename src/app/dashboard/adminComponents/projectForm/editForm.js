@@ -224,6 +224,12 @@ function EditForm() {
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
               <div className="mt-1">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Image Title (Choose one option)
+                </label>
+                <p className="text-xs text-gray-500 mb-2">
+                  Either type a custom title or select from expertise dropdown
+                </p>
                 <div className="flex space-x-2">
                   <input
                     type="text"
@@ -231,13 +237,22 @@ function EditForm() {
                     id="title"
                     placeholder="Enter custom title"
                     value={image.title}
-                    onChange={(e) => handleChange(e, type, index, "title")}
+                    onChange={(e) => {
+                      handleChange(e, type, index, "title");
+                      // Clear dropdown selection when typing
+                      const dropdown = document.getElementById(`expertise-dropdown-edit-${type}-${index}`);
+                      if (dropdown) dropdown.value = "";
+                    }}
                     className="w-1/2 flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
                   <select
+                    id={`expertise-dropdown-edit-${type}-${index}`}
                     onChange={(e) => {
                       if (e.target.value) {
                         handleChange({ target: { value: e.target.value } }, type, index, "title");
+                        // Clear text input when selecting from dropdown
+                        const textInput = document.querySelector(`input[placeholder="Enter custom title"]`);
+                        if (textInput) textInput.value = "";
                       }
                     }}
                     className="w-1/2 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
