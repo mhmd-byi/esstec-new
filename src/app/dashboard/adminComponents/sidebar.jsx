@@ -68,7 +68,7 @@ export const SidebarWithLogo = () => {
             </ul>
           )}
         </li>
-        <li>
+        <li className="cursor-pointer" onClick={() => router.push('/dashboard/settings')}>
           <div className="flex items-center">
             <Cog6ToothIcon className="h-5 w-5" />
             <span className="ml-2">Settings</span>

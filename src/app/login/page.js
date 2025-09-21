@@ -27,15 +27,31 @@ export default function Login() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.username === 'admin' && formData.password === 'Alwaysrespect1+') {
-      const hasWindow = typeof window !== 'undefined';
-      hasWindow && sessionStorage.setItem(sessionStrgAuthKey, true);
-      toast.success('You are being redirected to admin area');
-      router.push('/dashboard');
-    } else {
-      toast.error('Invalid login credentials');
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        const hasWindow = typeof window !== 'undefined';
+        hasWindow && sessionStorage.setItem(sessionStrgAuthKey, true);
+        hasWindow && sessionStorage.setItem('user', JSON.stringify(data.user));
+        toast.success('You are being redirected to admin area');
+        router.push('/dashboard');
+      } else {
+        toast.error(data.error || 'Invalid login credentials');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      toast.error('Login failed. Please try again.');
     }
   };
 
