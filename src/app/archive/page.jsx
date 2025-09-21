@@ -123,7 +123,7 @@ const ArchivePage = () => {
       {/* Header */}
       <div className="border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl md:text-3xl font-bold uppercase">Project Archive</h1>
+          <h1 className="font-semibold uppercase text-text-primary">Project Archive</h1>
           <a
             href="/"
             className="text-sm bg-text-primary text-bg-primary px-4 py-2 rounded hover:bg-gray-800 transition-colors"
@@ -140,7 +140,7 @@ const ArchivePage = () => {
             <div className="flex justify-between items-center mb-6">
             <button
                 onClick={handleChronologicalToggle}
-                className="text-sm text-gray-600 hover:text-text-primary hover:underline transition-colors duration-200"
+                className="text-sm text-gray-600 uppercase hover:text-text-primary hover:underline transition-colors duration-200"
               >
                 chronological
               </button>
@@ -148,7 +148,7 @@ const ArchivePage = () => {
               {/* Minimalist Sort Button */}
               <button
                 onClick={handleSortToggle}
-                className="text-sm text-gray-600 hover:text-text-primary hover:underline transition-colors duration-200"
+                className="text-sm uppercase text-gray-600 hover:text-text-primary hover:underline transition-colors duration-200"
               >
                 alphabetical
               </button>

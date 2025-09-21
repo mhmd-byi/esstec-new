@@ -64,6 +64,7 @@ export const SidebarWithLogo = () => {
             <ul className="pl-4 mt-2">
               <li className="cursor-pointer" onClick={() => router.push('/dashboard/expertise/allExpertise')}>All Expertise</li>
               <li className="cursor-pointer" onClick={() => router.push('/dashboard/expertise/addExpertise')}>Add Expertise</li>
+              <li className="cursor-pointer" onClick={() => router.push('/dashboard/categories')}>Categories</li>
             </ul>
           )}
         </li>

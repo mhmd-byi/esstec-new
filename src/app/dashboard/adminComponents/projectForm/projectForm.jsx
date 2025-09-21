@@ -1,6 +1,6 @@
 // File: /app/components/ProjectForm.js
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function ProjectForm() {
   const [project, setProject] = useState({
@@ -26,6 +26,43 @@ function ProjectForm() {
     year: "",
     monthYear: "",
   });
+
+  const [expertiseList, setExpertiseList] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch expertise and categories data on component mount
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        
+        // Fetch expertise
+        const expertiseResponse = await fetch('/api/expertise');
+        const expertiseData = await expertiseResponse.json();
+        if (expertiseResponse.ok) {
+          setExpertiseList(expertiseData);
+        } else {
+          console.error('Failed to fetch expertise');
+        }
+
+        // Fetch categories
+        const categoriesResponse = await fetch('/api/categories');
+        const categoriesData = await categoriesResponse.json();
+        if (categoriesResponse.ok) {
+          setCategories(categoriesData);
+        } else {
+          console.error('Failed to fetch categories');
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleNameChange = (e) => {
     setProject({ ...project, name: e.target.value });
@@ -182,15 +219,64 @@ function ProjectForm() {
                 }
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
-              <input
-                type="text"
-                placeholder="Enter title"
-                value={image.title}
-                onChange={(e) =>
-                  handleImageChange(type, index, "title", e.target.value)
-                }
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              />
+              <div className="mt-1">
+                <div className="flex space-x-2">
+                  <input
+                    type="text"
+                    placeholder="Enter custom title"
+                    value={image.title}
+                    onChange={(e) =>
+                      handleImageChange(type, index, "title", e.target.value)
+                    }
+                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm w-1/2"
+                  />
+                  <select
+                    onChange={(e) => {
+                      if (e.target.value) {
+                        handleImageChange(type, index, "title", e.target.value);
+                      }
+                    }}
+                    className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm w-1/2"
+                    defaultValue=""
+                  >
+                    <option value="">Select from expertise</option>
+                    {(() => {
+                      // Group expertise by category
+                      const groupedExpertise = expertiseList.reduce((acc, item) => {
+                        const category = item.category || "other";
+                        if (!acc[category]) {
+                          acc[category] = [];
+                        }
+                        acc[category].push(item);
+                        return acc;
+                      }, {});
+
+                      // Use dynamic categories from database
+                      const sortedCategories = Object.keys(groupedExpertise).sort((a, b) => {
+                        const categoryA = categories.find(cat => cat.name === a);
+                        const categoryB = categories.find(cat => cat.name === b);
+                        const orderA = categoryA?.order || 999;
+                        const orderB = categoryB?.order || 999;
+                        return orderA - orderB;
+                      });
+
+                      return sortedCategories.map((category) => {
+                        const categoryData = groupedExpertise[category];
+                        
+                        return (
+                          <optgroup key={category} label={category}>
+                            {categoryData.map((expertise) => (
+                              <option key={expertise._id} value={expertise.name}>
+                                {expertise.name}
+                              </option>
+                            ))}
+                          </optgroup>
+                        );
+                      });
+                    })()}
+                  </select>
+                </div>
+              </div>
               {project[type].length > 1 && (
                 <button
                   type="button"

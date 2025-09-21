@@ -1,10 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function ExpertiseForm() {
   const [expertise, setExpertise] = useState({
     name: "",
-    category: "branding & communication",
+    category: "",
   });
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch('/api/categories');
+        const data = await response.json();
+        if (response.ok) {
+          setCategories(data);
+          // Set default category if available
+          if (data.length > 0) {
+            setExpertise(prev => ({ ...prev, category: data[0].name }));
+          }
+        } else {
+          console.error('Failed to fetch categories');
+        }
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCategories();
+  }, []);
 
   const handleNameChange = (e) => {
     setExpertise({ ...expertise, name: e.target.value });
@@ -66,10 +92,14 @@ function ExpertiseForm() {
           value={expertise.category}
           onChange={handleCategoryChange}
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          disabled={loading}
         >
-          <option value="branding & communication">Branding & Communication</option>
-          <option value="virtual computing">Virtual Computing</option>
-          <option value="spatial experience">Spatial Experience</option>
+          <option value="">Select a category</option>
+          {categories.map((category) => (
+            <option key={category._id} value={category.name}>
+              {category.name}
+            </option>
+          ))}
         </select>
       </div>
       <button
