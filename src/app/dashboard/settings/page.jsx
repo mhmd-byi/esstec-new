@@ -271,7 +271,7 @@ const UserSettings = () => {
 
         {!showPasswordForm && (
           <p className="text-gray-500 text-sm">
-            Click "Change Password" to update your password
+            Click Change Password to update your password
           </p>
         )}
       </div>
