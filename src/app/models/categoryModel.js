@@ -19,6 +19,15 @@ export const createCategory = async (categoryData) => {
   const client = await clientPromise;
   const db = client.db();
   
+  // Check if category with same name already exists
+  const existingCategory = await db.collection('categories').findOne({ 
+    name: { $regex: new RegExp(`^${categoryData.name}$`, 'i') } 
+  });
+  
+  if (existingCategory) {
+    throw new Error('Category with this name already exists');
+  }
+  
   // Get the current highest order
   const lastCategory = await db.collection('categories').findOne({}, { sort: { order: -1 } });
   const nextOrder = lastCategory ? (lastCategory.order || 0) + 1 : 1;
@@ -36,7 +45,25 @@ export const createCategory = async (categoryData) => {
 export const updateCategory = async (id, categoryData) => {
   const client = await clientPromise;
   const db = client.db();
-  const result = await db.collection('categories').updateOne({ _id: new ObjectId(id) }, { $set: categoryData });
+  
+  // Check if another category with same name already exists (excluding current category)
+  if (categoryData.name) {
+    const existingCategory = await db.collection('categories').findOne({ 
+      name: { $regex: new RegExp(`^${categoryData.name}$`, 'i') },
+      _id: { $ne: new ObjectId(id) }
+    });
+    
+    if (existingCategory) {
+      throw new Error('Category with this name already exists');
+    }
+  }
+  
+  const updateData = {
+    ...categoryData,
+    updatedAt: new Date()
+  };
+  
+  const result = await db.collection('categories').updateOne({ _id: new ObjectId(id) }, { $set: updateData });
   return result.modifiedCount;
 };
 

@@ -41,11 +41,13 @@ const SortableCategoryItem = ({ category, onEdit, onDelete }) => {
       ref={setNodeRef}
       style={style}
       {...attributes}
-      {...listeners}
-      className="flex justify-between items-center bg-white shadow px-4 py-3 rounded-lg cursor-move hover:shadow-md transition-shadow"
+      className="flex justify-between items-center bg-white shadow px-4 py-3 rounded-lg hover:shadow-md transition-shadow"
     >
       <div className="flex items-center">
-        <div className="mr-3 text-gray-400">
+        <div 
+          className="mr-3 text-gray-400 cursor-move"
+          {...listeners}
+        >
           <i className="fas fa-grip-vertical"></i>
         </div>
         <div>
@@ -56,7 +58,9 @@ const SortableCategoryItem = ({ category, onEdit, onDelete }) => {
       <div className="flex space-x-2">
         <button
           onClick={(e) => {
+            console.log('Edit button clicked');
             e.stopPropagation();
+            e.preventDefault();
             onEdit(category);
           }}
           className="text-blue-500 hover:text-blue-700 px-2 py-1"
@@ -65,7 +69,9 @@ const SortableCategoryItem = ({ category, onEdit, onDelete }) => {
         </button>
         <button
           onClick={(e) => {
+            console.log('Delete button clicked');
             e.stopPropagation();
+            e.preventDefault();
             onDelete(category._id);
           }}
           className="text-red-500 hover:text-red-700 px-2 py-1"
@@ -163,6 +169,8 @@ const CategoriesPage = () => {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         alert(editingCategory ? "Category updated successfully!" : "Category created successfully!");
         setFormData({ name: '' });
@@ -170,37 +178,40 @@ const CategoriesPage = () => {
         setEditingCategory(null);
         fetchCategories();
       } else {
-        const error = await response.json();
-        alert(error.error || "Failed to save category");
+        alert(data.error || "Failed to save category");
       }
     } catch (error) {
       console.error("Error saving category:", error);
-      alert("Error saving category");
+      alert("Error saving category: " + error.message);
     }
   };
 
   const handleEdit = (category) => {
+    console.log('Edit clicked for category:', category);
     setEditingCategory(category);
     setFormData({ name: category.name });
     setShowForm(true);
   };
 
   const handleDelete = async (categoryId) => {
+    console.log('Delete clicked for category ID:', categoryId);
     if (window.confirm("Are you sure you want to delete this category?")) {
       try {
         const response = await fetch(`/api/categories/${categoryId}`, {
           method: "DELETE",
         });
 
+        const data = await response.json();
+
         if (response.ok) {
           alert("Category deleted successfully!");
           fetchCategories();
         } else {
-          alert("Failed to delete category");
+          alert(data.error || "Failed to delete category");
         }
       } catch (error) {
         console.error("Error deleting category:", error);
-        alert("Error deleting category");
+        alert("Error deleting category: " + error.message);
       }
     }
   };

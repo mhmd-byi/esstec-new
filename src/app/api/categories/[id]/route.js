@@ -49,9 +49,9 @@ export async function PATCH(req, context) {
   }
 }
 
-export async function DELETE(req, res) {
+export async function DELETE(req, context) {
   try {
-    const { categoryId } = req.query;
+    const categoryId = context.params.id;
     const deleted = await deleteCategory(categoryId);
     if (deleted) {
       return new Response(JSON.stringify({ message: 'Category deleted successfully' }), {
@@ -61,11 +61,16 @@ export async function DELETE(req, res) {
         }
       });
     } else {
-      throw new Error('Category not found');
+      return new Response(JSON.stringify({ error: 'Category not found' }), {
+        status: 404,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
     }
   } catch (error) {
     return new Response(JSON.stringify({ error: error.message }), {
-      status: error.message === 'Category not found' ? 404 : 500,
+      status: 500,
       headers: {
         'Content-Type': 'application/json'
       }
