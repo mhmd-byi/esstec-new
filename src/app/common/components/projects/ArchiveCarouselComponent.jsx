@@ -12,7 +12,44 @@ export const ArchiveCarouselComponent = ({ projectId, project }) => {
   const widthOfScreen = useRef(hasWindow ? window.innerWidth : null);
 
   const [loading, setLoading] = useState(true);
+  const [playingVideo, setPlayingVideo] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const slides = useRef();
+
+  // Helper function to detect if a slide is a video
+  const isVideo = (slide) => {
+    if (!slide) return false;
+    const videoExtensions = ['.mp4', '.webm', '.ogg', '.mov', '.avi', '.mkv'];
+    const url = slide.slide || slide.url || slide.imageUrl || '';
+    return videoExtensions.some(ext => url.toLowerCase().includes(ext)) || slide.type === 'video';
+  };
+
+  // Helper function to get video poster/thumbnail
+  const getVideoPoster = (slide) => {
+    return slide.poster || slide.thumbnail || slide.imageUrl || '';
+  };
+
+  // Handle video autoplay when slide changes
+  const handleSlideChange = (index) => {
+    setCurrentSlide(index);
+    
+    // Pause all videos first
+    const allVideos = document.querySelectorAll('video');
+    allVideos.forEach(video => {
+      video.pause();
+    });
+    
+    // Play the current video if it's a video slide
+    setTimeout(() => {
+      const currentSlideElement = document.querySelector(`[data-slide-index="${index}"] video`);
+      if (currentSlideElement && slides.current && isVideo(slides.current[index])) {
+        currentSlideElement.play().catch(console.log);
+        setPlayingVideo(index);
+      } else {
+        setPlayingVideo(null);
+      }
+    }, 100);
+  };
 
   const generateObjForArr = (imgObj) => ({
     slide: imgObj.url || imgObj.imageUrl,
@@ -35,7 +72,6 @@ export const ArchiveCarouselComponent = ({ projectId, project }) => {
       const pt = await fetch("api/projects/" + id).then((r) => r.json());
       setSlides(pt);
     } catch (error) {
-      console.log("pt error", error);
       setLoading(() => false);
     }
   };
@@ -48,6 +84,19 @@ export const ArchiveCarouselComponent = ({ projectId, project }) => {
       setSlides(project);
     }
   }, [projectId, project]);
+
+  // Handle initial video autoplay
+  useEffect(() => {
+    if (slides.current && slides.current.length > 0 && isVideo(slides.current[0])) {
+      setTimeout(() => {
+        const firstVideo = document.querySelector('[data-slide-index="0"] video');
+        if (firstVideo) {
+          firstVideo.play().catch(console.log);
+          setPlayingVideo(0);
+        }
+      }, 500);
+    }
+  }, [slides.current]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -110,23 +159,44 @@ export const ArchiveCarouselComponent = ({ projectId, project }) => {
     waitForAnimate: false,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    beforeChange: (oldIndex, newIndex) => {
+      handleSlideChange(newIndex);
+    },
   };
 
   return (
     <div className="h-full w-full">
       <Slider {...settings} className="h-full w-full">
         {slides.current.map((slide, index) => (
-          <div key={index} className="relative h-full w-full">
-            {/* Image */}
+          <div key={index} data-slide-index={index} className="relative h-full w-full">
+            {/* Media Content */}
             <div className="relative h-full w-full">
-              <Image
-                src={slide.slide}
-                alt={`Slide ${index + 1}`}
-                width={slide.width ?? 0}
-                height={slide.height ?? 0}
-                className="h-full w-full object-cover pointer-events-none"
-                style={{ objectPosition: 'center' }}
-              />
+              {isVideo(slide) ? (
+                <div className="relative h-full w-full overflow-hidden">
+                  <video
+                    src={slide.slide || slide.url || slide.imageUrl}
+                    poster={getVideoPoster(slide)}
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    className="h-full w-full object-cover pointer-events-none"
+                    style={{ objectPosition: 'center' }}
+                    onPlay={() => setPlayingVideo(index)}
+                    onPause={() => setPlayingVideo(null)}
+                    onEnded={() => setPlayingVideo(null)}
+                  />
+                </div>
+              ) : (
+                <Image
+                  src={slide.slide || slide.url || slide.imageUrl}
+                  alt={`Slide ${index + 1}`}
+                  width={slide.width ?? 0}
+                  height={slide.height ?? 0}
+                  className="h-full w-full object-cover pointer-events-none"
+                  style={{ objectPosition: 'center' }}
+                />
+              )}
             </div>
             
             {/* Title Bar - Smaller and positioned below image */}

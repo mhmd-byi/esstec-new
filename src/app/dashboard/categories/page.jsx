@@ -58,7 +58,6 @@ const SortableCategoryItem = ({ category, onEdit, onDelete }) => {
       <div className="flex space-x-2">
         <button
           onClick={(e) => {
-            console.log('Edit button clicked');
             e.stopPropagation();
             e.preventDefault();
             onEdit(category);
@@ -69,7 +68,6 @@ const SortableCategoryItem = ({ category, onEdit, onDelete }) => {
         </button>
         <button
           onClick={(e) => {
-            console.log('Delete button clicked');
             e.stopPropagation();
             e.preventDefault();
             onDelete(category._id);
@@ -187,14 +185,12 @@ const CategoriesPage = () => {
   };
 
   const handleEdit = (category) => {
-    console.log('Edit clicked for category:', category);
     setEditingCategory(category);
     setFormData({ name: category.name });
     setShowForm(true);
   };
 
   const handleDelete = async (categoryId) => {
-    console.log('Delete clicked for category ID:', categoryId);
     if (window.confirm("Are you sure you want to delete this category?")) {
       try {
         const response = await fetch(`/api/categories/${categoryId}`, {

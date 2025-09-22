@@ -14,7 +14,6 @@ export default function DashboardLayout({ children }) {
     const authentication =
       hasWindow && sessionStorage.getItem(sessionStrgAuthKey) === "true";
     if (!authentication) {
-      console.log("Redirecting because not authenticated");
       router.push("/login");
     } else {
       setLoading(false);

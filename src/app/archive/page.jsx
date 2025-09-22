@@ -23,13 +23,11 @@ const ArchivePage = () => {
   };
 
   const handleChronologicalToggle = () => {
-    console.log('Current sort order:', sortOrder);
     if (sortOrder === 'chronological-asc') {
       setSortOrder('chronological-desc');
     } else {
       setSortOrder('chronological-asc');
     }
-    console.log('New sort order will be:', sortOrder === 'chronological-asc' ? 'chronological-desc' : 'chronological-asc');
   };
 
   const getSortedProjects = () => {
@@ -42,7 +40,6 @@ const ArchivePage = () => {
     } else if (sortOrder === 'z-a') {
       return sortedProjects.sort((a, b) => b.name.localeCompare(a.name));
     } else if (sortOrder === 'chronological-asc') {
-      console.log('Sorting chronologically ascending');
       return sortedProjects.sort((a, b) => {
         // Get date for comparison - prioritize monthYear, fallback to year
         const getDateForSort = (project) => {
@@ -57,11 +54,9 @@ const ArchivePage = () => {
         
         const dateA = getDateForSort(a);
         const dateB = getDateForSort(b);
-        console.log(`Comparing ${a.name}: ${dateA} vs ${b.name}: ${dateB}`);
         return dateA.localeCompare(dateB);
       });
     } else if (sortOrder === 'chronological-desc') {
-      console.log('Sorting chronologically descending');
       return sortedProjects.sort((a, b) => {
         // Get date for comparison - prioritize monthYear, fallback to year
         const getDateForSort = (project) => {
@@ -76,7 +71,6 @@ const ArchivePage = () => {
         
         const dateA = getDateForSort(a);
         const dateB = getDateForSort(b);
-        console.log(`Comparing ${a.name}: ${dateA} vs ${b.name}: ${dateB}`);
         return dateB.localeCompare(dateA);
       });
     } else {

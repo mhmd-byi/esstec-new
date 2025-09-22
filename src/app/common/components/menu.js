@@ -17,7 +17,6 @@ export const Menu = ({
 
     if (!hasMounted.current && hash) {
       hasMounted.current = true;
-      console.log("this is hash", hash);
       setDraw(true);
       setActiveMenu(hash);
     }

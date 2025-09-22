@@ -33,7 +33,6 @@ export const CarouselComponent = ({ projectId, project }) => {
 
       setSlides(pt);
     } catch (error) {
-      console.log("pt error", error);
       setLoading(() => false);
     }
   };
