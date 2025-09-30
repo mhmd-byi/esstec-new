@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import menuData  from "./menuData";
+import React, { useEffect, useRef } from "react";
+import menuData from "./menuData";
+import ProjectListDynamic from "./projectListDynamic";
 
 export const Menu = ({
   handleDrawClick,
@@ -13,10 +14,9 @@ export const Menu = ({
 
   useEffect(() => {
     const hash = window.location.hash.substring(1);
-    
+
     if (!hasMounted.current && hash) {
       hasMounted.current = true;
-      console.log('this is hash', hash);
       setDraw(true);
       setActiveMenu(hash);
     }
@@ -26,7 +26,7 @@ export const Menu = ({
   const handleItemClick = (menuValue) => {
     handleDrawClick();
     setActiveMenu(menuValue);
-    window.history.replaceState(null, null, ' '); // Clear URL hash
+    window.history.replaceState(null, null, " "); // Clear URL hash
   };
 
   return (
@@ -46,8 +46,10 @@ export const Menu = ({
         </span>
         {menuData.map((menuItem, index) => (
           <span key={index}>
-            <a 
-              className={`cursor-pointer hover:line-through ${activeMenu === menuItem.activeMenu && "line-through"}`}
+            <a
+              className={`cursor-pointer hover:line-through ${
+                activeMenu === menuItem.activeMenu && "line-through"
+              }`}
               onClick={() => handleItemClick(menuItem.activeMenu)}
             >
               {menuItem.title} &#47;
@@ -55,7 +57,7 @@ export const Menu = ({
           </span>
         ))}
       </p>
-      <p className="flex flex-col">
+      <p className="flex flex-col min-h-52">
         <span
           className="cursor-pointer font-semibold"
           onClick={() => {
@@ -66,70 +68,7 @@ export const Menu = ({
         >
           &#47;&#47; project showcase
         </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "ewaa" && "line-through"}`}
-            onClick={() => handleItemClick("ewaa")}
-          >
-            ewaa abu dhabi &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "scope" && "line-through"}`}
-            onClick={() => handleItemClick("scope")}
-          >
-            scope investment &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "market" && "line-through"}`}
-            onClick={() => handleItemClick("market")}
-          >
-            market i research &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "coffee" && "line-through"}`}
-            onClick={() => handleItemClick("coffee")}
-          >
-            raw coffee company &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "freshly" && "line-through"}`}
-            onClick={() => handleItemClick("freshly")}
-          >
-            freshly meals &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "ddy" && "line-through"}`}
-            onClick={() => handleItemClick("ddy")}
-          >
-            ddy autism center &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "arabian" && "line-through"}`}
-            onClick={() => handleItemClick("arabian")}
-          >
-            arabian knights &#47;
-          </a>
-        </span>
-        <span>
-          <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "lvmh" && "line-through"}`}
-            onClick={() => handleItemClick("lvmh")}
-          >
-            lvmh fragrances &#47;
-          </a>
-        </span>
+        <ProjectListDynamic activeMenu={activeMenu} handleItemClick={handleItemClick} />
       </p>
       <p className="flex flex-col">
         <span
@@ -144,7 +83,9 @@ export const Menu = ({
         </span>
         <span>
           <a
-            className={`cursor-pointer hover:line-through ${activeMenu === "email" && "line-through"}`}
+            className={`cursor-pointer hover:line-through ${
+              activeMenu === "email" && "line-through"
+            }`}
             onClick={() => handleItemClick("email")}
           >
             email + phone &#47;

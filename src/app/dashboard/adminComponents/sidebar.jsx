@@ -9,16 +9,18 @@ import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import esstecLogo from "@/assets/images/esstec-logo.svg";
 import { useRouter } from "next/navigation";
+import { sessionStrgAuthKey } from "@/helper/helper";
 
 export const SidebarWithLogo = () => {
   const [projectsOpen, setProjectsOpen] = useState(false);
   const [clientsOpen, setClientsOpen] = useState(false);
+  const [expertiseOpen, setExpertiseOpen] = useState(false);
 
   const router = useRouter();
 
   const handleLogout = () => {
     if (typeof window !== "undefined") {
-      localStorage.setItem("isAuthenticated", false);
+      sessionStorage.setItem(sessionStrgAuthKey, false);
     }
     router.push("/");
   };
@@ -53,7 +55,20 @@ export const SidebarWithLogo = () => {
             </ul>
           )}
         </li>
-        <li>
+        <li className="cursor-pointer" onClick={() => setExpertiseOpen(!expertiseOpen)}>
+          <div className="flex items-center justify-between">
+            <span>Expertise</span>
+            {expertiseOpen ? <ChevronDownIcon className="h-5 w-5" /> : <ChevronRightIcon className="h-5 w-5" />}
+          </div>
+          {expertiseOpen && (
+            <ul className="pl-4 mt-2">
+              <li className="cursor-pointer" onClick={() => router.push('/dashboard/expertise/allExpertise')}>All Expertise</li>
+              <li className="cursor-pointer" onClick={() => router.push('/dashboard/expertise/addExpertise')}>Add Expertise</li>
+              <li className="cursor-pointer" onClick={() => router.push('/dashboard/categories')}>Categories</li>
+            </ul>
+          )}
+        </li>
+        <li className="cursor-pointer" onClick={() => router.push('/dashboard/settings')}>
           <div className="flex items-center">
             <Cog6ToothIcon className="h-5 w-5" />
             <span className="ml-2">Settings</span>

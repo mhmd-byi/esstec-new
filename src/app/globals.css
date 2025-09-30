@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -82,4 +91,21 @@ img {
   margin-top: -10px;
   margin-bottom: 50px;
   height: 200px !important;
+}
+
+.image img[alt]:after {
+  display: block;
+  position: absolute;
+  top: -26px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #f3bb44;
+  color: #e3342f;
+  font-weight: 300;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  content: "Image Not Found!";
 }
