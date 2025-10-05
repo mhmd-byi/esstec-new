@@ -66,7 +66,7 @@ export const Menu = ({
             setActiveMenu("");
           }}
         >
-          &#47;&#47; project showcase
+          &#47;&#47; projects
         </span>
         <ProjectListDynamic activeMenu={activeMenu} handleItemClick={handleItemClick} />
       </p>

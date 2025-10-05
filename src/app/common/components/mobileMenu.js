@@ -145,7 +145,7 @@ export const MobileMenu = ({ open, setOpen, style }) => {
           className="cursor-pointer font-semibold mt-2"
           onClick={() => handleOpen(0)}
         >
-          &#47;&#47; project showcase
+          &#47;&#47; projects
         </span>
         <ProjectListDynamic open={open} handleOpen={handleOpen} />
       </p>
