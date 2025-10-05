@@ -59,10 +59,18 @@ export const ArchiveCarouselComponent = ({ projectId, project }) => {
 
   const setSlides = (proj) => {
     const { desktopImages, mobileImages } = proj;
-    slides.current =
-      widthOfScreen.current > 450
-        ? desktopImages.map(generateObjForArr).filter((o) => !!o.slide)
-        : mobileImages.map(generateObjForArr).filter((o) => !!o.slide);
+    
+    if (widthOfScreen.current > 450) {
+      // Desktop view - use desktop images
+      slides.current = desktopImages.map(generateObjForArr).filter((o) => !!o.slide);
+    } else {
+      // Mobile view - use mobile images, fallback to desktop if mobile is empty
+      const mobileSlides = mobileImages.map(generateObjForArr).filter((o) => !!o.slide);
+      const desktopSlides = desktopImages.map(generateObjForArr).filter((o) => !!o.slide);
+      
+      slides.current = mobileSlides.length > 0 ? mobileSlides : desktopSlides;
+    }
+    
     setLoading(() => false);
   };
 
