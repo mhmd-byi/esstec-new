@@ -54,7 +54,7 @@ function ExpertiseForm() {
         alert("Expertise created successfully!");
         setExpertise({
           name: "",
-          category: "branding & communication",
+          category: categories.length > 0 ? categories[0].name : "",
         });
       } else {
         throw new Error("Failed to create the expertise.");
