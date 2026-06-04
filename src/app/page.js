@@ -23,7 +23,7 @@ export default function Home() {
   };
   return (
     <div className="bg-bg-primary">
-      <div className="mx-auto flex min-h-dvh w-11/12 max-w-screen-2xl flex-col justify-between gap-6 pt-10 md:pt-0">
+      <div className="flex flex-col gap-6 justify-between pt-10 mx-auto w-11/12 max-w-screen-2xl min-h-dvh md:pt-0">
         <Header mobileComponentOpen={mobileComponentOpen} draw={draw} />
 
         <Menu
@@ -40,7 +40,7 @@ export default function Home() {
         {/* Image and Drawing */}
         <div className="relative mt-6 md:-mt-14">
           {(activeMenu && widthOfScreen > 450) && (
-            <div className="absolute bottom-[2%] w-[98.60%] md:bottom-[3%] md:w-[80.40%]">
+            <div className="absolute bottom-[3.4%] w-[98.60%] md:bottom-[3.4%] md:w-[80.40%]">
               <DrawingComponent
                 draw={draw}
                 activeMenu={activeMenu}

@@ -9,32 +9,35 @@ function DrawingComponent({
   setAnimationComplete,
 }) {
   return (
-    <div className="relative aspect-video w-full">
+    <div className="relative w-full aspect-video">
       <svg
         viewBox="0 0 160 90"
         width="100%"
         height="100%"
         preserveAspectRatio="xMidYMid meet"
         overflow="visible"
-        className="pointer-events-none absolute inset-0 z-10"
+        className="absolute inset-0 z-10 pointer-events-none"
       >
         <AnimatePresence>
           {draw && (
-            <motion.rect
-              x="1"
-              y="0"
-              width="160"
-              height="90"
-              rx="6"
-              ry="6"
+            <motion.path
+              d={`M 161 ${90 - 6}
+                  L 161 6
+                  A 6 6 0 0 0 ${161 - 6} 0
+                  L ${1 + 6} 0
+                  A 6 6 0 0 0 1 6
+                  L 1 ${90 - 6}
+                  A 6 6 0 0 0 ${1 + 6} 90
+                  L ${161 - 6} 90
+                  A 6 6 0 0 0 161 ${90 - 6}
+                  Z`}
               fill="transparent"
               stroke="#222222"
-              strokeWidth="2.15"
+              strokeWidth="2.35"
               strokeLinecap="round"
-              strokeLinejoin="round"
-              transform="scale(1, -1) translate(0, -90)"
+              strokeLinejoin="inherit"
               initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 1 }}
+              animate={{ pathLength: 1.005, opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{
                 pathLength: { duration: 5, ease: "easeInOut" },
