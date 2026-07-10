@@ -142,10 +142,10 @@ export const SliderComponent = ({ slides = [] }) => {
           <div
             key={index}
             data-slide-index={index}
-            className="image relative h-full w-[101%] md:w-full pointer-events-none -ml-1 md:ml-0"
+            className="image relative h-full w-[101%] md:w-full pointer-events-none -ml-1 md:ml-0 flex flex-col md:block"
           >
             {isVideo(slide) ? (
-              <div className="relative h-[17.5rem] rounded-xl md:h-full w-full overflow-hidden">
+              <div className="relative h-[calc(100%-2.5rem)] md:h-full rounded-t-xl md:rounded-xl w-full overflow-hidden">
                 <video
                   src={slide.slide || slide.url || slide.imageUrl}
                   poster={getVideoPoster(slide)}
@@ -166,10 +166,10 @@ export const SliderComponent = ({ slides = [] }) => {
                 alt={`Slide ${index + 1}`}
                 width={slide.width ?? 0}
                 height={slide.height ?? 0}
-                className="h-[17.5rem] rounded-xl md:h-full w-full object-cover pointer-events-none"
+                className="h-[calc(100%-2.5rem)] md:h-full rounded-t-xl md:rounded-xl w-full object-cover pointer-events-none"
               />
             )}
-            <div className="absolute -left-1 md:left-auto -bottom-px md:bottom-20 md:right-0 w-[102%] md:w-[24.5rem] md:text-3xl bg-text-primary text-center text-bg-primary font-bold uppercase py-2 md:py-6 z-10 rounded-b-xl md:rounded-none pointer-events-none">
+            <div className="w-[102%] -ml-1 md:ml-0 md:absolute md:left-auto md:bottom-20 md:right-0 md:w-[24.5rem] md:text-3xl bg-text-primary text-center text-bg-primary font-bold uppercase h-10 flex items-center justify-center md:h-auto md:block md:py-6 z-10 rounded-b-xl md:rounded-none pointer-events-none">
               {slide.title}
             </div>
           </div>

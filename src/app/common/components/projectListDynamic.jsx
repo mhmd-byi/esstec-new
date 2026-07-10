@@ -102,7 +102,7 @@ const ProjectListDynamic = ({ activeMenu, handleItemClick, open, handleOpen }) =
                   </a>
                 </span>
                 <AccordionBody>
-                  <div className="border-4 border-text-primary w-full min-h-72 max-h-72 rounded-2xl flex justify-center">
+                  <div className="border-4 border-text-primary w-full aspect-[3/2] rounded-2xl flex justify-center">
                     <CarouselComponent project={project} />
                   </div>
                 </AccordionBody>
