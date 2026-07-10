@@ -214,7 +214,7 @@ const ArchivePage = () => {
               
               {/* Image Slider Area */}
               <div className="flex-1">
-                <div className="w-full h-72 lg:aspect-video lg:h-auto overflow-hidden relative">
+                <div className="w-full aspect-video overflow-hidden relative">
                   <ArchiveCarouselComponent key={selectedProject._id} project={selectedProject} />
                 </div>
               </div>
